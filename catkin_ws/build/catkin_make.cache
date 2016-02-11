@@ -1,2 +1,2 @@
-Hardware/joystick:Hardware/motor:Hardware/sensor:VEGA:rosserial/rosserial:rosserial/rosserial_arduino:rosserial/rosserial_client:rosserial/rosserial_embeddedlinux:rosserial/rosserial_mbed:rosserial/rosserial_msgs:rosserial/rosserial_python:rosserial/rosserial_server:rosserial/rosserial_test:rosserial/rosserial_tivac:rosserial/rosserial_vex_cortex:rosserial/rosserial_vex_v5:rosserial/rosserial_windows:rosserial/rosserial_xbee:rotombotto:rotombotto_begin
--DCATKIN_DEVEL_PREFIX=/home/danielg/RotomBotto/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/danielg/RotomBotto/catkin_ws/install -G Unix Makefiles
+Hardware/joystick:Hardware/motor:Hardware/sensor:VEGA:rotombotto:rotombotto_begin
+-DCATKIN_DEVEL_PREFIX=/home/ubuntu/RotomBotto/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/ubuntu/RotomBotto/catkin_ws/install -G Unix Makefiles

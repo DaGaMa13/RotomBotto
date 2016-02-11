@@ -7,7 +7,7 @@ from std_msgs.msg import Float32MultiArray
 from nav_msgs.msg import Odometry
 from geometry_msgs.msg import TransformStamped
 from geometry_msgs.msg import Twist
-import Roboclaw 
+import Roboclaw
 import tf
 
 # Funcion para solucionar problemas frecuentes en el uso de la paqueteria
@@ -33,7 +33,7 @@ def callbackSpeeds(msg):
 
     velIzq = msg.data[0]
     velDer = msg.data[1]
-    print "Valores de velocidades obtenidos:: VelIzq:_"+VelIzq+" ; velDer:_"+velDer
+    print "[MOTOR_TEST|>>>Valores de velocidades obtenidos:: VelIzq:_"+str(velIzq)+" ; velDer:_"+str(velDer)
 
     #Transformacion a valores que superen los limites
     if velIzq > 1:

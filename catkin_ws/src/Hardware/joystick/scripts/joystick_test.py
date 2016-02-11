@@ -29,12 +29,12 @@ def callbackJoy(msg):
 	boton_b = msg.buttons[1]
 	boton_I = msg.buttons[4]
 	boton_D = msg.buttons[5]
-	boton_jusan = msg.buttons[13]
+	#boton_jusan = msg.buttons[13]
 
 	b = float(boton_b)
 	bD = float(boton_D)
 	bI = float(boton_I)
-	b13 = float(boton_jusan)
+	#b13 = float(boton_jusan)
 
 	if b == 1:
 		print "Boton B presionado"
@@ -50,13 +50,13 @@ def callbackJoy(msg):
 
 	#EXTRA
 
-	if b13 == 1:
-		print "Obteniedo velocidades por medio de HORI"
-		StickD_X = msg.axes[2]
-		StickD_Y = msg.axes[3]
+	#if b13 == 1:
+	#	print "Obteniedo velocidades por medio de HORI"
+	#	StickD_X = msg.axes[2]
+	#	StickD_Y = msg.axes[3]
 
-		print "Datos HORI del stick derecho:::  x:_"+str(float(StickD_X))+"  y:_"+str(float(StickD_Y))
-		print "-------------------------------------------------------------"
+	#	print "Datos HORI del stick derecho:::  x:_"+str(float(StickD_X))+"  y:_"+str(float(StickD_Y))
+	#	print "-------------------------------------------------------------"
 
 	#Obteniedo velocidades
 
