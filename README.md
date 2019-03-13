@@ -22,11 +22,16 @@ Diseño e implementación de una plataforma robótica abierta para uso docente y
 
 => Organización del repositorio
 
+
 A continuación se describirán brevemente la organización y el contenido del repositorio.
+
+- [Arduino_files]: En esta carpeta se encuentra los archivos que se utilizarán para la programación del Arduino Mega utilizado en el robot.
 
 - [catkin_ws]: Carpeta que contiene el workspace que se utiliza en la tarjeta Raspberry Pi y donde se encuentra la mayor parte de la arquitectura del robot.
 
-- [Arduino_files]: En esta carpeta se encuentra los archivos que se utilizarán para la programación del Arduino Mega utilizado en el robot.
+- [Impresión_3D]: Carpeta que contendrá los archivos .stl de las caracasa protectores y con las que podrá imprimir sus propios elementos en caso de que lo requiera
+
+- [MEDIA?]: En esta carpeta se guardará evidencia fotográfica y videos?
 
 - [Documentación]: Aqui se encontará mi tesis?
 
