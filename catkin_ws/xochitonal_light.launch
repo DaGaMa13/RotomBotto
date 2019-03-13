@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 	FACULTAD DE INGENIERIA
+	Laboratorio de Biorobotica 
+	DANIEL GARCÉS MARÍN
+	Launch para iniciar los nodos para un comportamiento reactivo de seguimiento a una fuente luminosa
+		"XOCHITONAL":: V2
+
+	Ultima versión: 12 de Diciembre 2018	-->
+	
+<launch>
+
+	<group ns="hardware">
+<!--	ダ・ガ・マ・jû-san -->
+		<node name="sensor_node" pkg="sensor" type="sensor_node" output="screen" />
+<!--	Inicializar nodo <node name="xovhitonal_arduino_node"/> con la siguiente configuración en la raspberry-->
+		<node pkg="rosserial_python" type="serial_node.py" name="serial_node">
+		<param name="port" value="/dev/ttyACM1"/>
+		<param name="baud" value="500000"/>
+		</node>
+	</group>
+
+	<group ns="software">
+		<node name="xochitonal_light" pkg="xochitonal" type="xochitonal_light" output="screen" />
+	</group>
+
+</launch>
