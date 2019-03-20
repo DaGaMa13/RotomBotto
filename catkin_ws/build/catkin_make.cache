@@ -1,0 +1,2 @@
+Hardware/motor:Hardware/sensor:rotombotto:rotombotto_begin
+-DCATKIN_DEVEL_PREFIX=/home/danielg/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/danielg/catkin_ws/install -G Unix Makefiles
