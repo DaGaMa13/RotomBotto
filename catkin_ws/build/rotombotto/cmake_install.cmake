@@ -1,8 +1,8 @@
-# Install script for directory: /home/danielg/catkin_ws/src/rotombotto
+# Install script for directory: /home/danielg/RotomBotto/catkin_ws/src/rotombotto
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/danielg/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/danielg/RotomBotto/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,17 +33,17 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/danielg/catkin_ws/build/rotombotto/catkin_generated/installspace/rotombotto.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/danielg/RotomBotto/catkin_ws/build/rotombotto/catkin_generated/installspace/rotombotto.pc")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rotombotto/cmake" TYPE FILE FILES
-    "/home/danielg/catkin_ws/build/rotombotto/catkin_generated/installspace/rotombottoConfig.cmake"
-    "/home/danielg/catkin_ws/build/rotombotto/catkin_generated/installspace/rotombottoConfig-version.cmake"
+    "/home/danielg/RotomBotto/catkin_ws/build/rotombotto/catkin_generated/installspace/rotombottoConfig.cmake"
+    "/home/danielg/RotomBotto/catkin_ws/build/rotombotto/catkin_generated/installspace/rotombottoConfig-version.cmake"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rotombotto" TYPE FILE FILES "/home/danielg/catkin_ws/src/rotombotto/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rotombotto" TYPE FILE FILES "/home/danielg/RotomBotto/catkin_ws/src/rotombotto/package.xml")
 endif()
 

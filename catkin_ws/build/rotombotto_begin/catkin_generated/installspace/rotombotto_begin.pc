@@ -1,8 +1,8 @@
-prefix=/home/danielg/catkin_ws/install
+prefix=/home/danielg/RotomBotto/catkin_ws/install
 
 Name: rotombotto_begin
 Description: Description of rotombotto_begin
 Version: 0.0.0
 Cflags: 
-Libs: -L/home/danielg/catkin_ws/install/lib 
+Libs: -L/home/danielg/RotomBotto/catkin_ws/install/lib 
 Requires: 

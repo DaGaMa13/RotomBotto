@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/danielg/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/danielg/RotomBotto/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/danielg/catkin_ws/build
+CMAKE_BINARY_DIR = /home/danielg/RotomBotto/catkin_ws/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -89,27 +89,16 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
 
-# Special rule for the target install/strip
-install/strip/fast: install/strip
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
 
-.PHONY : install/strip/fast
-
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: install/local
-
-.PHONY : install/local/fast
+.PHONY : edit_cache/fast
 
 # Special rule for the target test
 test:
@@ -122,27 +111,38 @@ test/fast: test
 
 .PHONY : test/fast
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
 
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
+# Special rule for the target install/local
+install/local/fast: install/local
 
-.PHONY : edit_cache/fast
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: install/strip
+
+.PHONY : install/strip/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/danielg/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/danielg/catkin_ws/build/CMakeFiles /home/danielg/catkin_ws/build/rotombotto/CMakeFiles/progress.marks
-	cd /home/danielg/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rotombotto/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/danielg/catkin_ws/build/CMakeFiles 0
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/danielg/RotomBotto/catkin_ws/build/CMakeFiles /home/danielg/RotomBotto/catkin_ws/build/rotombotto/CMakeFiles/progress.marks
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rotombotto/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/danielg/RotomBotto/catkin_ws/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/danielg/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rotombotto/clean
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rotombotto/clean
 .PHONY : clean
 
 # The main clean target
@@ -152,18 +152,96 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/danielg/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rotombotto/preinstall
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rotombotto/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/danielg/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rotombotto/preinstall
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rotombotto/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/danielg/catkin_ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
+
+# Convenience name for target.
+rotombotto/CMakeFiles/rotombotto_light.dir/rule:
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rotombotto/CMakeFiles/rotombotto_light.dir/rule
+.PHONY : rotombotto/CMakeFiles/rotombotto_light.dir/rule
+
+# Convenience name for target.
+rotombotto_light: rotombotto/CMakeFiles/rotombotto_light.dir/rule
+
+.PHONY : rotombotto_light
+
+# fast build rule for target.
+rotombotto_light/fast:
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(MAKE) -f rotombotto/CMakeFiles/rotombotto_light.dir/build.make rotombotto/CMakeFiles/rotombotto_light.dir/build
+.PHONY : rotombotto_light/fast
+
+# Convenience name for target.
+rotombotto/CMakeFiles/rotombotto_test.dir/rule:
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rotombotto/CMakeFiles/rotombotto_test.dir/rule
+.PHONY : rotombotto/CMakeFiles/rotombotto_test.dir/rule
+
+# Convenience name for target.
+rotombotto_test: rotombotto/CMakeFiles/rotombotto_test.dir/rule
+
+.PHONY : rotombotto_test
+
+# fast build rule for target.
+rotombotto_test/fast:
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(MAKE) -f rotombotto/CMakeFiles/rotombotto_test.dir/build.make rotombotto/CMakeFiles/rotombotto_test.dir/build
+.PHONY : rotombotto_test/fast
+
+# Convenience name for target.
+rotombotto/CMakeFiles/rotombotto_node.dir/rule:
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 rotombotto/CMakeFiles/rotombotto_node.dir/rule
+.PHONY : rotombotto/CMakeFiles/rotombotto_node.dir/rule
+
+# Convenience name for target.
+rotombotto_node: rotombotto/CMakeFiles/rotombotto_node.dir/rule
+
+.PHONY : rotombotto_node
+
+# fast build rule for target.
+rotombotto_node/fast:
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(MAKE) -f rotombotto/CMakeFiles/rotombotto_node.dir/build.make rotombotto/CMakeFiles/rotombotto_node.dir/build
+.PHONY : rotombotto_node/fast
+
+src/rotombotto_node.o: src/rotombotto_node.cpp.o
+
+.PHONY : src/rotombotto_node.o
+
+# target to build an object file
+src/rotombotto_node.cpp.o:
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(MAKE) -f rotombotto/CMakeFiles/rotombotto_light.dir/build.make rotombotto/CMakeFiles/rotombotto_light.dir/src/rotombotto_node.cpp.o
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(MAKE) -f rotombotto/CMakeFiles/rotombotto_test.dir/build.make rotombotto/CMakeFiles/rotombotto_test.dir/src/rotombotto_node.cpp.o
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(MAKE) -f rotombotto/CMakeFiles/rotombotto_node.dir/build.make rotombotto/CMakeFiles/rotombotto_node.dir/src/rotombotto_node.cpp.o
+.PHONY : src/rotombotto_node.cpp.o
+
+src/rotombotto_node.i: src/rotombotto_node.cpp.i
+
+.PHONY : src/rotombotto_node.i
+
+# target to preprocess a source file
+src/rotombotto_node.cpp.i:
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(MAKE) -f rotombotto/CMakeFiles/rotombotto_light.dir/build.make rotombotto/CMakeFiles/rotombotto_light.dir/src/rotombotto_node.cpp.i
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(MAKE) -f rotombotto/CMakeFiles/rotombotto_test.dir/build.make rotombotto/CMakeFiles/rotombotto_test.dir/src/rotombotto_node.cpp.i
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(MAKE) -f rotombotto/CMakeFiles/rotombotto_node.dir/build.make rotombotto/CMakeFiles/rotombotto_node.dir/src/rotombotto_node.cpp.i
+.PHONY : src/rotombotto_node.cpp.i
+
+src/rotombotto_node.s: src/rotombotto_node.cpp.s
+
+.PHONY : src/rotombotto_node.s
+
+# target to generate assembly for a file
+src/rotombotto_node.cpp.s:
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(MAKE) -f rotombotto/CMakeFiles/rotombotto_light.dir/build.make rotombotto/CMakeFiles/rotombotto_light.dir/src/rotombotto_node.cpp.s
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(MAKE) -f rotombotto/CMakeFiles/rotombotto_test.dir/build.make rotombotto/CMakeFiles/rotombotto_test.dir/src/rotombotto_node.cpp.s
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(MAKE) -f rotombotto/CMakeFiles/rotombotto_node.dir/build.make rotombotto/CMakeFiles/rotombotto_node.dir/src/rotombotto_node.cpp.s
+.PHONY : src/rotombotto_node.cpp.s
 
 # Help Target
 help:
@@ -174,10 +252,16 @@ help:
 	@echo "... list_install_components"
 	@echo "... install"
 	@echo "... rebuild_cache"
-	@echo "... install/strip"
-	@echo "... install/local"
-	@echo "... test"
 	@echo "... edit_cache"
+	@echo "... test"
+	@echo "... rotombotto_light"
+	@echo "... rotombotto_test"
+	@echo "... install/local"
+	@echo "... rotombotto_node"
+	@echo "... install/strip"
+	@echo "... src/rotombotto_node.o"
+	@echo "... src/rotombotto_node.i"
+	@echo "... src/rotombotto_node.s"
 .PHONY : help
 
 
@@ -189,6 +273,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/danielg/catkin_ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

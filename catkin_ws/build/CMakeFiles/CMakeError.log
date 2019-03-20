@@ -1,24 +1,24 @@
 Determining if the pthread_create exist failed with the following output:
-Change Dir: /home/danielg/catkin_ws/build/CMakeFiles/CMakeTmp
+Change Dir: /home/danielg/RotomBotto/catkin_ws/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_75878/fast"
-/usr/bin/make -f CMakeFiles/cmTC_75878.dir/build.make CMakeFiles/cmTC_75878.dir/build
-make[1]: se entra en el directorio '/home/danielg/catkin_ws/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_75878.dir/CheckSymbolExists.c.o
-/usr/bin/cc     -o CMakeFiles/cmTC_75878.dir/CheckSymbolExists.c.o   -c /home/danielg/catkin_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
-Linking C executable cmTC_75878
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_75878.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_75878.dir/CheckSymbolExists.c.o  -o cmTC_75878 -rdynamic 
-CMakeFiles/cmTC_75878.dir/CheckSymbolExists.c.o: En la función `main':
+Run Build Command:"/usr/bin/make" "cmTC_7d83f/fast"
+/usr/bin/make -f CMakeFiles/cmTC_7d83f.dir/build.make CMakeFiles/cmTC_7d83f.dir/build
+make[1]: se entra en el directorio '/home/danielg/RotomBotto/catkin_ws/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7d83f.dir/CheckSymbolExists.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_7d83f.dir/CheckSymbolExists.c.o   -c /home/danielg/RotomBotto/catkin_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_7d83f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7d83f.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_7d83f.dir/CheckSymbolExists.c.o  -o cmTC_7d83f -rdynamic 
+CMakeFiles/cmTC_7d83f.dir/CheckSymbolExists.c.o: En la función `main':
 CheckSymbolExists.c:(.text+0x16): referencia a `pthread_create' sin definir
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_75878.dir/build.make:97: fallo en las instrucciones para el objetivo 'cmTC_75878'
-make[1]: *** [cmTC_75878] Error 1
-make[1]: se sale del directorio '/home/danielg/catkin_ws/build/CMakeFiles/CMakeTmp'
-Makefile:126: fallo en las instrucciones para el objetivo 'cmTC_75878/fast'
-make: *** [cmTC_75878/fast] Error 2
+CMakeFiles/cmTC_7d83f.dir/build.make:97: fallo en las instrucciones para el objetivo 'cmTC_7d83f'
+make[1]: *** [cmTC_7d83f] Error 1
+make[1]: se sale del directorio '/home/danielg/RotomBotto/catkin_ws/build/CMakeFiles/CMakeTmp'
+Makefile:126: fallo en las instrucciones para el objetivo 'cmTC_7d83f/fast'
+make: *** [cmTC_7d83f/fast] Error 2
 
-File /home/danielg/catkin_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+File /home/danielg/RotomBotto/catkin_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */
 #include <pthread.h>
 
@@ -34,22 +34,22 @@ int main(int argc, char** argv)
 }
 
 Determining if the function pthread_create exists in the pthreads failed with the following output:
-Change Dir: /home/danielg/catkin_ws/build/CMakeFiles/CMakeTmp
+Change Dir: /home/danielg/RotomBotto/catkin_ws/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_1aa1c/fast"
-/usr/bin/make -f CMakeFiles/cmTC_1aa1c.dir/build.make CMakeFiles/cmTC_1aa1c.dir/build
-make[1]: se entra en el directorio '/home/danielg/catkin_ws/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_1aa1c.dir/CheckFunctionExists.c.o
-/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_1aa1c.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
-Linking C executable cmTC_1aa1c
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1aa1c.dir/link.txt --verbose=1
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_1aa1c.dir/CheckFunctionExists.c.o  -o cmTC_1aa1c -rdynamic -lpthreads 
+Run Build Command:"/usr/bin/make" "cmTC_17e45/fast"
+/usr/bin/make -f CMakeFiles/cmTC_17e45.dir/build.make CMakeFiles/cmTC_17e45.dir/build
+make[1]: se entra en el directorio '/home/danielg/RotomBotto/catkin_ws/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_17e45.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_17e45.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_17e45
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_17e45.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_17e45.dir/CheckFunctionExists.c.o  -o cmTC_17e45 -rdynamic -lpthreads 
 /usr/bin/ld: no se puede encontrar -lpthreads
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_1aa1c.dir/build.make:97: fallo en las instrucciones para el objetivo 'cmTC_1aa1c'
-make[1]: *** [cmTC_1aa1c] Error 1
-make[1]: se sale del directorio '/home/danielg/catkin_ws/build/CMakeFiles/CMakeTmp'
-Makefile:126: fallo en las instrucciones para el objetivo 'cmTC_1aa1c/fast'
-make: *** [cmTC_1aa1c/fast] Error 2
+CMakeFiles/cmTC_17e45.dir/build.make:97: fallo en las instrucciones para el objetivo 'cmTC_17e45'
+make[1]: *** [cmTC_17e45] Error 1
+make[1]: se sale del directorio '/home/danielg/RotomBotto/catkin_ws/build/CMakeFiles/CMakeTmp'
+Makefile:126: fallo en las instrucciones para el objetivo 'cmTC_17e45/fast'
+make: *** [cmTC_17e45/fast] Error 2
 
 

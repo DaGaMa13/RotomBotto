@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/danielg/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/danielg/RotomBotto/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/danielg/catkin_ws/build
+CMAKE_BINARY_DIR = /home/danielg/RotomBotto/catkin_ws/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -89,6 +89,28 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
@@ -111,38 +133,16 @@ install/local/fast: install/local
 
 .PHONY : install/local/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # The main all target
 all: cmake_check_build_system
-	cd /home/danielg/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/danielg/catkin_ws/build/CMakeFiles /home/danielg/catkin_ws/build/Hardware/sensor/CMakeFiles/progress.marks
-	cd /home/danielg/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 Hardware/sensor/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/danielg/catkin_ws/build/CMakeFiles 0
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/danielg/RotomBotto/catkin_ws/build/CMakeFiles /home/danielg/RotomBotto/catkin_ws/build/Hardware/sensor/CMakeFiles/progress.marks
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 Hardware/sensor/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/danielg/RotomBotto/catkin_ws/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/danielg/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 Hardware/sensor/clean
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 Hardware/sensor/clean
 .PHONY : clean
 
 # The main clean target
@@ -152,18 +152,102 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/danielg/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 Hardware/sensor/preinstall
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 Hardware/sensor/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/danielg/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 Hardware/sensor/preinstall
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 Hardware/sensor/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/danielg/catkin_ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
+
+# Convenience name for target.
+Hardware/sensor/CMakeFiles/sensor_node.dir/rule:
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 Hardware/sensor/CMakeFiles/sensor_node.dir/rule
+.PHONY : Hardware/sensor/CMakeFiles/sensor_node.dir/rule
+
+# Convenience name for target.
+sensor_node: Hardware/sensor/CMakeFiles/sensor_node.dir/rule
+
+.PHONY : sensor_node
+
+# fast build rule for target.
+sensor_node/fast:
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(MAKE) -f Hardware/sensor/CMakeFiles/sensor_node.dir/build.make Hardware/sensor/CMakeFiles/sensor_node.dir/build
+.PHONY : sensor_node/fast
+
+# Convenience name for target.
+Hardware/sensor/CMakeFiles/sensor_test.dir/rule:
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 Hardware/sensor/CMakeFiles/sensor_test.dir/rule
+.PHONY : Hardware/sensor/CMakeFiles/sensor_test.dir/rule
+
+# Convenience name for target.
+sensor_test: Hardware/sensor/CMakeFiles/sensor_test.dir/rule
+
+.PHONY : sensor_test
+
+# fast build rule for target.
+sensor_test/fast:
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(MAKE) -f Hardware/sensor/CMakeFiles/sensor_test.dir/build.make Hardware/sensor/CMakeFiles/sensor_test.dir/build
+.PHONY : sensor_test/fast
+
+src/sensor_node.o: src/sensor_node.cpp.o
+
+.PHONY : src/sensor_node.o
+
+# target to build an object file
+src/sensor_node.cpp.o:
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(MAKE) -f Hardware/sensor/CMakeFiles/sensor_node.dir/build.make Hardware/sensor/CMakeFiles/sensor_node.dir/src/sensor_node.cpp.o
+.PHONY : src/sensor_node.cpp.o
+
+src/sensor_node.i: src/sensor_node.cpp.i
+
+.PHONY : src/sensor_node.i
+
+# target to preprocess a source file
+src/sensor_node.cpp.i:
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(MAKE) -f Hardware/sensor/CMakeFiles/sensor_node.dir/build.make Hardware/sensor/CMakeFiles/sensor_node.dir/src/sensor_node.cpp.i
+.PHONY : src/sensor_node.cpp.i
+
+src/sensor_node.s: src/sensor_node.cpp.s
+
+.PHONY : src/sensor_node.s
+
+# target to generate assembly for a file
+src/sensor_node.cpp.s:
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(MAKE) -f Hardware/sensor/CMakeFiles/sensor_node.dir/build.make Hardware/sensor/CMakeFiles/sensor_node.dir/src/sensor_node.cpp.s
+.PHONY : src/sensor_node.cpp.s
+
+src/sensor_test.o: src/sensor_test.cpp.o
+
+.PHONY : src/sensor_test.o
+
+# target to build an object file
+src/sensor_test.cpp.o:
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(MAKE) -f Hardware/sensor/CMakeFiles/sensor_test.dir/build.make Hardware/sensor/CMakeFiles/sensor_test.dir/src/sensor_test.cpp.o
+.PHONY : src/sensor_test.cpp.o
+
+src/sensor_test.i: src/sensor_test.cpp.i
+
+.PHONY : src/sensor_test.i
+
+# target to preprocess a source file
+src/sensor_test.cpp.i:
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(MAKE) -f Hardware/sensor/CMakeFiles/sensor_test.dir/build.make Hardware/sensor/CMakeFiles/sensor_test.dir/src/sensor_test.cpp.i
+.PHONY : src/sensor_test.cpp.i
+
+src/sensor_test.s: src/sensor_test.cpp.s
+
+.PHONY : src/sensor_test.s
+
+# target to generate assembly for a file
+src/sensor_test.cpp.s:
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(MAKE) -f Hardware/sensor/CMakeFiles/sensor_test.dir/build.make Hardware/sensor/CMakeFiles/sensor_test.dir/src/sensor_test.cpp.s
+.PHONY : src/sensor_test.cpp.s
 
 # Help Target
 help:
@@ -174,10 +258,18 @@ help:
 	@echo "... list_install_components"
 	@echo "... install"
 	@echo "... rebuild_cache"
+	@echo "... edit_cache"
+	@echo "... test"
+	@echo "... sensor_node"
+	@echo "... sensor_test"
 	@echo "... install/strip"
 	@echo "... install/local"
-	@echo "... test"
-	@echo "... edit_cache"
+	@echo "... src/sensor_node.o"
+	@echo "... src/sensor_node.i"
+	@echo "... src/sensor_node.s"
+	@echo "... src/sensor_test.o"
+	@echo "... src/sensor_test.i"
+	@echo "... src/sensor_test.s"
 .PHONY : help
 
 
@@ -189,6 +281,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/danielg/catkin_ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

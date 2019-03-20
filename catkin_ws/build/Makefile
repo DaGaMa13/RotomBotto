@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/danielg/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/danielg/RotomBotto/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/danielg/catkin_ws/build
+CMAKE_BINARY_DIR = /home/danielg/RotomBotto/catkin_ws/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -135,9 +135,9 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/danielg/catkin_ws/build/CMakeFiles /home/danielg/catkin_ws/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/danielg/RotomBotto/catkin_ws/build/CMakeFiles /home/danielg/RotomBotto/catkin_ws/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/danielg/catkin_ws/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/danielg/RotomBotto/catkin_ws/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -477,6 +477,71 @@ rosgraph_msgs_generate_messages_py/fast:
 	$(MAKE) -f Hardware/motor/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make Hardware/motor/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
 .PHONY : rosgraph_msgs_generate_messages_py/fast
 
+#=============================================================================
+# Target rules for targets named rotombotto_light
+
+# Build rule for target.
+rotombotto_light: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rotombotto_light
+.PHONY : rotombotto_light
+
+# fast build rule for target.
+rotombotto_light/fast:
+	$(MAKE) -f rotombotto/CMakeFiles/rotombotto_light.dir/build.make rotombotto/CMakeFiles/rotombotto_light.dir/build
+.PHONY : rotombotto_light/fast
+
+#=============================================================================
+# Target rules for targets named rotombotto_test
+
+# Build rule for target.
+rotombotto_test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rotombotto_test
+.PHONY : rotombotto_test
+
+# fast build rule for target.
+rotombotto_test/fast:
+	$(MAKE) -f rotombotto/CMakeFiles/rotombotto_test.dir/build.make rotombotto/CMakeFiles/rotombotto_test.dir/build
+.PHONY : rotombotto_test/fast
+
+#=============================================================================
+# Target rules for targets named rotombotto_node
+
+# Build rule for target.
+rotombotto_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rotombotto_node
+.PHONY : rotombotto_node
+
+# fast build rule for target.
+rotombotto_node/fast:
+	$(MAKE) -f rotombotto/CMakeFiles/rotombotto_node.dir/build.make rotombotto/CMakeFiles/rotombotto_node.dir/build
+.PHONY : rotombotto_node/fast
+
+#=============================================================================
+# Target rules for targets named sensor_node
+
+# Build rule for target.
+sensor_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sensor_node
+.PHONY : sensor_node
+
+# fast build rule for target.
+sensor_node/fast:
+	$(MAKE) -f Hardware/sensor/CMakeFiles/sensor_node.dir/build.make Hardware/sensor/CMakeFiles/sensor_node.dir/build
+.PHONY : sensor_node/fast
+
+#=============================================================================
+# Target rules for targets named sensor_test
+
+# Build rule for target.
+sensor_test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sensor_test
+.PHONY : sensor_test
+
+# fast build rule for target.
+sensor_test/fast:
+	$(MAKE) -f Hardware/sensor/CMakeFiles/sensor_test.dir/build.make Hardware/sensor/CMakeFiles/sensor_test.dir/build
+.PHONY : sensor_test/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -514,6 +579,11 @@ help:
 	@echo "... rosgraph_msgs_generate_messages_lisp"
 	@echo "... std_msgs_generate_messages_py"
 	@echo "... rosgraph_msgs_generate_messages_py"
+	@echo "... rotombotto_light"
+	@echo "... rotombotto_test"
+	@echo "... rotombotto_node"
+	@echo "... sensor_node"
+	@echo "... sensor_test"
 .PHONY : help
 
 
