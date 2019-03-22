@@ -117,6 +117,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/danielg/RotomBotto/catkin_ws/build/gtest/cmake_install.cmake")
+  include("/home/danielg/RotomBotto/catkin_ws/build/Hardware/hardware_tools/cmake_install.cmake")
   include("/home/danielg/RotomBotto/catkin_ws/build/Hardware/motor/cmake_install.cmake")
   include("/home/danielg/RotomBotto/catkin_ws/build/rotombotto/cmake_install.cmake")
   include("/home/danielg/RotomBotto/catkin_ws/build/rotombotto_begin/cmake_install.cmake")
