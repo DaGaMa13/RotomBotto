@@ -1,2 +1,2 @@
 Hardware/hardware_tools:Hardware/motor:Hardware/sensor:rotombotto:rotombotto_begin
--DCATKIN_DEVEL_PREFIX=/home/danielg/RotomBotto/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/danielg/RotomBotto/catkin_ws/install -G Unix Makefiles
+-DCATKIN_DEVEL_PREFIX=/home/biorobotica/RotomBotto/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/biorobotica/RotomBotto/catkin_ws/install -G Unix Makefiles
