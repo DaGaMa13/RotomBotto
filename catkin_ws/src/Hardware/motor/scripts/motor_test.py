@@ -1,19 +1,5 @@
 #!/usr/bin/env python
-'''******************************************************************************
-*	Garcés Marín Daniel 		
-*	TESIS <Construcción de una plataforma robótica abierta para pruebas de desempeño de componentes y algoritmos>
-*
-*	<HARDWARE> Nodo motor
-*	El principal objetivo de este nodo es el de manejar el control de los motores por medio de la tarjeta roboclaw	
-*		-Se debe destacar que se utilza una libería para el uso de la tarjeta alojada en el paquete <hardware_tools"
-*		#Agradecimientos a Marco Antonio Negrete Villanueva y a MARCOSOFT.s
-*		-- >>> NODO ESPECFICAMENTE PARA PRUBBAS DE HARDWARE <<<<<
-*		
-*   Ultima versión: 22 de Marzo del 2019
-# ダ・ガ・マ・jû-san
-*******************************************************************************'''
 
-# >>> LIBRERIAS <<<<
 import serial, time, sys, math
 import rospy
 from std_msgs.msg import Empty
@@ -22,37 +8,37 @@ from std_msgs.msg import Float32MultiArray
 from nav_msgs.msg import Odometry
 from geometry_msgs.msg import TransformStamped
 from geometry_msgs.msg import Twist
-from hardware_tools import Roboclaw #Librería que sirve como driver para la tarjeta roboclaw
+from hardware_tools import Roboclaw #Libreria que sirve como driver para la tarjeta roboclaw
 import tf
 #____________________________________________________________________________________________________________________________________________
 
-# Función para solucionar problemas frecuentes en el uso de la paquetería
+# Funcion para solucionar problemas frecuentes en el uso de la paqueteria
 def printHelp():
     print "Ayuda/Help:"
     print "\t --port \t Serial port name. El valor por defecto del puerto para el uso de la roboclaw es: \"/dev/ttyACM0\""
-    print " >> hardware/motors/speeds\t Los valores usados en el topico deben encontrarse en el rango [-1, 1], 1 = max velocidad del motor"
-    print ">> En caso de que se haya quemado la tarjeta roboclaw: Sabes lo que cuesta ese equipo hijo?"
+    print " hardware/motors/speeds\t Los valores usados en el topico deben encontrarse en el rango [-1, 1], 1 max velocidad del motor"
+    print " En caso de que se haya quemado la tarjeta roboclaw: Sabes lo que cuesta ese equipo hijo?"
 
-# Función para detener el movimiento con los motores, se suscribe a un tópico en específico /hardware/motors/stop
+# Funcion para detener el movimiento con los motores, se suscribe a un topico en especifico /hardware/motors/stop
 def callbackStop(msg):
     velIzq = 0
     velDer = 0
     newSpeedData = True
 #------------------------------------------------------------------------------------------------------------
 
-# Funciṕn para obtener las velocidades y dirección de los motores, tópico /hardware/motors/speeds
+# Funcion para obtener las velocidades y direccion de los motores, topico /hardware/motors/speeds
 def callbackSpeeds(msg):
 
-	#Variables golabes, se espera que los valores obtenidos se encuentren entre el rango de [-1,1] siendo {1} la vel. max. del motor
+	#Variables globales, se espera que los valores obtenidos se encuentren entre el rango de [-1,1] siendo {1} la vel. max. del motor
     global velIzq
     global velDer
     global nuevosDatosVel
 
     velIzq = msg.data[0]
     velDer = msg.data[1]
-    print "Valores de velocidades obtenidos:: VelIzq:_"+VelIzq+" || velDer:_"+velDer
+    print "Valores de velocidades obtenidos:: VelIzq:_"+VelIzq+" ; velDer:_"+velDer
 
-    #Transformación a valores que superen los limites
+    #Transformacion a valores que superen los limites
     if velIzq > 1:
         velIzq = 1
     elif velIzq < -1:
@@ -82,24 +68,24 @@ def calculateOdometry(currentPos, leftEnc, rightEnc): #Encoder measurements are 
 #------------------------------------------------------------------------------------------------------------
 #____________________________________________________________________________________________________________________________________________
 
-# >> FUNCIÓN PRINCIPAL <<
+# FUNCION PRINCIPAL 
 def main(portName):
-    print ">>>>Inicializando motores en modo de PRUEBA"
+    print "Inicializando motores en modo de PRUEBA"
 
     ###Connection with ROS
-    rospy.init_node("motor_node")
+    rospy.init_node("motor_test")
 
-    #Suscripción a Tópicos
+    #Suscripcion a Topicos
     subStop = rospy.Subscriber("/hardware/motors/stop", Empty, callbackStop) #Topico para detener el movimiento del robot
     subSpeeds = rospy.Subscriber("/hardware/motors/speeds", Float32MultiArray, callbackSpeeds)  #Topico para obtener vel y dir de los motores
 
-    #Publicación de Tópicos
+    #Publicacion de Topicos
     pubOdometry = rospy.Publisher("mobile_base/odometry", Odometry, queue_size = 1) ##PENDIENTE
 
     br = tf.TransformBroadcaster()
     rate = rospy.Rate(20)
 
-    #Comunicación seria con la tarjeta roboclaw Roboclaw
+    #Comunicacion serial con la tarjeta roboclaw Roboclaw
 
     print "Roboclaw.-> Abriendo conexion al puerto serial designacion: \"" + portName + "\""
     Roboclaw.Open(portName, 38400)
@@ -108,7 +94,7 @@ def main(portName):
     print "Roboclaw.-> Limpiando lecturas de enconders previas"
     Roboclaw.ResetQuadratureEncoders(address)
 
-    #Variables para la designación de velocidad a los motores
+    #Variables para la designacion de velocidad a los motores
     global velIzq
     global velDer
     global nuevosDatosVel
@@ -139,11 +125,11 @@ def main(portName):
             else:
                 Roboclaw.DriveBackwardsM1(address, -velDer)
 
-        else: #NO se obtuvieron nuevos datos del tópico, los motores se detienen
+        else: #NO se obtuvieron nuevos datos del topico, los motores se detienen
 
             speedCounter -= 1
 
-        if speedCounter == 0:
+            if speedCounter == 0:
                 Roboclaw.DriveForwardM1(address, 0)
                 Roboclaw.DriveForwardM2(address, 0)
  
@@ -188,7 +174,7 @@ def main(portName):
     Roboclaw.DriveForwardM2(address, 0)
     Roboclaw.Close()
 
-#Fin del al función principal Main
+#Fin del al funcion principal Main
 #------------------------------------------------------------------------------------------------------------
 
 if __name__ == '__main__':
@@ -202,5 +188,19 @@ if __name__ == '__main__':
             if "--port" in sys.argv:
                 portName = sys.argv[sys.argv.index("--port") + 1]
             main(portName)
+
     except rospy.ROSInterruptException:
         pass
+
+'''******************************************************************************
+*   Garces Marin Daniel         
+*   TESIS <Construccion de una plataforma robotica abierta para pruebas de desempeno de componentes y algoritmos>
+*
+*   <HARDWARE> Nodo motor
+*   El principal objetivo de este nodo es el de manejar el control de los motores por medio de la tarjeta roboclaw  
+*       -Se debe destacar que se utilza una liberia para el uso de la tarjeta alojada en el paquete "hardware_tools"
+*       Agradecimientos a Marco Antonio Negrete Villanueva y a MARCOSOFT
+*       --  NODO ESPECFICAMENTE PARA PRUEBAS DE HARDWARE 
+*       
+*   Ultima version: 26 de Marzo del 2019
+*******************************************************************************'''

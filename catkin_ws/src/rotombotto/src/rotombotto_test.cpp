@@ -36,7 +36,7 @@ float valor_foto=0.0; //Variable para la función valorFoto()
 	//Variables paraa guardar información de los tópicos
 float datos_Foto[8]={0,0,0,0,0,0,0,0}; //Variable para la función valorFoto()
 float datos_Tempt=0; //Variables para la funcion valorTempt()
-float dir_MotorA[2]={0.0,0.0}; //Variable para indicar los valores de dirección y velocidadesa los motores
+float dirMotor[2]={0,0}; //Variable para indicar los valores de dirección y velocidadesa los motores
 
 //_____________________________________________________________________________________________________________________
 
@@ -62,26 +62,27 @@ void valorFoto(const std_msgs::Float32MultiArray::ConstPtr& dFoto){
 //----------------------------------------------------------------------------------------
 
 	//Obtención de la temperatura registrada en el robot
-void valorTempt(const std_msgs::Float32MultiArray::ConstPtr& dEnc){
+void valorTempt(const std_msgs::Float32MultiArray::ConstPtr& dTempt){
 
 	std::cout<<"Temperatura::";
-		datos_Tempt]=dEnc->data;
+		datos_Tempt=dTempt->data[0];
 		std::cout<<"["<<datos_Tempt<<"]";  //Fin del vaciado de los encoders
 
 	std::cout<<" --"<<std::endl;  								}//Fin de valorEnc
 //-----------------------------------------------------------------------------------------
 
 	//Obtención del la dirección del nodo SMART THINGS
-void dirObtenida(const std_msgs::String::ConstPtr& dirM){
-	dirMotor=dirM->data;
+void dataJoy(const std_msgs::Float32MultiArray::ConstPtr& dirM){
+	dirMotor[0]=dirM->data[0];
+	dirMotor[1]=dirM->data[1];
 	std::cout<<"Dirección recibida::_"<<dirMotor<<std::endl;	}//Fin de dirObtenida
 //-----------------------------------------------------------------------------------------
 
 	//Función para la pruba de los motores
-void pruebaMotores(){
+//void pruebaMotores(){
 
 
-}//Fin de prueba motores
+//}//Fin de prueba motores
 
 
 //_______________________________________________________________________________________________________________
@@ -94,8 +95,8 @@ int main(int  argc, char** argv){
 
     //Obtención de los datos transmitidos por los diferentes nodos 
  	ros::Subscriber subFoto = n.subscribe("/hardware/sensors/luz",1000,valorFoto); //Nodo Sensors/Fotoresistores
- 	ros::Subscriber subEnc = n.subscribe("/hardware/sensors/tempt",1000,valorTempt);; //Nodo Sensors/Temperatura
- 	//ros::Subscriber subEnc = n.subscribe("/hardware/joystick/data",1000,dirObtenida);; //Nodo Sensors/Temperatura
+ 	ros::Subscriber subTempt = n.subscribe("/hardware/sensors/tempt",1000,valorTempt); //Nodo Sensors/Temperatura
+ 	ros::Subscriber subJoy = n.subscribe("/hardware/joystick/data",1000,dataJoy); //Nodo Hardware/joy
 
 
  	//Datos a publicar
@@ -103,7 +104,7 @@ int main(int  argc, char** argv){
 	D_Motor.data.resize(2);	
 
     //Publicación de las velocidades de los motores al Arduino
-    //ros::Publisher pubDir=n.advertise <std_msgs::Float32MultiArray>("/hardware/motor/speeds",1);
+    ros::Publisher pubDir=n.advertise <std_msgs::Float32MultiArray>("/hardware/motor/speeds",1);
 
 	ros::Rate loop(1);
     ros::Rate r(10);
@@ -113,10 +114,11 @@ int main(int  argc, char** argv){
 	//pruebaMotores(); //Se prueban los motores
 
 		//Publicación de tópico de las direcciones
-    //D_Motor.data = dir_MotorA; //<-----
-	//std::cout<<D_Motor<<std::endl;
+        D_Motor.data[0] = dirMotor[0]; 
+		D_Motor.data[1] = dirMotor[1];
+		std::cout<<D_Motor<<std::endl;
 
-		//pubDir.publish(D_Motor);  //Envió de las direcciónes al nodo Motor.py
+		pubDir.publish(D_Motor);  //Envió de las direcciónes al nodo Motor.py
 
 		ros::spinOnce();
 		loop.sleep();

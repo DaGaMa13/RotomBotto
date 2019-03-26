@@ -1,8 +1,8 @@
-# Install script for directory: /home/danielg/RotomBotto/catkin_ws/src/Hardware/hardware_tools
+# Install script for directory: /home/biorobotica/RotomBotto/catkin_ws/src/Hardware/hardware_tools
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/danielg/RotomBotto/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/biorobotica/RotomBotto/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,17 +33,17 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/danielg/RotomBotto/catkin_ws/build/Hardware/hardware_tools/catkin_generated/installspace/hardware_tools.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/biorobotica/RotomBotto/catkin_ws/build/Hardware/hardware_tools/catkin_generated/installspace/hardware_tools.pc")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/hardware_tools/cmake" TYPE FILE FILES
-    "/home/danielg/RotomBotto/catkin_ws/build/Hardware/hardware_tools/catkin_generated/installspace/hardware_toolsConfig.cmake"
-    "/home/danielg/RotomBotto/catkin_ws/build/Hardware/hardware_tools/catkin_generated/installspace/hardware_toolsConfig-version.cmake"
+    "/home/biorobotica/RotomBotto/catkin_ws/build/Hardware/hardware_tools/catkin_generated/installspace/hardware_toolsConfig.cmake"
+    "/home/biorobotica/RotomBotto/catkin_ws/build/Hardware/hardware_tools/catkin_generated/installspace/hardware_toolsConfig-version.cmake"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/hardware_tools" TYPE FILE FILES "/home/danielg/RotomBotto/catkin_ws/src/Hardware/hardware_tools/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/hardware_tools" TYPE FILE FILES "/home/biorobotica/RotomBotto/catkin_ws/src/Hardware/hardware_tools/package.xml")
 endif()
 

@@ -5,14 +5,15 @@
 *
 *
 *
-*   Ultima versión: 25 de Marzo del 2019	-->
+*   Ultima versión: 26 de Marzo del 2019	-->
 	
 <launch>
 
 	<group ns="hardware">
 <!--	 ダ・ガ・マ・jû-san -->
 		<node name="sensor_test" pkg="sensor" type="sensor_test" output="screen" />
-		<node name="motor_test" pkg="motor" type="motor_test" output="screen" />
+		<node name="motor_test" pkg="motor" type="motor_test.py" output="screen" />
+        <node name="joy" pkg="joy" type="joy_node" output="screen"/>
 		<node name="joystick_node" pkg="hardware_tools" type="joystick_node.py" output="screen"/>
 
 <!--	Inicializar nodo <node name="rotombotto_arduino_node"/> con la siguiente configuración para el puerto serial-->
