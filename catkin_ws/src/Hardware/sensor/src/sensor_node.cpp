@@ -33,10 +33,11 @@ void callbackArduino(const std_msgs::Float32MultiArray::ConstPtr& dataArduino){
 
 	for(i=0;i<4;i++){ //Vaciando los datos de los sensores de luz
 		val_Foto[i]=dataArduino->data[i]; 
-		std::cout<<"Fotoresitor-"<<i<<":_ "<<val_Foto[i]<< std::endl;	}  //Fin del vaciado sensor luz
+		//std::cout<<"Fotoresitor-"<<i<<":_ "<<val_Foto[i]<< std::endl;
+			}  //Fin del vaciado sensor luz
 
 		val_Tempt=dataArduino->data[5]; 
-		std::cout<<"Temperatura:_ "<<val_Tempt<< std::endl;
+		//std::cout<<"Temperatura:_ "<<val_Tempt<< std::endl;
 
 }//fin del callbackArduino
 
@@ -83,7 +84,7 @@ int main(int  argc, char** argv){
 		//Publicación de los tópicos
 		pubFoto.publish(data_luz);
 		pubEnc.publish(data_tempt);
-        std::cout<<"Datos publicados correctamete"<<std::endl;
+        //std::cout<<"Datos publicados correctamete"<<std::endl;
 
 
 		ros::spinOnce();

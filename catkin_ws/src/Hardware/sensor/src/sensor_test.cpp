@@ -5,9 +5,9 @@
 *	<HARDWARE> Nodo Sensor
 *		El principal objetivo de este nodo es recuperar la información obtenida por el arduino y los sensores integrados a este
 *		para posteriormente segmentarlos en diferentes tópicos.		
-*		-- >>> NODO ESPECFICAMENTE PARA PRUBBAS DE HARDWARE <<<<<
+*		-- >>> NODO ESPECFICAMENTE PARA PRUEBAS DE HARDWARE <<<<<
 *		
-*   Ultima versión: 4 de Marzo del 2019
+*   Ultima versión: 25 de Marzo del 2019
 *********************************************************************/
 
 // ダ・ガ・マ・jû-san
@@ -47,7 +47,7 @@ void callbackArduino(const std_msgs::Float32MultiArray::ConstPtr& dataArduino){
 int main(int  argc, char** argv){
 
 	//std::cout<<"     >>>>>LABORATORIO DE BIOROBÓTICA<<<<<<"<<std::endl;
-	std::cout<<">_ROTOMBOTTO (SENSOR NODE) en línea"<<std::endl;
+	std::cout<<">_ROTOMBOTTO (SENSOR TEST NODE) en línea"<<std::endl;
 	std::cout<<">_Recolectando datos...."<<std::endl;
 
 	//_>Inicialiación del nodo de ROS); //Publicar datos enconders

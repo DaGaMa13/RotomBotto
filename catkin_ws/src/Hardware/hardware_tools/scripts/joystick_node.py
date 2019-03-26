@@ -3,9 +3,9 @@
 *	Garcés Marín Daniel 		
 *	TESIS <Construcción de una plataforma robótica abierta para pruebas de desempeño de componentes y algoritmos>
 *
-*	<HARDWARE> Nodo motor
-*	El principal objetivo de este nodo es el de manejar el control de los motores por medio de la tarjeta roboclaw	
-*		-Se debe destacar que se utilza una libería para el uso de la tarjeta alojada en el paquete <hardware_tools"
+*	<HARDWARE_TOOLS> Hodo Joystick
+*	El principal objetivo de este nodo es el de manejar el control alambrico tipo joystick para el control del movimiento de
+*   la plataforma robótica móvil. 
 *		#Agradecimientos a Marco Antonio Negrete Villanueva y a MARCOSOFT.s
 *		
 *   Ultima versión: 22 de Marzo del 2019
@@ -176,75 +176,38 @@ def main():
     msgHeadPos = Float32MultiArray()
     msgSpine = Float32()
     msgWaist = Float32()
-    msgShoulders = Float32()	
+    msgShoulders = Float32()
+
+    #Variables donde se almacenarán los datos apublicar	
     msgTwist = Twist()
     msgStop = Empty()
-    msgSkipState = Empty()
     #msgHeadTorque = Float32MultiArray()
     
-    print "INITIALIZING JOYSTICK TELEOP BY MARCOSOFT... :)"
-    rospy.init_node("joystick_teleop")
+    print "JOYSTICK en línea"
+    rospy.init_node("joystick_node")
        
     # rospy.Subscriber("/hardware/joy", Joy, callbackJoy)
     rospy.Subscriber("/hardware/joy", Joy, callbackJoy)
-    pubHeadPos = rospy.Publisher("/hardware/head/goal_pose", Float32MultiArray, queue_size=1)
-    pubSpin = rospy.Publisher("/hardware/torso/goal_spine", Float32, queue_size=1)
-    pubWaist = rospy.Publisher("/hardware/torso/goal_waist", Float32, queue_size=1)
-    pubShoulders = rospy.Publisher("/hardware/torso/goal_shoulders", Float32, queue_size=1)
+
+    #Topicos a publicaar
 
     pubStop = rospy.Publisher("/hardware/robot_state/stop", Empty, queue_size = 1)
-    pubSkipState = rospy.Publisher("/hardware/robot_state/skip_state", Empty, queue_size = 1)
-    pubTwist = rospy.Publisher("/hardware/mobile_base/cmd_vel", Twist, queue_size =1)
-    #pubHeadTorque = rospy.Publisher("/hardware/head/torque", Float32MultiArray, queue_size=1)
+    pubTwist = rospy.Publisher("/hardware/joystick/data", Twist, queue_size =1)
 
     loop = rospy.Rate(10)
     while not rospy.is_shutdown():
+
+        #Publicación de las direcciones y velocidades para los motores
         if math.fabs(speedX) > 0 or math.fabs(speedY) > 0 or math.fabs(yaw) > 0:
             msgTwist.linear.x = speedX
             msgTwist.linear.y = speedY/2.0
             msgTwist.linear.z = 0
             msgTwist.angular.z = yaw
-            #print "x: " + str(msgTwist.linear.x) + "  y: " + str(msgTwist.linear.y) + " yaw: " + str(msgTwist.angular.z)
+            print "x: " + str(msgTwist.linear.x) + "  y: " + str(msgTwist.linear.y) + " yaw: " + str(msgTwist.angular.z)
             pubTwist.publish(msgTwist)
-
-        if math.fabs(panPos) > 0 or math.fabs(tiltPos) > 0:
-            msgHeadPos.data = [panPos, tiltPos]
-            pubHeadPos.publish(msgHeadPos)
 
         if stop == 1:
             pubStop.publish(msgStop)
-
-        if skip_state == 1:
-            pubSkipState.publish(msgSkipState)
-
-	if spine <= 0.51 and spine >= -0.51 and mov_spine==True:
-	    if(spine_button == 1 and spine < 0.5 ):
-                spine=spine+0.01
-    	    if(spine_button ==-1 and spine > -0.5):
-                spine=spine-0.01
-	    msgSpine.data = spine
-	    pubSpin.publish(msgSpine)
-	   
-
-	if waist < 1.1 and waist > -1.1 and mov_waist==True:
-	    if(waist_button == 1 and waist < 1 ):
-                waist=waist+0.01
-            if(waist_button ==-1 and waist > -1):
-                waist=waist-0.01
-            msgWaist.data = waist
-            pubWaist.publish(msgWaist)
-
-	if shoulders < 1.1 and shoulders > -1.1 and mov_shoulders==True:
-	    if(shoulders_button_1 == 1 and shoulders < 1 ):
-                shoulders=shoulders+0.01
-            if(shoulders_button_2 == 1 and shoulders > -1):
-                shoulders=shoulders-0.01
-            msgShoulders.data = shoulders
-            pubShoulders.publish(msgShoulders)
-
-        #if math.fabs(panPos) > 0 or math.fabs(tiltPos) > 0:
-            #msgHeadTorque.data = [panPos, tiltPos]
-            #spubHeadTorque.publish(msgHeadTorque)
 
         loop.sleep()
 
