@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 import serial, time, sys, math
 import rospy
 from std_msgs.msg import Empty
@@ -8,14 +7,13 @@ from std_msgs.msg import Float32MultiArray
 from nav_msgs.msg import Odometry
 from geometry_msgs.msg import TransformStamped
 from geometry_msgs.msg import Twist
-from hardware_tools import Roboclaw #Libreria que sirve como driver para la tarjeta roboclaw
+import Roboclaw 
 import tf
-#____________________________________________________________________________________________________________________________________________
 
 # Funcion para solucionar problemas frecuentes en el uso de la paqueteria
 def printHelp():
     print "Ayuda/Help:"
-    print "\t --port \t Serial port name. El valor por defecto del puerto para el uso de la roboclaw es: \"/dev/ttyACM0\""
+    print "\t --port \t Serial port name. El valor por defecto del puerto para el uso de la roboclaw es \"/dev/ttyACM0\""
     print " hardware/motors/speeds\t Los valores usados en el topico deben encontrarse en el rango [-1, 1], 1 max velocidad del motor"
     print " En caso de que se haya quemado la tarjeta roboclaw: Sabes lo que cuesta ese equipo hijo?"
 
@@ -24,12 +22,11 @@ def callbackStop(msg):
     velIzq = 0
     velDer = 0
     newSpeedData = True
-#------------------------------------------------------------------------------------------------------------
 
 # Funcion para obtener las velocidades y direccion de los motores, topico /hardware/motors/speeds
 def callbackSpeeds(msg):
 
-	#Variables globales, se espera que los valores obtenidos se encuentren entre el rango de [-1,1] siendo {1} la vel. max. del motor
+    #Variables globales, se espera que los valores obtenidos se encuentren entre el rango de [-1,1] siendo {1} la vel. max. del motor
     global velIzq
     global velDer
     global nuevosDatosVel
@@ -48,7 +45,6 @@ def callbackSpeeds(msg):
     elif velDer < -1:
         velDer = -1
     nuevosDatosVel = True
-#------------------------------------------------------------------------------------------------------------
 
 def calculateOdometry(currentPos, leftEnc, rightEnc): #Encoder measurements are assumed to be in ticks
     leftEnc = leftEnc * 0.39/980 #From ticks to meters
@@ -65,8 +61,6 @@ def calculateOdometry(currentPos, leftEnc, rightEnc): #Encoder measurements are 
     currentPos[1] += deltaX * math.sin(currentPos[2]) + deltaY * math.cos(currentPos[2])
     currentPos[2] += deltaTheta
     return currentPos
-#------------------------------------------------------------------------------------------------------------
-#____________________________________________________________________________________________________________________________________________
 
 # FUNCION PRINCIPAL 
 def main(portName):
@@ -175,7 +169,6 @@ def main(portName):
     Roboclaw.Close()
 
 #Fin del al funcion principal Main
-#------------------------------------------------------------------------------------------------------------
 
 if __name__ == '__main__':
     try:

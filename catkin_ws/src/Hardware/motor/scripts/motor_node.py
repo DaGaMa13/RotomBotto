@@ -8,7 +8,7 @@
 *		-Se debe destacar que se utilza una libería para el uso de la tarjeta alojada en el paquete <hardware_tools"
 *		#Agradecimientos a Marco Antonio Negrete Villanueva y a MARCOSOFT.s
 *		
-*   Ultima versión: 22 de Marzo del 2019
+*   Ultima versión: 26 de Marzo del 2019
 *******************************************************************************'''
 # ダ・ガ・マ・jû-san
 
