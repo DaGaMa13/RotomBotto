@@ -25,13 +25,13 @@ Diseño e implementación de una plataforma robótica abierta para uso docente y
 
 A continuación se describirán brevemente la organización y el contenido del repositorio.
 
-- [Arduino_files]: En esta carpeta se encuentra los archivos que se utilizarán para la programación del Arduino Mega utilizado en el robot.
+- [Arduino_files]: En esta carpeta se encuentra los archivos que se utilizarán para la programación del Arduino Mega utilizado en el robot, además de un diagrama de conexiones con los sensores.
 
-- [catkin_ws]: Carpeta que contiene el workspace que se utiliza en la tarjeta Raspberry Pi y donde se encuentra la mayor parte de la arquitectura del robot.
+- [catkin_ws]: Carpeta que contiene el workspace de ROS del sistema de la plataforma robótica móvil y donde se encuentra la mayor parte de la arquitectura del robot.
 
-- [Impresión_3D]: Carpeta que contendrá los archivos .stl de las caracasa protectores y con las que podrá imprimir sus propios elementos en caso de que lo requiera
+- [Manufactura]: Carpeta que contendrá los archivos de las caracasa protectoresy los diagramas con los que se diseño el chasis de la plataforma robótica móvil para que el usuario sea capaz de disponer de sus propios elementos cuando se requiera. 
 
-- [MEDIA?]: En esta carpeta se guardará evidencia fotográfica y videos?
+- [Media_RotomBotto]: En esta carpeta se guardará evidencia fotográfica y videográfica de la paltaforma robotica móvil.
 
-- [Documentación]: Aqui se encontará mi tesis?
+- [RaspberryPi_SD_Image]: En esta carpeta se guardará una copia del SO utilizado para la implementación del software de la plataforma robótica móvil en la tarjeta Raspberry Pi 3 para una instalación más directa del proyecto desarrollado.
 
