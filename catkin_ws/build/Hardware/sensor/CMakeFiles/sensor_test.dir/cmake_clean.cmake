@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/sensor_test.dir/src/sensor_test.cpp.o"
-  "/home/biorobotica/RotomBotto/catkin_ws/devel/lib/sensor/sensor_test.pdb"
-  "/home/biorobotica/RotomBotto/catkin_ws/devel/lib/sensor/sensor_test"
+  "/home/danielg/RotomBotto/catkin_ws/devel/lib/sensor/sensor_test.pdb"
+  "/home/danielg/RotomBotto/catkin_ws/devel/lib/sensor/sensor_test"
 )
 
 # Per-language clean rules from dependency scanning.

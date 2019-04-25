@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/biorobotica/RotomBotto/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/danielg/RotomBotto/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/biorobotica/RotomBotto/catkin_ws/build
+CMAKE_BINARY_DIR = /home/danielg/RotomBotto/catkin_ws/build
 
 # Utility rule file for std_msgs_generate_messages_eus.
 
@@ -63,10 +63,10 @@ Hardware/hardware_tools/CMakeFiles/std_msgs_generate_messages_eus.dir/build: std
 .PHONY : Hardware/hardware_tools/CMakeFiles/std_msgs_generate_messages_eus.dir/build
 
 Hardware/hardware_tools/CMakeFiles/std_msgs_generate_messages_eus.dir/clean:
-	cd /home/biorobotica/RotomBotto/catkin_ws/build/Hardware/hardware_tools && $(CMAKE_COMMAND) -P CMakeFiles/std_msgs_generate_messages_eus.dir/cmake_clean.cmake
+	cd /home/danielg/RotomBotto/catkin_ws/build/Hardware/hardware_tools && $(CMAKE_COMMAND) -P CMakeFiles/std_msgs_generate_messages_eus.dir/cmake_clean.cmake
 .PHONY : Hardware/hardware_tools/CMakeFiles/std_msgs_generate_messages_eus.dir/clean
 
 Hardware/hardware_tools/CMakeFiles/std_msgs_generate_messages_eus.dir/depend:
-	cd /home/biorobotica/RotomBotto/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/biorobotica/RotomBotto/catkin_ws/src /home/biorobotica/RotomBotto/catkin_ws/src/Hardware/hardware_tools /home/biorobotica/RotomBotto/catkin_ws/build /home/biorobotica/RotomBotto/catkin_ws/build/Hardware/hardware_tools /home/biorobotica/RotomBotto/catkin_ws/build/Hardware/hardware_tools/CMakeFiles/std_msgs_generate_messages_eus.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/danielg/RotomBotto/catkin_ws/src /home/danielg/RotomBotto/catkin_ws/src/Hardware/hardware_tools /home/danielg/RotomBotto/catkin_ws/build /home/danielg/RotomBotto/catkin_ws/build/Hardware/hardware_tools /home/danielg/RotomBotto/catkin_ws/build/Hardware/hardware_tools/CMakeFiles/std_msgs_generate_messages_eus.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : Hardware/hardware_tools/CMakeFiles/std_msgs_generate_messages_eus.dir/depend
 

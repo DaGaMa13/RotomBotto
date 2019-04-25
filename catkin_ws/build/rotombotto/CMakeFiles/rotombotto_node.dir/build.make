@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/biorobotica/RotomBotto/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/danielg/RotomBotto/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/biorobotica/RotomBotto/catkin_ws/build
+CMAKE_BINARY_DIR = /home/danielg/RotomBotto/catkin_ws/build
 
 # Include any dependencies generated for this target.
 include rotombotto/CMakeFiles/rotombotto_node.dir/depend.make
@@ -58,17 +58,17 @@ include rotombotto/CMakeFiles/rotombotto_node.dir/progress.make
 include rotombotto/CMakeFiles/rotombotto_node.dir/flags.make
 
 rotombotto/CMakeFiles/rotombotto_node.dir/src/rotombotto_node.cpp.o: rotombotto/CMakeFiles/rotombotto_node.dir/flags.make
-rotombotto/CMakeFiles/rotombotto_node.dir/src/rotombotto_node.cpp.o: /home/biorobotica/RotomBotto/catkin_ws/src/rotombotto/src/rotombotto_node.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/biorobotica/RotomBotto/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object rotombotto/CMakeFiles/rotombotto_node.dir/src/rotombotto_node.cpp.o"
-	cd /home/biorobotica/RotomBotto/catkin_ws/build/rotombotto && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rotombotto_node.dir/src/rotombotto_node.cpp.o -c /home/biorobotica/RotomBotto/catkin_ws/src/rotombotto/src/rotombotto_node.cpp
+rotombotto/CMakeFiles/rotombotto_node.dir/src/rotombotto_node.cpp.o: /home/danielg/RotomBotto/catkin_ws/src/rotombotto/src/rotombotto_node.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danielg/RotomBotto/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object rotombotto/CMakeFiles/rotombotto_node.dir/src/rotombotto_node.cpp.o"
+	cd /home/danielg/RotomBotto/catkin_ws/build/rotombotto && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rotombotto_node.dir/src/rotombotto_node.cpp.o -c /home/danielg/RotomBotto/catkin_ws/src/rotombotto/src/rotombotto_node.cpp
 
 rotombotto/CMakeFiles/rotombotto_node.dir/src/rotombotto_node.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rotombotto_node.dir/src/rotombotto_node.cpp.i"
-	cd /home/biorobotica/RotomBotto/catkin_ws/build/rotombotto && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/biorobotica/RotomBotto/catkin_ws/src/rotombotto/src/rotombotto_node.cpp > CMakeFiles/rotombotto_node.dir/src/rotombotto_node.cpp.i
+	cd /home/danielg/RotomBotto/catkin_ws/build/rotombotto && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danielg/RotomBotto/catkin_ws/src/rotombotto/src/rotombotto_node.cpp > CMakeFiles/rotombotto_node.dir/src/rotombotto_node.cpp.i
 
 rotombotto/CMakeFiles/rotombotto_node.dir/src/rotombotto_node.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rotombotto_node.dir/src/rotombotto_node.cpp.s"
-	cd /home/biorobotica/RotomBotto/catkin_ws/build/rotombotto && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/biorobotica/RotomBotto/catkin_ws/src/rotombotto/src/rotombotto_node.cpp -o CMakeFiles/rotombotto_node.dir/src/rotombotto_node.cpp.s
+	cd /home/danielg/RotomBotto/catkin_ws/build/rotombotto && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danielg/RotomBotto/catkin_ws/src/rotombotto/src/rotombotto_node.cpp -o CMakeFiles/rotombotto_node.dir/src/rotombotto_node.cpp.s
 
 rotombotto/CMakeFiles/rotombotto_node.dir/src/rotombotto_node.cpp.o.requires:
 
@@ -88,33 +88,33 @@ rotombotto_node_OBJECTS = \
 # External object files for target rotombotto_node
 rotombotto_node_EXTERNAL_OBJECTS =
 
-/home/biorobotica/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: rotombotto/CMakeFiles/rotombotto_node.dir/src/rotombotto_node.cpp.o
-/home/biorobotica/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: rotombotto/CMakeFiles/rotombotto_node.dir/build.make
-/home/biorobotica/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: /opt/ros/kinetic/lib/libroscpp.so
-/home/biorobotica/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
-/home/biorobotica/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: /usr/lib/x86_64-linux-gnu/libboost_signals.so
-/home/biorobotica/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: /opt/ros/kinetic/lib/librosconsole.so
-/home/biorobotica/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: /opt/ros/kinetic/lib/librosconsole_log4cxx.so
-/home/biorobotica/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: /opt/ros/kinetic/lib/librosconsole_backend_interface.so
-/home/biorobotica/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
-/home/biorobotica/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: /usr/lib/x86_64-linux-gnu/libboost_regex.so
-/home/biorobotica/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: /opt/ros/kinetic/lib/libxmlrpcpp.so
-/home/biorobotica/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: /opt/ros/kinetic/lib/libroscpp_serialization.so
-/home/biorobotica/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: /opt/ros/kinetic/lib/librostime.so
-/home/biorobotica/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: /opt/ros/kinetic/lib/libcpp_common.so
-/home/biorobotica/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: /usr/lib/x86_64-linux-gnu/libboost_system.so
-/home/biorobotica/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: /usr/lib/x86_64-linux-gnu/libboost_thread.so
-/home/biorobotica/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
-/home/biorobotica/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
-/home/biorobotica/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
-/home/biorobotica/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: /usr/lib/x86_64-linux-gnu/libpthread.so
-/home/biorobotica/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so
-/home/biorobotica/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: rotombotto/CMakeFiles/rotombotto_node.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/biorobotica/RotomBotto/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable /home/biorobotica/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node"
-	cd /home/biorobotica/RotomBotto/catkin_ws/build/rotombotto && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/rotombotto_node.dir/link.txt --verbose=$(VERBOSE)
+/home/danielg/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: rotombotto/CMakeFiles/rotombotto_node.dir/src/rotombotto_node.cpp.o
+/home/danielg/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: rotombotto/CMakeFiles/rotombotto_node.dir/build.make
+/home/danielg/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: /opt/ros/kinetic/lib/libroscpp.so
+/home/danielg/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
+/home/danielg/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: /usr/lib/x86_64-linux-gnu/libboost_signals.so
+/home/danielg/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: /opt/ros/kinetic/lib/librosconsole.so
+/home/danielg/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: /opt/ros/kinetic/lib/librosconsole_log4cxx.so
+/home/danielg/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: /opt/ros/kinetic/lib/librosconsole_backend_interface.so
+/home/danielg/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
+/home/danielg/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: /usr/lib/x86_64-linux-gnu/libboost_regex.so
+/home/danielg/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: /opt/ros/kinetic/lib/libxmlrpcpp.so
+/home/danielg/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: /opt/ros/kinetic/lib/libroscpp_serialization.so
+/home/danielg/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: /opt/ros/kinetic/lib/librostime.so
+/home/danielg/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: /opt/ros/kinetic/lib/libcpp_common.so
+/home/danielg/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: /usr/lib/x86_64-linux-gnu/libboost_system.so
+/home/danielg/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: /usr/lib/x86_64-linux-gnu/libboost_thread.so
+/home/danielg/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
+/home/danielg/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
+/home/danielg/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
+/home/danielg/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: /usr/lib/x86_64-linux-gnu/libpthread.so
+/home/danielg/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so
+/home/danielg/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node: rotombotto/CMakeFiles/rotombotto_node.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/danielg/RotomBotto/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable /home/danielg/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node"
+	cd /home/danielg/RotomBotto/catkin_ws/build/rotombotto && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/rotombotto_node.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-rotombotto/CMakeFiles/rotombotto_node.dir/build: /home/biorobotica/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node
+rotombotto/CMakeFiles/rotombotto_node.dir/build: /home/danielg/RotomBotto/catkin_ws/devel/lib/rotombotto/rotombotto_node
 
 .PHONY : rotombotto/CMakeFiles/rotombotto_node.dir/build
 
@@ -123,10 +123,10 @@ rotombotto/CMakeFiles/rotombotto_node.dir/requires: rotombotto/CMakeFiles/rotomb
 .PHONY : rotombotto/CMakeFiles/rotombotto_node.dir/requires
 
 rotombotto/CMakeFiles/rotombotto_node.dir/clean:
-	cd /home/biorobotica/RotomBotto/catkin_ws/build/rotombotto && $(CMAKE_COMMAND) -P CMakeFiles/rotombotto_node.dir/cmake_clean.cmake
+	cd /home/danielg/RotomBotto/catkin_ws/build/rotombotto && $(CMAKE_COMMAND) -P CMakeFiles/rotombotto_node.dir/cmake_clean.cmake
 .PHONY : rotombotto/CMakeFiles/rotombotto_node.dir/clean
 
 rotombotto/CMakeFiles/rotombotto_node.dir/depend:
-	cd /home/biorobotica/RotomBotto/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/biorobotica/RotomBotto/catkin_ws/src /home/biorobotica/RotomBotto/catkin_ws/src/rotombotto /home/biorobotica/RotomBotto/catkin_ws/build /home/biorobotica/RotomBotto/catkin_ws/build/rotombotto /home/biorobotica/RotomBotto/catkin_ws/build/rotombotto/CMakeFiles/rotombotto_node.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/danielg/RotomBotto/catkin_ws/src /home/danielg/RotomBotto/catkin_ws/src/rotombotto /home/danielg/RotomBotto/catkin_ws/build /home/danielg/RotomBotto/catkin_ws/build/rotombotto /home/danielg/RotomBotto/catkin_ws/build/rotombotto/CMakeFiles/rotombotto_node.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : rotombotto/CMakeFiles/rotombotto_node.dir/depend
 

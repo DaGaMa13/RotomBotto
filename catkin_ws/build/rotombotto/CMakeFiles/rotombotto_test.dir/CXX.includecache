@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/home/biorobotica/RotomBotto/catkin_ws/src/rotombotto/src/rotombotto_test.cpp
+/home/danielg/RotomBotto/catkin_ws/src/rotombotto/src/rotombotto_test.cpp
 ros/ros.h
-/home/biorobotica/RotomBotto/catkin_ws/src/rotombotto/src/ros/ros.h
+/home/danielg/RotomBotto/catkin_ws/src/rotombotto/src/ros/ros.h
 std_msgs/Float32MultiArray.h
-/home/biorobotica/RotomBotto/catkin_ws/src/rotombotto/src/std_msgs/Float32MultiArray.h
+/home/danielg/RotomBotto/catkin_ws/src/rotombotto/src/std_msgs/Float32MultiArray.h
 std_msgs/String.h
-/home/biorobotica/RotomBotto/catkin_ws/src/rotombotto/src/std_msgs/String.h
+/home/danielg/RotomBotto/catkin_ws/src/rotombotto/src/std_msgs/String.h
 stdio.h
 -
 stdlib.h
