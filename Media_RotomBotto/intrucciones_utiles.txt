@@ -4,6 +4,9 @@
 *	Versión: 29 de Abril del 2019
 ******************************************************
 
+comando terminal :: sudo nano .bashrc
+
+
 >>> USO DE GITHUB
 
 	> \$ git clone https://github.com/G013/RotomBotto.git
