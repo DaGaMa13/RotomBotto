@@ -7,7 +7,7 @@
 *		para posteriormente segmentarlos en diferentes tópicos.		
 *		-- >>> NODO ESPECFICAMENTE PARA PRUEBAS DE HARDWARE <<<<<
 *		
-*   Ultima versión: 25 de Marzo del 2019
+*   Ultima versión: 9 de Mayo del 2019
 *********************************************************************/
 
 // ダ・ガ・マ・jû-san
@@ -25,7 +25,7 @@
 	//>>>VARIABLES GLOBALES
 int i=0, j=0; //varaibles para contadores
 float val_Foto[4]={0,0,0,0}; //Valores de los sensores de luz
-float val_Tempt=0; //Valores de los enconders
+float val_Tempt=0; //Valores del sensor de temperatura
 
 //_____________________________________________________________________
 	//>>>FUNCIONES
@@ -36,7 +36,7 @@ void callbackArduino(const std_msgs::Float32MultiArray::ConstPtr& dataArduino){
 		val_Foto[i]=dataArduino->data[i]; 
 		std::cout<<"Fotoresitor-"<<i<<":_ "<<val_Foto[i]<< std::endl;	}  //Fin del vaciado sensor luz
 
-		val_Tempt=dataArduino->data[5]; 
+		val_Tempt=dataArduino->data[4]; 
 		std::cout<<"Temperatura:_ "<<val_Tempt<< std::endl;
 
 }//fin del callbackArduino
@@ -79,12 +79,12 @@ int main(int  argc, char** argv){
 		for(i=0;i<4;i++){
 		data_luz.data[i]=val_Foto[i];} //Sensores de luz
 
-		data_tempt.data[i]=val_Tempt; //Encoders
+		data_tempt.data[0]=val_Tempt; //Encoders
 
 		//Publicación de los tópicos
 		pubFoto.publish(data_luz);
 		pubEnc.publish(data_tempt);
-        std::cout<<"Datos publicados correctamete"<<std::endl;
+        std::cout<<"Datos de sensores publicados correctamete"<<std::endl;
 
 
 		ros::spinOnce();

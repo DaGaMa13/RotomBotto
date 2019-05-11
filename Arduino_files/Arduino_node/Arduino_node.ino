@@ -23,6 +23,11 @@
 int sen_L[4]= {A0,A1,A2,A3};
 int sen_T=A4;
 
+  //Salidas Digitales
+int Led_B=2;
+int Led_R=3;
+int Led_G=4;
+
 //----------------------------------------------------------------------------------
 
 //VARIABLES GLOBALES
@@ -60,6 +65,10 @@ void setup(){
   n.advertise(data_robot); 
   d_robot.data_length = 5; //Declara tamaño del arreglo a publicar
   
+  pinMode(Led_B,OUTPUT);
+  pinMode(Led_R,OUTPUT);
+  pinMode(Led_G,OUTPUT);
+  
 } //Fin del SETUP
 
 //_____________________________________________________________________________________________________________________
@@ -77,6 +86,9 @@ void loop(){
   //Datos de la temperatura   
       data_arduino[4]=analogRead(sen_T);  //Asignacin al arreglo del topico a publicar
 
+  digitalWrite(Led_B,HIGH);
+  digitalWrite(Led_R,1);
+  digitalWrite(Led_G,1);
 
   //PROCESO DE LA PUBLICACION DE TOPICO      
     d_robot.data=data_arduino;//Se le asignan los datos recolectados al topico que se va a publicar

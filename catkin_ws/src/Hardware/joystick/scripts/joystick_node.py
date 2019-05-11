@@ -7,106 +7,129 @@ from std_msgs.msg import Float32MultiArray
 from std_msgs.msg import Float32
 from geometry_msgs.msg import Twist
 from std_msgs.msg import Empty
+#_________________________________________________________________________________________________________________________
 
 def callbackJoy(msg):
-    global speedX
-    global speedY
-    global yaw
-    global panPos
-    global tiltPos
-    global b_Button
-    global spine	
-    global mov_spine
-    global waist
-    global mov_waist	
-    global shoulders
-    global mov_shoulders
-    global spine_button
-    global waist_button
-    global shoulders_button_1
-    global shoulders_button_2
-    global skip_state
 
+    global vel_D
+    global vel_I
+    global b
+    global bD
+    global bI 
 
-    ### Read of b_button for stop the mobile base
-    global stop
-    ### Red button for stop of mobile base
-    stop = msg.buttons[1]
-    skip_state = msg.buttons[3]
-    
+    print "Obteniendo los datos del control joystick"
+    #print "-----------------------------------------------"
 
-    ### Control of mobile-base with right Stick
-    rightStickX = msg.axes[3]
-    rightStickY = msg.axes[4]
-    magnitudRight = math.sqrt(rightStickX*rightStickX + rightStickY*rightStickY)
-    if magnitudRight > 0.15:
-        speedX = rightStickY
-        yaw = rightStickX
+    #Obteniedo los datos del joystuck derecho para cotrol de la base movil
+    StickD_X = msg.axes[3]
+    StickD_Y = msg.axes[4]
+
+    #print "Datos del stick derecho:::  x:_"+str(float(StickD_X))+"  y:_"+str(float(StickD_Y))
+
+    boton_b = msg.buttons[1]
+    boton_I = msg.buttons[4]
+    boton_D = msg.buttons[5]
+    boton_jusan = msg.buttons[13]
+
+    b = float(boton_b)
+    bD = float(boton_D)
+    bI = float(boton_I)
+    b13 = float(boton_jusan)
+
+   ''' if b == 1:
+        print "Boton B presionado"
+
+    elif bD == 1:
+        print "Boton DERECHO presionado"
+
+    elif bI == 1:
+        print "Boton IZQUIERDO presionado"
+
     else:
-        speedX = 0
-        yaw = 0
+        print "Ningun boton presionado"'''
 
+    #Obteniedo velocidades
+
+    magnitud = math.sqrt(StickD_X*StickD_X + StickD_Y*StickD_Y)
+
+    if magnitud > 0.15: 
+
+        if (StickD_Y > 0) and (StickD_Y>StickD_X): #Avanza [1,1]
+
+            vel_D = float(magnitud) 
+            vel_I = float(magnitud)
+
+        elif (StickD_Y) < 0 and (StickD_Y<StickD_X): #Atras [-1,-1]
+
+            vel_D = float(magnitud)*(-1)
+            vel_I = float(magnitud)*(-1)
+
+        elif (StickD_X < 0) and (StickD_X<=StickD_Y): #Giro Derecha [-1,1]
+
+            vel_D = float(magnitud)*(-1)
+            vel_I = float(magnitud)
+
+        elif (StickD_X > 0) and (StickD_Y>=StickD_X): #Giro Izquierda [1,-1]
+
+            vel_D = float(magnitud)
+            vel_I = float(magnitud)*(-1)
+
+
+    else: #ALTO
+        vel_D = 0
+        vel_I = 0
+
+    #print "Velocidades obtenidas: Vel Der = "+str(vel_D)+"  Vel Izq = "+str(vel_I)
+
+
+    print "****************************************************"
+
+
+#_________________________________________________________________________________________________________________________
 def main():
-    global leftSpeed
-    global rightSpeed
-    global panPos 
-    global tiltPos
 
-    global speedX
-    global speedY
-    global yaw
-    global stop
+    global vel_D
+    global vel_I
+    global b
+    global bD
+    global bI 
 
-    global skip_state
+    vel_D = 0
+    vel_I = 0
+    b = 0
+    bD = 0
+    bI = 0
 
-    leftSpeed = 0
-    rightSpeed = 0
-    panPos = 0
-    tiltPos = 0
-    b_Button = 0
-    stop = 0
-    skip_state = 0
-    speedY = 0
-    speedX = 0
-    yaw = 0
-    spine =0
-    mov_spine=False
-    waist=0
-    mov_waist=False
-    shoulders=0
-    mov_shoulders=False
+    msgVel = Float32MultiArray()
+    msgJoy = Float32MultiArray()
 
-    #Variables donde se almacenaran los datos a publicar	
-    msgTwist = Twist()
-    msgStop = Empty()
-    
     print "JOYSTICK en linea"
     rospy.init_node("joystick")
-       
-    # rospy.Subscriber("/hardware/joy", Joy, callbackJoy)
-    rospy.Subscriber("/hardware/joy", Joy, callbackJoy)
+
+    #TOPICOS a subscribirse
+    rospy.Subscriber("/hardware/joy", Joy, callbackJoy) #Suscrpcion al nodo predeterminado JOY
 
     #Topicos a publicar
-    pubStop = rospy.Publisher("/hardware/robot_state/stop", Empty, queue_size = 1)
-    pubTwist = rospy.Publisher("/hardware/joystick/data", Twist, queue_size =1)
+    pubVel=rospy.Publisher("/hardware/motors/speeds", Float32MultiArray, queue_size=1)
+    pubJoy=rospy.Publisher("/hardware/joystick/data", Float32MultiArray, queue_size=1)
+
 
     loop = rospy.Rate(10)
     while not rospy.is_shutdown():
 
-        #Publicacion de las direcciones y velocidades para los motores
-        if math.fabs(speedX) > 0 or math.fabs(speedY) > 0 or math.fabs(yaw) > 0:
-            msgTwist.linear.x = speedX
-            msgTwist.linear.y = speedY/2.0
-            msgTwist.linear.z = 0
-            msgTwist.angular.z = yaw
-            #print "x: " + str(msgTwist.linear.x) + "  y: " + str(msgTwist.linear.y) + " yaw: " + str(msgTwist.angular.z)
-            pubTwist.publish(msgTwist)
+        #print "Recibiendo datos----"
 
-        if stop == 1:
-            pubStop.publish(msgStop)
+        #Asignando datos recolectados
+        msgVel.data = [vel_D,vel_I]
+        msgJoy.data = [b,bD,bI]
 
-        #loop.sleep()
+        #Publicando topicos
+        pubVel.publish(msgVel)
+        pubJoy.publish(msgJoy)
 
+    #rospy.spin()
+
+#_________________________________________________________________________________________________________________________
 if __name__ == '__main__':
     try:
         main()
@@ -119,8 +142,8 @@ if __name__ == '__main__':
 *
 *   <HARDWARE_TOOLS> Hodo Joystick
 *   El principal objetivo de este nodo es el de manejar el control alambrico tipo joystick para el control del movimiento de
-*   la plataforma robotica movil. 
+*   la plataforma robotica movil. <MODO TEST>
 *       #Agradecimientos a Marco Antonio Negrete Villanueva y a MARCOSOFT
 *       
-*   Ultima version: 26 de Marzo del 2019
+*   Ultima version: 10 de Mayo del 2019
 *******************************************************************************'''
