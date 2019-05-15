@@ -41,6 +41,19 @@ int valor_Temp=0; //Alemacenamiento de los valores sensados de temperatura
 float data_arduino[5];
   // [4]>Luminicencia + [1]>Temperatura
 
+  //Almacenamiento del topico de los LEDS
+int data_RGB[3]={0,0,0};
+//----------------------------------------------------------------------------------------
+
+  //FUNCION DEL CALLBACK
+void dataRGB(const std_msgs::Float32MultiArray& msg){
+   
+  for(int i=0;i<3;i++){
+    data_RGB[i]= msg.data[i];
+  }//Fin de la toma de datos 
+  
+}//Fin del la funcion callback data_RGB
+
 //----------------------------------------------------------------------------------------
 
   //ROS
@@ -48,7 +61,9 @@ float data_arduino[5];
 std_msgs::Float32MultiArray d_robot;//Crea un arreglo de tipo multif32 de la libreria std_msgs
 ros::NodeHandle n;//Crea un nodo en ros llamado n
 
-  //Se subscribe al topico publicado en la raspbery para el control de los motores
+  //Se subscribe al topico publicado en la raspbery para el uso del led RGB
+ros::Subscriber<std_msgs::Float32MultiArray> ledDATA("/hardware/arduino/rgb",&dataRGB);
+  
  //Publica los valores registrados por el arduino para ser leidos po un nodo el la Raspberry
 ros::Publisher data_robot("/hardware/arduino/data", &d_robot);
 
@@ -60,7 +75,9 @@ void setup(){
   n.getHardware()->setBaud(500000);
   
   //Iniciar nodo en ros
-  n.initNode(); 
+  n.initNode();  
+  
+  n.subscribe(ledDATA); // Subscribe al topico de rgb
   
   n.advertise(data_robot); 
   d_robot.data_length = 5; //Declara tamaño del arreglo a publicar

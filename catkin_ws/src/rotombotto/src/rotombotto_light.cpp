@@ -58,7 +58,44 @@ void valorFoto(const std_msgs::Float32MultiArray::ConstPtr& dFoto){
 
 	std::cout<<"Fuente de luz ubicada en fotoresitor["<<num_fot<<"]:: "<<valor_foto<<std::endl;
 
-	std::cout<<" --"<<std::endl;									}//Fin de valorFoto
+	std::cout<<" --"<<std::endl;
+
+	//modificación para el movimiento de segumiento de luz
+	//SENSORES COLOCADOS EN SENTIDO DEL RELOJ
+
+	if (num_fot== 0){// ADELANTE
+
+		dirMotor[0]=0.5; //M_DER
+		dirMotor[1]=0.5; //M_IZQ
+									} //FUENTE DE LUZ DELANTE
+
+	else if (num_fot==1){// GIRO DERECHA
+
+		dirMotor[0]=-0.5; //M_DER
+		dirMotor[1]=0.5; //M_IZQ
+
+									} //FUENTE DE LUZ DERECHA
+
+	else if( num_fot==2){// ATRAS
+
+		dirMotor[0]=-0.5; //M_DER
+		dirMotor[1]=-0.5; //M_IZQ
+
+									} //FUENTE DE LUZ ATRAS
+
+	else if (num_fot==3){// GIRO IZQUIERDA
+
+		dirMotor[0]=0.5; //M_DER
+		dirMotor[1]=-0.5; //M_IZQ
+									} //FUENTE DE LUZ DERECHA
+
+	else{// ALTO
+
+		dirMotor[0]=0; //M_DER
+		dirMotor[1]=0; //M_IZQ
+									} //SIN IDENTIFICAR
+
+										}//Fin de valorFoto
 //----------------------------------------------------------------------------------------
 
 	//Obtención de la temperatura registrada en el robot
@@ -71,20 +108,6 @@ void valorTempt(const std_msgs::Float32MultiArray::ConstPtr& dTempt){
 	std::cout<<" --"<<std::endl;  								}//Fin de valorEnc
 //-----------------------------------------------------------------------------------------
 
-	//Obtención del la dirección del nodo SMART THINGS
-void dataJoy(const std_msgs::Float32MultiArray::ConstPtr& dirM){
-	dirMotor[0]=dirM->data[0];
-	dirMotor[1]=dirM->data[1];
-	std::cout<<"Dirección recibida::_"<<dirMotor<<std::endl;	}//Fin de dirObtenida
-//-----------------------------------------------------------------------------------------
-
-	//Función para la pruba de los motores
-//void pruebaMotores(){
-
-
-//}//Fin de prueba motores
-
-
 //_______________________________________________________________________________________________________________
 //Función principal
 int main(int  argc, char** argv){
@@ -96,8 +119,6 @@ int main(int  argc, char** argv){
     //Obtención de los datos transmitidos por los diferentes nodos 
  	ros::Subscriber subFoto = n.subscribe("/hardware/sensors/luz",1000,valorFoto); //Nodo Sensors/Fotoresistores
  	ros::Subscriber subTempt = n.subscribe("/hardware/sensors/tempt",1000,valorTempt); //Nodo Sensors/Temperatura
- 	ros::Subscriber subJoy = n.subscribe("/hardware/joystick/data",1000,dataJoy); //Nodo Hardware/joy
-
 
  	//Datos a publicar
 	std_msgs::Float32MultiArray  D_Motor; //Dirección del motor

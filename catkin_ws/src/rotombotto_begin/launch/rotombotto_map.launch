@@ -2,7 +2,7 @@
 <!-- 	
 *	Garcés Marín Daniel 		
 *	TESIS <Construcción de una plataforma robótica abierta para pruebas de desempeño de componentes y algoritmos>
-*	< MODALIDAD LIGHT> Launch para el comportamiento reactivo de segumiento de luz
+*	< VMODALIDAD MAP > Launch para la obtencion de un mapa del entorno por medio del laser
 *
 *
 *   Ultima versión: 9 de Mayo del 2019	-->
@@ -21,12 +21,14 @@
 	</group>
 
 	<group ns="hardware">
+        <node name="joy_node" pkg="joy" type="joy_node" output="screen"/> 
 		<node name="sensor_test" pkg="sensor" type="sensor_test" output="screen" />
 		<node name="motor_test" pkg="motor" type="motor_test.py" output="screen" />
+		<node name="joystick_test" pkg="joystick" type="joystick_test.py" output="screen"/>
 	</group>
 
 	<group ns="software">
-		<node name="rotombotto_light" pkg="rotombotto" type="rotombotto_light" output="screen" />
+		<node name="rotombotto_test" pkg="rotombotto" type="rotombotto_test" output="screen" />
 	</group>
 
 </launch>
