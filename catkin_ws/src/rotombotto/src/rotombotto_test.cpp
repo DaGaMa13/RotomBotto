@@ -59,7 +59,7 @@ void valorFoto(const std_msgs::Float32MultiArray::ConstPtr& dFoto){
 
 	std::cout<<"Fuente de luz ubicada en fotoresitor["<<num_fot<<"]:: "<<valor_foto<<std::endl;
 
-	std::cout<<" --"<<std::endl;									}//Fin de valorFoto
+	std::cout<<"------"<<std::endl;									}//Fin de valorFoto
 //----------------------------------------------------------------------------------------
 
 	//Obtención de la temperatura registrada en el robot
@@ -67,9 +67,9 @@ void valorTempt(const std_msgs::Float32MultiArray::ConstPtr& dTempt){
 
 	std::cout<<">>Dato publicado Temperatura::";
 		datos_Tempt = dTempt->data[0];
-		std::cout<<"["<<datos_Tempt<<"]";  //Fin del vaciado de los encoders
+		std::cout<<" "<<datos_Tempt<<" °C"<<std::endl;   //Fin del vaciado de los encoders
 
-	std::cout<<" --"<<std::endl;  								}//Fin de valorEnc
+	std::cout<<"-----"<<std::endl;  								}//Fin de valorEnc
 //-----------------------------------------------------------------------------------------
 
 	//Obtención del la dirección del nodo SMART THINGS
@@ -120,10 +120,10 @@ int main(int  argc, char** argv){
 	ros:: NodeHandle n;
 
     //Obtención de los datos transmitidos por los diferentes nodos 
- 	ros::Subscriber subFoto = n.subscribe("/hardware/sensors/luz",1000,valorFoto); //Nodo Sensors/Fotoresistores
- 	ros::Subscriber subTempt = n.subscribe("/hardware/sensors/tempt",1000,valorTempt); //Nodo Sensors/Temperatura
- 	ros::Subscriber subJoy = n.subscribe("/hardware/joystick/data",1000,dataJoy); //Nodo Hardware/joy
- 	ros::Subscriber subMotorD = n.subscribe("/hardware/motors/speeds",1000,pruebaMotores); //Nodo Hardware/joystick
+ 	ros::Subscriber subFoto = n.subscribe("/hardware/sensors/luz",10,valorFoto); //Nodo Sensors/Fotoresistores
+ 	ros::Subscriber subTempt = n.subscribe("/hardware/sensors/tempt",10,valorTempt); //Nodo Sensors/Temperatura
+ 	ros::Subscriber subJoy = n.subscribe("/hardware/joystick/data",100,dataJoy); //Nodo Hardware/joy
+ 	ros::Subscriber subMotorD = n.subscribe("/hardware/motors/speeds",100,pruebaMotores); //Nodo Hardware/joystick
 
  	//Datos a publicar
 	//std_msgs::Float32MultiArray  D_Motor; //Dirección del motor

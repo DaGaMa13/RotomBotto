@@ -7,7 +7,7 @@
 *		para posteriormente segmentarlos en diferentes tópicos.		
 *		-- >>> NODO ESPECFICAMENTE PARA PRUEBAS DE HARDWARE <<<<<
 *		
-*   Ultima versión: 9 de Mayo del 2019
+*   Ultima versión: 27 de Mayo del 2019
 *********************************************************************/
 
 // ダ・ガ・マ・jû-san
@@ -32,12 +32,16 @@ float val_Tempt=0; //Valores del sensor de temperatura
 
 void callbackArduino(const std_msgs::Float32MultiArray::ConstPtr& dataArduino){
 
+	float temp_TemptData=0; //Almacenaje temporal de la información transmitida por el arduino
+
 	for(i=0;i<4;i++){ //Vaciando los datos de los sensores de luz
 		val_Foto[i]=dataArduino->data[i]; 
 		std::cout<<"Fotoresitor-"<<i<<":_ "<<val_Foto[i]<< std::endl;	}  //Fin del vaciado sensor luz
 
-		val_Tempt=dataArduino->data[4]; 
-		std::cout<<"Temperatura:_ "<<val_Tempt<< std::endl;
+		temp_TemptData = dataArduino->data[4];
+		val_Tempt= ( (temp_TemptData*500) / 1023.0 ); 
+		
+		std::cout<<"Temperatura:_ recibido="<<temp_TemptData<<", GradosC="<<val_Tempt<< std::endl;
 
 }//fin del callbackArduino
 
@@ -56,7 +60,7 @@ int main(int  argc, char** argv){
 	ros:: NodeHandle n;
 
 	//_>Obtención de los datos proporcionados por el arduino
- 	ros::Subscriber subArd = n.subscribe("/hardware/arduino/data", 1000, callbackArduino); //Obtener los datos de lso sensores
+ 	ros::Subscriber subArd = n.subscribe("/hardware/arduino/data", 100, callbackArduino); //Obtener los datos de lso sensores
 
 	//_>Variables a publicar
 	std_msgs::Float32MultiArray data_luz; //Datos de los fotoresistores
