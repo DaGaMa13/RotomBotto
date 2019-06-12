@@ -1,24 +1,25 @@
 Determining if the pthread_create exist failed with the following output:
-Change Dir: /home/danielg/RotomBotto/catkin_ws/build/CMakeFiles/CMakeTmp
+Change Dir: /home/ubuntu/RotomBotto/catkin_ws/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_a0492/fast"
-/usr/bin/make -f CMakeFiles/cmTC_a0492.dir/build.make CMakeFiles/cmTC_a0492.dir/build
-make[1]: se entra en el directorio '/home/danielg/RotomBotto/catkin_ws/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_a0492.dir/CheckSymbolExists.c.o
-/usr/bin/cc     -o CMakeFiles/cmTC_a0492.dir/CheckSymbolExists.c.o   -c /home/danielg/RotomBotto/catkin_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
-Linking C executable cmTC_a0492
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a0492.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_a0492.dir/CheckSymbolExists.c.o  -o cmTC_a0492 -rdynamic 
-CMakeFiles/cmTC_a0492.dir/CheckSymbolExists.c.o: En la función `main':
-CheckSymbolExists.c:(.text+0x16): referencia a `pthread_create' sin definir
+Run Build Command:"/usr/bin/make" "cmTC_4a8b7/fast"
+/usr/bin/make -f CMakeFiles/cmTC_4a8b7.dir/build.make CMakeFiles/cmTC_4a8b7.dir/build
+make[1]: Entering directory '/home/ubuntu/RotomBotto/catkin_ws/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4a8b7.dir/CheckSymbolExists.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_4a8b7.dir/CheckSymbolExists.c.o   -c /home/ubuntu/RotomBotto/catkin_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_4a8b7
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4a8b7.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_4a8b7.dir/CheckSymbolExists.c.o  -o cmTC_4a8b7 -rdynamic 
+CMakeFiles/cmTC_4a8b7.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0xe): undefined reference to `pthread_create'
+CheckSymbolExists.c:(.text+0x12): undefined reference to `pthread_create'
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_a0492.dir/build.make:97: fallo en las instrucciones para el objetivo 'cmTC_a0492'
-make[1]: *** [cmTC_a0492] Error 1
-make[1]: se sale del directorio '/home/danielg/RotomBotto/catkin_ws/build/CMakeFiles/CMakeTmp'
-Makefile:126: fallo en las instrucciones para el objetivo 'cmTC_a0492/fast'
-make: *** [cmTC_a0492/fast] Error 2
+CMakeFiles/cmTC_4a8b7.dir/build.make:97: recipe for target 'cmTC_4a8b7' failed
+make[1]: *** [cmTC_4a8b7] Error 1
+make[1]: Leaving directory '/home/ubuntu/RotomBotto/catkin_ws/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_4a8b7/fast' failed
+make: *** [cmTC_4a8b7/fast] Error 2
 
-File /home/danielg/RotomBotto/catkin_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+File /home/ubuntu/RotomBotto/catkin_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */
 #include <pthread.h>
 
@@ -34,22 +35,22 @@ int main(int argc, char** argv)
 }
 
 Determining if the function pthread_create exists in the pthreads failed with the following output:
-Change Dir: /home/danielg/RotomBotto/catkin_ws/build/CMakeFiles/CMakeTmp
+Change Dir: /home/ubuntu/RotomBotto/catkin_ws/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_a6bd2/fast"
-/usr/bin/make -f CMakeFiles/cmTC_a6bd2.dir/build.make CMakeFiles/cmTC_a6bd2.dir/build
-make[1]: se entra en el directorio '/home/danielg/RotomBotto/catkin_ws/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_a6bd2.dir/CheckFunctionExists.c.o
-/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_a6bd2.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
-Linking C executable cmTC_a6bd2
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a6bd2.dir/link.txt --verbose=1
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_a6bd2.dir/CheckFunctionExists.c.o  -o cmTC_a6bd2 -rdynamic -lpthreads 
-/usr/bin/ld: no se puede encontrar -lpthreads
+Run Build Command:"/usr/bin/make" "cmTC_ef7af/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ef7af.dir/build.make CMakeFiles/cmTC_ef7af.dir/build
+make[1]: Entering directory '/home/ubuntu/RotomBotto/catkin_ws/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ef7af.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_ef7af.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_ef7af
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ef7af.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_ef7af.dir/CheckFunctionExists.c.o  -o cmTC_ef7af -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_a6bd2.dir/build.make:97: fallo en las instrucciones para el objetivo 'cmTC_a6bd2'
-make[1]: *** [cmTC_a6bd2] Error 1
-make[1]: se sale del directorio '/home/danielg/RotomBotto/catkin_ws/build/CMakeFiles/CMakeTmp'
-Makefile:126: fallo en las instrucciones para el objetivo 'cmTC_a6bd2/fast'
-make: *** [cmTC_a6bd2/fast] Error 2
+CMakeFiles/cmTC_ef7af.dir/build.make:97: recipe for target 'cmTC_ef7af' failed
+make[1]: *** [cmTC_ef7af] Error 1
+make[1]: Leaving directory '/home/ubuntu/RotomBotto/catkin_ws/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_ef7af/fast' failed
+make: *** [cmTC_ef7af/fast] Error 2
 
 

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 	
+*	Garcés Marín Daniel 		
+*	TESIS <Construcción de una plataforma robótica abierta para pruebas de desempeño de componentes y algoritmos>
+*	< VERSION PRUEBA> Launch para la prueba de todos y cada uno de los componentes disponibles
+*
+*
+*   Ultima versión: 27 de Mayo del 2019	-->
+	
+<launch>
+
+	<group ns="hardware">
+
+<!--	 ダ・ガ・マ・jû-san -->
+		<node name="joy_node" pkg="joy" type="joy_node"/>
+		<!--<node name="joystick_test" pkg="joystick" type="joystick_test.py"/> -->
+		<node name="motor_test" pkg="motor" type="motor_test.py" output="screen" />
+	</group>
+
+	<group ns="software">
+		<node name="rotombotto_test" pkg="rotombotto" type="rotombotto_test" output="screen" />
+	</group>
+
+</launch>

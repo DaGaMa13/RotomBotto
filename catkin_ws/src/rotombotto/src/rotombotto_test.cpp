@@ -123,14 +123,14 @@ int main(int  argc, char** argv){
  	ros::Subscriber subFoto = n.subscribe("/hardware/sensors/luz",10,valorFoto); //Nodo Sensors/Fotoresistores
  	ros::Subscriber subTempt = n.subscribe("/hardware/sensors/tempt",10,valorTempt); //Nodo Sensors/Temperatura
  	ros::Subscriber subJoy = n.subscribe("/hardware/joystick/data",100,dataJoy); //Nodo Hardware/joy
- 	ros::Subscriber subMotorD = n.subscribe("/hardware/motors/speeds",100,pruebaMotores); //Nodo Hardware/joystick
+ 	//ros::Subscriber subMotorD = n.subscribe("/hardware/motors/speeds",100,pruebaMotores); //Nodo Hardware/joystick
 
  	//Datos a publicar
-	//std_msgs::Float32MultiArray  D_Motor; //Dirección del motor
-	//D_Motor.data.resize(2);	
+	std_msgs::Float32MultiArray  D_Motor; //Dirección del motor
+	D_Motor.data.resize(2);	
 
-    //Publicación de las velocidades de los motores al Arduino
-    //ros::Publisher pubDir=n.advertise <std_msgs::Float32MultiArray>("/hardware/motor/speeds",1);
+    //Publicación de las velocidades de los motores la Roboclaw
+    ros::Publisher pubDir=n.advertise <std_msgs::Float32MultiArray>("/hardware/motors/speeds",1);
 
 	ros::Rate loop(1);
     ros::Rate r(10);
@@ -140,11 +140,11 @@ int main(int  argc, char** argv){
 	//pruebaMotores(); //Se prueban los motores
 
 		//Publicación de tópico de las direcciones
-        //D_Motor.data[0] = dirMotor[0]; 
-		//D_Motor.data[1] = dirMotor[1];
-		//std::cout<<D_Motor<<std::endl;
+	  D_Motor.data[0] = 1; 
+	   D_Motor.data[1] = 1;
+	    std::cout<<D_Motor<<std::endl;
 
-		//pubDir.publish(D_Motor);  //Envió de las direcciónes al nodo Motor.py
+		pubDir.publish(D_Motor);  //Envió de las direcciónes al nodo Motor.py
 
 		ros::spinOnce();
 		loop.sleep();

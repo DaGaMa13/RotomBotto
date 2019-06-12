@@ -10,41 +10,54 @@ from geometry_msgs.msg import Twist
 import Roboclaw
 import tf
 
-# Funcion para solucionar problemas frecuentes en el uso de la paqueteria
 def printHelp():
-    print "Ayuda/Help:"
-    print "\t --port \t Serial port name. El valor por defecto del puerto para el uso de la roboclaw es \"/dev/ttyACM0\""
-    print " hardware/motors/speeds\t Los valores usados en el topico deben encontrarse en el rango [-1, 1], 1 max velocidad del motor"
-    print " En caso de que se haya quemado la tarjeta roboclaw: Sabes lo que cuesta ese equipo hijo?"
+    print "MOBILE BASE BY MARCOSOFT. Options:"
+    print "\t --port \t Serial port name. If not provided, the default value is \"/dev/ttyACM0\""
+    print "\t --simul\t Simulation mode."
+    print " - Mobile base can be moved by publishing either mobile_base/cmd_vel or"
+    print " - mobile_base/speeds. Speeds must be values in [-1, 1] where a value of 1 "
+    print " - represents the maximum speed that each motor can generate."
+    print "PLEASE DON'T TRY TO OPERATE JUSTINA IF YOU ARE NOT QUALIFIED ENOUGH."
 
-# Funcion para detener el movimiento con los motores, se suscribe a un topico en especifico /hardware/motors/stop
 def callbackStop(msg):
-    velIzq = 0
-    velDer = 0
+    leftSpeed = 0
+    rightSpeed = 0
     newSpeedData = True
 
-# Funcion para obtener las velocidades y direccion de los motores, topico /hardware/motors/speeds
 def callbackSpeeds(msg):
+    global leftSpeed
+    global rightSpeed
+    global newSpeedData
+    #Speeds are assumed to come in float in [-1,1] for each tire. The values need to be transformed to values in [0,127]
+    #A float value of -1, indicates the maximum speed backwards
+    #Similar for +1
+    leftSpeed = msg.data[0]
+    rightSpeed = msg.data[1]
+    if leftSpeed > 1:
+        leftSpeed = 1
+    elif leftSpeed < -1:
+        leftSpeed = -1
+    if rightSpeed > 1:
+        rightSpeed = 1
+    elif rightSpeed < -1:
+        rightSpeed = -1
+    newSpeedData = True
 
-    #Variables globales, se espera que los valores obtenidos se encuentren entre el rango de [-1,1] siendo {1} la vel. max. del motor
-    global velIzq
-    global velDer
-    global nuevosDatosVel
-
-    velIzq = msg.data[0]
-    velDer = msg.data[1]
-    print "[MOTOR_TEST|>>>Valores de velocidades obtenidos:: VelIzq:_"+str(velIzq)+" ; velDer:_"+str(velDer)
-
-    #Transformacion a valores que superen los limites
-    if velIzq > 1:
-        velIzq = 1
-    elif velIzq < -1:
-        velIzq = -1
-    if velDer > 1:
-        velDer = 1
-    elif velDer < -1:
-        velDer = -1
-    nuevosDatosVel = True
+def callbackCmdVel(msg):
+    global leftSpeed
+    global righSpeed
+    global newSpeedData
+    leftSpeed = msg.linear.x - msg.angular.z*0.48/2.0
+    rightSpeed = msg.linear.x + msg.angular.z*0.48/2.0
+    if leftSpeed > 1:
+        leftSpeed = 1
+    elif leftSpeed < -1:
+        leftSpeed = -1
+    if rightSpeed > 1:
+        rightSpeed = 1
+    elif rightSpeed < -1:
+        rightSpeed = -1
+    newSpeedData = True
 
 def calculateOdometry(currentPos, leftEnc, rightEnc): #Encoder measurements are assumed to be in ticks
     leftEnc = leftEnc * 0.39/980 #From ticks to meters
@@ -61,84 +74,74 @@ def calculateOdometry(currentPos, leftEnc, rightEnc): #Encoder measurements are 
     currentPos[1] += deltaX * math.sin(currentPos[2]) + deltaY * math.cos(currentPos[2])
     currentPos[2] += deltaTheta
     return currentPos
+    
 
-# FUNCION PRINCIPAL 
-def main(portName):
-    print "Inicializando motores en modo de PRUEBA"
-
+def main(portName, simulated):
+    print "INITIALIZING MOBILE BASE BY MARCOSOFT..."
     ###Connection with ROS
-    rospy.init_node("motor_test")
-
-    #Suscripcion a Topicos
-    subStop = rospy.Subscriber("/hardware/motors/stop", Empty, callbackStop) #Topico para detener el movimiento del robot
-    subSpeeds = rospy.Subscriber("/hardware/motors/speeds", Float32MultiArray, callbackSpeeds)  #Topico para obtener vel y dir de los motores
-
-    #Publicacion de Topicos
-    pubOdometry = rospy.Publisher("mobile_base/odometry", Odometry, queue_size = 1) ##PENDIENTE
+    rospy.init_node("mobile_base")
+    pubOdometry = rospy.Publisher("mobile_base/odometry", Odometry, queue_size = 1)
+    pubBattery = rospy.Publisher("robot_state/base_battery", Float32, queue_size = 1)
+    subStop = rospy.Subscriber("robot_state/stop", Empty, callbackStop)
+    subSpeeds = rospy.Subscriber("/hardware/motors/speeds", Float32MultiArray, callbackSpeeds)
+    #subCmdVel = rospy.Subscriber("mobile_base/cmd_vel", Twist, callbackCmdVel)
 
     br = tf.TransformBroadcaster()
     rate = rospy.Rate(20)
-
-    #Comunicacion serial con la tarjeta roboclaw Roboclaw
-
-    print "Roboclaw.-> Abriendo conexion al puerto serial designacion: \"" + portName + "\""
-    Roboclaw.Open(portName, 38400)
-    address = 0x80
-    print "Roboclaw.-> Conexion establecida en el puerto serila designacion \"" + portName + "\" a 38400 bps (Y)"
-    print "Roboclaw.-> Limpiando lecturas de enconders previas"
-    Roboclaw.ResetQuadratureEncoders(address)
-
-    #Variables para la designacion de velocidad a los motores
-    global velIzq
-    global velDer
-    global nuevosDatosVel
-
-    velIzq = 0
-    velDer = 0
-    nuevosDatosVel = False
+    ###Communication with the Roboclaw
+    if not simulated:
+        print "MobileBase.-> Trying to open serial port on \"" + portName + "\""
+        Roboclaw.Open(portName, 38400)
+        address = 0x80
+        print "MobileBase.-> Serial port openned on \"" + portName + "\" at 38400 bps (Y)"
+        print "MobileBase.-> Clearing previous encoders readings"
+        Roboclaw.ResetQuadratureEncoders(address)
+    ###Variables for setting tire speeds
+    global leftSpeed
+    global rightSpeed
+    global newSpeedData
+    leftSpeed = 0
+    rightSpeed = 0
+    newSpeedData = False
     speedCounter = 5
-
     ###Variables for odometry
     robotPos = [0, 0, 0]
-
     while not rospy.is_shutdown():
-
-        if nuevosDatosVel: #Se obtuvieron nuevos datos del topico /hardware/motors/speeds
-
-            nuevosDatosVel = False
+        if newSpeedData:
+            newSpeedData = False
             speedCounter = 5
-
-            velIzq = int(velIzq*127)
-            velDer = int(velDer*127)
-            if velIzq >= 0:
-                Roboclaw.DriveForwardM2(address, velIzq)
-            else:
-                Roboclaw.DriveBackwardsM2(address, -velIzq)
-            if velDer >= 0:
-                Roboclaw.DriveForwardM1(address, velDer)
-            else:
-                Roboclaw.DriveBackwardsM1(address, -velDer)
-
-        else: #NO se obtuvieron nuevos datos del topico, los motores se detienen
-
+            if not simulated:
+                leftSpeed = int(leftSpeed*127)
+                rightSpeed = int(rightSpeed*127)
+                if leftSpeed >= 0:
+                    Roboclaw.DriveForwardM2(address, leftSpeed)
+                else:
+                    Roboclaw.DriveBackwardsM2(address, -leftSpeed)
+                if rightSpeed >= 0:
+                    Roboclaw.DriveForwardM1(address, rightSpeed)
+                else:
+                    Roboclaw.DriveBackwardsM1(address, -rightSpeed)
+        else:
             speedCounter -= 1
-
             if speedCounter == 0:
-                Roboclaw.DriveForwardM1(address, 0)
-                Roboclaw.DriveForwardM2(address, 0)
- 
+                if not simulated:
+                    Roboclaw.DriveForwardM1(address, 0)
+                    Roboclaw.DriveForwardM2(address, 0)
+                else:
+                    leftSpeed = 0
+                    rightSpeed = 0
             if speedCounter < -1:
                 speedCounter = -1
-
-        encoderLeft = -Roboclaw.ReadQEncoderM2(address)
-        encoderRight = -Roboclaw.ReadQEncoderM1(address) #The negative sign is just because it is the way the encoders are wired to the roboclaw
-        Roboclaw.ResetQuadratureEncoders(address)
-
-
+        if not simulated:
+            encoderLeft = -Roboclaw.ReadQEncoderM2(address)
+            encoderRight = -Roboclaw.ReadQEncoderM1(address) #The negative sign is just because it is the way the encoders are wired to the roboclaw
+            Roboclaw.ResetQuadratureEncoders(address)
+        else:
+            encoderLeft = leftSpeed * 0.1 * 980 / 0.39
+            encoderRight = rightSpeed * 0.1 * 980 / 0.39
         ###Odometry calculation
         robotPos = calculateOdometry(robotPos, encoderLeft, encoderRight)
-        print "Encoders: " + str(encoderLeft) + "  " + str(encoderRight)
-
+        #print "Encoders: " + str(encoderLeft) + "  " + str(encoderRight)
         ##Odometry and transformations
         ts = TransformStamped()
         ts.header.stamp = rospy.Time.now()
@@ -159,16 +162,20 @@ def main(portName):
         msgOdom.pose.pose.orientation.z = math.sin(robotPos[2]/2)
         msgOdom.pose.pose.orientation.w = math.cos(robotPos[2]/2)
         pubOdometry.publish(msgOdom)
-
+        ###Reads battery and publishes the corresponding topic
+        motorBattery = 18.5
+        if not simulated:
+            motorBattery = Roboclaw.ReadMainBattVoltage(address)
+        msgBattery = Float32()
+        msgBattery.data = motorBattery
+        pubBattery.publish(msgBattery)
         rate.sleep()
-
-    #Fin del while
-
-    Roboclaw.DriveForwardM1(address, 0)
-    Roboclaw.DriveForwardM2(address, 0)
-    Roboclaw.Close()
-
-#Fin del al funcion principal Main
+    #End of while
+    if not simulated:
+        Roboclaw.DriveForwardM1(address, 0)
+        Roboclaw.DriveForwardM2(address, 0)
+        Roboclaw.Close()
+#end of main()
 
 if __name__ == '__main__':
     try:
@@ -178,22 +185,11 @@ if __name__ == '__main__':
             printHelp()
         else:
             portName = "/dev/ttyACM0"
+            simulated = False
             if "--port" in sys.argv:
                 portName = sys.argv[sys.argv.index("--port") + 1]
-            main(portName)
-
+            if "--simul" in sys.argv:
+                simulated = True
+            main(portName, simulated)
     except rospy.ROSInterruptException:
         pass
-
-'''******************************************************************************
-*   Garces Marin Daniel         
-*   TESIS <Construccion de una plataforma robotica abierta para pruebas de desempeno de componentes y algoritmos>
-*
-*   <HARDWARE> Nodo motor
-*   El principal objetivo de este nodo es el de manejar el control de los motores por medio de la tarjeta roboclaw  
-*       -Se debe destacar que se utilza una liberia para el uso de la tarjeta alojada en el paquete "hardware_tools"
-*       Agradecimientos a Marco Antonio Negrete Villanueva y a MARCOSOFT
-*       --  NODO ESPECFICAMENTE PARA PRUEBAS DE HARDWARE 
-*       
-*   Ultima version: 26 de Marzo del 2019
-*******************************************************************************'''

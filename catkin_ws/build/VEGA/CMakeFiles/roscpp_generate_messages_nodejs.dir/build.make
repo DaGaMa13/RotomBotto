@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/danielg/RotomBotto/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/ubuntu/RotomBotto/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/danielg/RotomBotto/catkin_ws/build
+CMAKE_BINARY_DIR = /home/ubuntu/RotomBotto/catkin_ws/build
 
 # Utility rule file for roscpp_generate_messages_nodejs.
 
@@ -63,10 +63,10 @@ VEGA/CMakeFiles/roscpp_generate_messages_nodejs.dir/build: roscpp_generate_messa
 .PHONY : VEGA/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
 
 VEGA/CMakeFiles/roscpp_generate_messages_nodejs.dir/clean:
-	cd /home/danielg/RotomBotto/catkin_ws/build/VEGA && $(CMAKE_COMMAND) -P CMakeFiles/roscpp_generate_messages_nodejs.dir/cmake_clean.cmake
+	cd /home/ubuntu/RotomBotto/catkin_ws/build/VEGA && $(CMAKE_COMMAND) -P CMakeFiles/roscpp_generate_messages_nodejs.dir/cmake_clean.cmake
 .PHONY : VEGA/CMakeFiles/roscpp_generate_messages_nodejs.dir/clean
 
 VEGA/CMakeFiles/roscpp_generate_messages_nodejs.dir/depend:
-	cd /home/danielg/RotomBotto/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/danielg/RotomBotto/catkin_ws/src /home/danielg/RotomBotto/catkin_ws/src/VEGA /home/danielg/RotomBotto/catkin_ws/build /home/danielg/RotomBotto/catkin_ws/build/VEGA /home/danielg/RotomBotto/catkin_ws/build/VEGA/CMakeFiles/roscpp_generate_messages_nodejs.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ubuntu/RotomBotto/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ubuntu/RotomBotto/catkin_ws/src /home/ubuntu/RotomBotto/catkin_ws/src/VEGA /home/ubuntu/RotomBotto/catkin_ws/build /home/ubuntu/RotomBotto/catkin_ws/build/VEGA /home/ubuntu/RotomBotto/catkin_ws/build/VEGA/CMakeFiles/roscpp_generate_messages_nodejs.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : VEGA/CMakeFiles/roscpp_generate_messages_nodejs.dir/depend
 
