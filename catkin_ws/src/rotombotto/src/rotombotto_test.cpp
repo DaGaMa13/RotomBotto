@@ -130,7 +130,7 @@ int main(int  argc, char** argv){
 	D_Motor.data.resize(2);	
 
     //Publicación de las velocidades de los motores la Roboclaw
-    ros::Publisher pubDir=n.advertise <std_msgs::Float32MultiArray>("/hardware/motors/speeds",1);
+    //ros::Publisher pubDir=n.advertise <std_msgs::Float32MultiArray>("/hardware/motors/speeds",1);
 
 	ros::Rate loop(1);
     ros::Rate r(10);
@@ -140,11 +140,11 @@ int main(int  argc, char** argv){
 	//pruebaMotores(); //Se prueban los motores
 
 		//Publicación de tópico de las direcciones
-	  D_Motor.data[0] = 1; 
-	   D_Motor.data[1] = 1;
-	    std::cout<<D_Motor<<std::endl;
+	  //D_Motor.data[0] = 1; 
+	   //D_Motor.data[1] = 1;
+	    //std::cout<<D_Motor<<std::endl;
 
-		pubDir.publish(D_Motor);  //Envió de las direcciónes al nodo Motor.py
+		//pubDir.publish(D_Motor);  //Envió de las direcciónes al nodo Motor.py
 
 		ros::spinOnce();
 		loop.sleep();

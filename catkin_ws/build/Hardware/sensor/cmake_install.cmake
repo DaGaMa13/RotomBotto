@@ -1,8 +1,8 @@
-# Install script for directory: /home/ubuntu/RotomBotto/catkin_ws/src/Hardware/sensor
+# Install script for directory: /home/pumas/RotomBotto/catkin_ws/src/Hardware/sensor
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/ubuntu/RotomBotto/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/pumas/RotomBotto/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,17 +33,17 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/ubuntu/RotomBotto/catkin_ws/build/Hardware/sensor/catkin_generated/installspace/sensor.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/pumas/RotomBotto/catkin_ws/build/Hardware/sensor/catkin_generated/installspace/sensor.pc")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/sensor/cmake" TYPE FILE FILES
-    "/home/ubuntu/RotomBotto/catkin_ws/build/Hardware/sensor/catkin_generated/installspace/sensorConfig.cmake"
-    "/home/ubuntu/RotomBotto/catkin_ws/build/Hardware/sensor/catkin_generated/installspace/sensorConfig-version.cmake"
+    "/home/pumas/RotomBotto/catkin_ws/build/Hardware/sensor/catkin_generated/installspace/sensorConfig.cmake"
+    "/home/pumas/RotomBotto/catkin_ws/build/Hardware/sensor/catkin_generated/installspace/sensorConfig-version.cmake"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/sensor" TYPE FILE FILES "/home/ubuntu/RotomBotto/catkin_ws/src/Hardware/sensor/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/sensor" TYPE FILE FILES "/home/pumas/RotomBotto/catkin_ws/src/Hardware/sensor/package.xml")
 endif()
 

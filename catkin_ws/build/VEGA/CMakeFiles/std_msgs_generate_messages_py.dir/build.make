@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ubuntu/RotomBotto/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/pumas/RotomBotto/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ubuntu/RotomBotto/catkin_ws/build
+CMAKE_BINARY_DIR = /home/pumas/RotomBotto/catkin_ws/build
 
 # Utility rule file for std_msgs_generate_messages_py.
 
@@ -63,10 +63,10 @@ VEGA/CMakeFiles/std_msgs_generate_messages_py.dir/build: std_msgs_generate_messa
 .PHONY : VEGA/CMakeFiles/std_msgs_generate_messages_py.dir/build
 
 VEGA/CMakeFiles/std_msgs_generate_messages_py.dir/clean:
-	cd /home/ubuntu/RotomBotto/catkin_ws/build/VEGA && $(CMAKE_COMMAND) -P CMakeFiles/std_msgs_generate_messages_py.dir/cmake_clean.cmake
+	cd /home/pumas/RotomBotto/catkin_ws/build/VEGA && $(CMAKE_COMMAND) -P CMakeFiles/std_msgs_generate_messages_py.dir/cmake_clean.cmake
 .PHONY : VEGA/CMakeFiles/std_msgs_generate_messages_py.dir/clean
 
 VEGA/CMakeFiles/std_msgs_generate_messages_py.dir/depend:
-	cd /home/ubuntu/RotomBotto/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ubuntu/RotomBotto/catkin_ws/src /home/ubuntu/RotomBotto/catkin_ws/src/VEGA /home/ubuntu/RotomBotto/catkin_ws/build /home/ubuntu/RotomBotto/catkin_ws/build/VEGA /home/ubuntu/RotomBotto/catkin_ws/build/VEGA/CMakeFiles/std_msgs_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/pumas/RotomBotto/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pumas/RotomBotto/catkin_ws/src /home/pumas/RotomBotto/catkin_ws/src/VEGA /home/pumas/RotomBotto/catkin_ws/build /home/pumas/RotomBotto/catkin_ws/build/VEGA /home/pumas/RotomBotto/catkin_ws/build/VEGA/CMakeFiles/std_msgs_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : VEGA/CMakeFiles/std_msgs_generate_messages_py.dir/depend
 

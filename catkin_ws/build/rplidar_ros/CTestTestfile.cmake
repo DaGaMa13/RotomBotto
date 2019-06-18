@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: /home/ubuntu/RotomBotto/catkin_ws/src/rplidar_ros
-# Build directory: /home/ubuntu/RotomBotto/catkin_ws/build/rplidar_ros
+# Source directory: /home/pumas/RotomBotto/catkin_ws/src/rplidar_ros
+# Build directory: /home/pumas/RotomBotto/catkin_ws/build/rplidar_ros
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.

@@ -1,8 +1,8 @@
-# Install script for directory: /home/ubuntu/RotomBotto/catkin_ws/src/VEGA
+# Install script for directory: /home/pumas/RotomBotto/catkin_ws/src/VEGA
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/ubuntu/RotomBotto/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/pumas/RotomBotto/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,17 +33,17 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/ubuntu/RotomBotto/catkin_ws/build/VEGA/catkin_generated/installspace/VEGA.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/pumas/RotomBotto/catkin_ws/build/VEGA/catkin_generated/installspace/VEGA.pc")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/VEGA/cmake" TYPE FILE FILES
-    "/home/ubuntu/RotomBotto/catkin_ws/build/VEGA/catkin_generated/installspace/VEGAConfig.cmake"
-    "/home/ubuntu/RotomBotto/catkin_ws/build/VEGA/catkin_generated/installspace/VEGAConfig-version.cmake"
+    "/home/pumas/RotomBotto/catkin_ws/build/VEGA/catkin_generated/installspace/VEGAConfig.cmake"
+    "/home/pumas/RotomBotto/catkin_ws/build/VEGA/catkin_generated/installspace/VEGAConfig-version.cmake"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/VEGA" TYPE FILE FILES "/home/ubuntu/RotomBotto/catkin_ws/src/VEGA/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/VEGA" TYPE FILE FILES "/home/pumas/RotomBotto/catkin_ws/src/VEGA/package.xml")
 endif()
 

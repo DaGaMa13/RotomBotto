@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/ubuntu/RotomBotto/catkin_ws/src/rotombotto/src/rotombotto_light.cpp" "/home/ubuntu/RotomBotto/catkin_ws/build/rotombotto/CMakeFiles/rotombotto_light.dir/src/rotombotto_light.cpp.o"
+  "/home/pumas/RotomBotto/catkin_ws/src/rotombotto/src/rotombotto_light.cpp" "/home/pumas/RotomBotto/catkin_ws/build/rotombotto/CMakeFiles/rotombotto_light.dir/src/rotombotto_light.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

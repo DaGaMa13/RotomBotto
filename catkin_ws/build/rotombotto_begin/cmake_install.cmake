@@ -1,8 +1,8 @@
-# Install script for directory: /home/ubuntu/RotomBotto/catkin_ws/src/rotombotto_begin
+# Install script for directory: /home/pumas/RotomBotto/catkin_ws/src/rotombotto_begin
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/ubuntu/RotomBotto/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/pumas/RotomBotto/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,17 +33,17 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/ubuntu/RotomBotto/catkin_ws/build/rotombotto_begin/catkin_generated/installspace/rotombotto_begin.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/pumas/RotomBotto/catkin_ws/build/rotombotto_begin/catkin_generated/installspace/rotombotto_begin.pc")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rotombotto_begin/cmake" TYPE FILE FILES
-    "/home/ubuntu/RotomBotto/catkin_ws/build/rotombotto_begin/catkin_generated/installspace/rotombotto_beginConfig.cmake"
-    "/home/ubuntu/RotomBotto/catkin_ws/build/rotombotto_begin/catkin_generated/installspace/rotombotto_beginConfig-version.cmake"
+    "/home/pumas/RotomBotto/catkin_ws/build/rotombotto_begin/catkin_generated/installspace/rotombotto_beginConfig.cmake"
+    "/home/pumas/RotomBotto/catkin_ws/build/rotombotto_begin/catkin_generated/installspace/rotombotto_beginConfig-version.cmake"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rotombotto_begin" TYPE FILE FILES "/home/ubuntu/RotomBotto/catkin_ws/src/rotombotto_begin/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rotombotto_begin" TYPE FILE FILES "/home/pumas/RotomBotto/catkin_ws/src/rotombotto_begin/package.xml")
 endif()
 

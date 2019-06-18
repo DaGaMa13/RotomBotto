@@ -7,7 +7,7 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/ubuntu/RotomBotto/catkin_ws/devel:$CMAKE_PREFIX_PATH"
-export PWD="/home/ubuntu/RotomBotto/catkin_ws/build"
-export ROSLISP_PACKAGE_DIRECTORIES="/home/ubuntu/RotomBotto/catkin_ws/devel/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
-export ROS_PACKAGE_PATH="/home/ubuntu/RotomBotto/catkin_ws/src:$ROS_PACKAGE_PATH"
+export CMAKE_PREFIX_PATH="/home/pumas/RotomBotto/catkin_ws/devel:$CMAKE_PREFIX_PATH"
+export PWD="/home/pumas/RotomBotto/catkin_ws/build"
+export ROSLISP_PACKAGE_DIRECTORIES="/home/pumas/RotomBotto/catkin_ws/devel/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
+export ROS_PACKAGE_PATH="/home/pumas/RotomBotto/catkin_ws/src:$ROS_PACKAGE_PATH"

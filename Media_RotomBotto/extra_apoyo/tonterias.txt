@@ -1,0 +1,10 @@
+Al parecer la razón por la que existen tantas divergencias para el uso de los drivers y librerias de la ROBOCLAW se debe a que el archivo del driver se puede dividir en dos categorias
+
+-roboclaw_driver: la cual es es sí el archivo de control de la roboclaw, la cual contiene todas las funciiones basicas para le uso de la roboclaw
+
+-roboclar: esta versión engloba lo anterior en una superclase abastrayendo algunos valores: Puerto y baudaje básicamente para no tener que indicar dichos valores cada vez que se llamen algunas funciones en las cuales el valor será constante durante el uso el equipo 
+
+recomiendo el uso de esta última ya que maneja más opciones de uso, además de optimizar el uso de recursos, datos y ya no se deben declarar regularmente algunos datos durante los nodos de ROS
+
+
+-debo modificar el archivo para obtener uno solo con motor test sin la necesidad del joystick
