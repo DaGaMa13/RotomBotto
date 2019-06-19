@@ -8,3 +8,21 @@ recomiendo el uso de esta última ya que maneja más opciones de uso, además de
 
 
 -debo modificar el archivo para obtener uno solo con motor test sin la necesidad del joystick
+
+o bien crear una funcion donde si se aprieta uno de los botores se mande a llamar automáticamente una funcion que utilice los datos del joystick, o bien se no se, puede que existan conflictos a la hora de publicar mismo  tópico en difertente nodos
+
+--sigue faltanto la programación del arduino
+
+-- lo mejor sería ya crear una interfaz gráfica, 
+
+- lo aún mejor seŕia realziar aquella modificacion para asignarle un nombre a los puertos tty
+
+
+----
+Cosas extras de la revisión de estudios
+
+-Revisar la pagina de la degae en 10 días aviles para revisar el progreso del registro, en caso de error o algo se me llamará a algín telefono
+
+- esperarse hasta el 28 de Junio o hasta el 22 de julio , para que se me libere el documento especifico para liberar el proceso, imprimirlo y llevarlo a la facultad para terminar todo el proceso. 
+
+-1 mes después se me liberarán los documentos en el archivo general, el sr coyotzi dice que será por el posgrado de odontología

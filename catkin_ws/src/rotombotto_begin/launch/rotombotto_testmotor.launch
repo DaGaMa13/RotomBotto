@@ -16,8 +16,8 @@
 		<node name="motor_test" pkg="motor" type="motor_test.py" output="screen" />
 	</group>
 
-	<group ns="software">
+	<!--<group ns="software">
 		<node name="rotombotto_test" pkg="rotombotto" type="rotombotto_test"  />
-	</group>
+	</group>-->
 
 </launch>

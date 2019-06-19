@@ -27,9 +27,9 @@ def callbackSpeeds(msg):
     # (+)>Adelante, (-)>Retroceso
 
     #Obteniedo datos del topico 
-    leftSpeed = msg.data[0]
-    rightSpeed = msg.data[1]
-    print "[MOTOR_TEST|>>>Valores de velocidades obtenidos:: VelIzq:_"+str(leftSpeed)+" ; velDer:_"+str(rightSpeed)
+    leftSpeed = float(msg.data[0])
+    rightSpeed = float(msg.data[1])
+    print "[MOTOR_TEST|>>>Valores de velocidades obtenidos:: VelIzq:_"+str(float(leftSpeed))+" ; velDer:_"+str(float(rightSpeed))
 
 
     #Revision de los limites de veocidad obtenidas
@@ -61,7 +61,7 @@ def main(portName):
 
     #Comunicacion serial con la tarjeta roboclaw Roboclaw
 
-    print "Roboclaw.-> Abriendo conexion al puerto serial designacion: \"" + portName + "\""
+    print "Roboclaw.-> Abriendo conexion al puerto serial designacion: \"" + str(portName) + "\""
     RC= Roboclaw(portName, 38400)
     #Roboclaw.Open(portName, 38400)
     RC.Open()
