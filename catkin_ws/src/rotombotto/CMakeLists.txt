@@ -136,6 +136,7 @@ include_directories(
  add_executable(${PROJECT_NAME}_node src/rotombotto_node.cpp)
  add_executable(${PROJECT_NAME}_light src/rotombotto_light.cpp)
  add_executable(${PROJECT_NAME}_test src/rotombotto_test.cpp)
+ add_executable(${PROJECT_NAME}_test src/rotombotto_testmotor.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -153,6 +154,7 @@ include_directories(
  target_link_libraries(${PROJECT_NAME}_node   ${catkin_LIBRARIES} )
  target_link_libraries(${PROJECT_NAME}_light   ${catkin_LIBRARIES} )
  target_link_libraries(${PROJECT_NAME}_test   ${catkin_LIBRARIES} )
+ target_link_libraries(${PROJECT_NAME}_testmotor   ${catkin_LIBRARIES} )
 
 #############
 ## Install ##

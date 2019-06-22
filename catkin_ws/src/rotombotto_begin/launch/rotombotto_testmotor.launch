@@ -5,7 +5,7 @@
 *	< VERSION PRUEBA> Launch para la prueba de todos y cada uno de los componentes disponibles
 *
 *
-*   Ultima versión: 18 de Junio del 2019	-->
+*   Ultima versión: 20 de Junio del 2019	-->
 	
 <launch>
 
@@ -16,8 +16,8 @@
 		<node name="motor_test" pkg="motor" type="motor_test.py" output="screen" />
 	</group>
 
-	<!--<group ns="software">
-		<node name="rotombotto_test" pkg="rotombotto" type="rotombotto_test"  />
-	</group>-->
+	<group ns="software">
+		<node name="rotombotto_testmotor" pkg="rotombotto" type="rotombotto_testmotor"  />
+	</group>
 
 </launch>

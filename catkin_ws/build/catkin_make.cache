@@ -1,2 +1,0 @@
-Hardware/joystick:Hardware/motor:Hardware/sensor:VEGA:rotombotto:rotombotto_begin:rplidar_ros
--DCATKIN_DEVEL_PREFIX=/home/pumas/RotomBotto/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/pumas/RotomBotto/catkin_ws/install -G Unix Makefiles

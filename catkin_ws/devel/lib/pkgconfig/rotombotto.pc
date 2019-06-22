@@ -1,8 +1,0 @@
-prefix=/home/pumas/RotomBotto/catkin_ws/devel
-
-Name: rotombotto
-Description: Description of rotombotto
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/pumas/RotomBotto/catkin_ws/devel/lib 
-Requires: 
