@@ -30,51 +30,65 @@ using namespace std;
 	//Variables de apoyo
 int i=0,j=0; //varaibles contadores
 int temp=0,cont=0; //Varaibles para la dirección de prueba de los motores, función pruebaMotores()
+float vel_temp=0.0; //Variable para la prubra de velocidad de los motores, función pruebaMotores
 
 	//Variables paraa guardar información de los tópicos
-float datos_joy[3]= {0,0,0}; //Variables para el tópico de información del joystick
 float dirMotor[2]={0,0}; //Variable para indicar los valores de dirección y velocidadesa los motores
-
+				//[VelDer] [Velizq]
 //_____________________________________________________________________________________________________________________
 
 //>>>>>>>>>>> FUNCIONES <<<<<<<<<<<
 
-
-	//Obtención del la dirección del nodo SMART THINGS
-void dataJoy(const std_msgs::Float32MultiArray::ConstPtr& dataJ){
-
-	datos_joy[0] = dataJ->data[0]; //Boton B
-	datos_joy[1] = dataJ->data[1]; //BOTON DERECHO
-	datos_joy[2] = dataJ->data[2]; //BOTON Izquierdo
-
-	std::cout<<"Datos de los botones recibidos:: B:"<<datos_joy[0]<<" B_DER:"<<datos_joy[1]<<" B_IZQ:"<<datos_joy[2]<<std::endl;	}//Fin de dirObtenida
-//-----------------------------------------------------------------------------------------
-
 	//Función para la pruba de los motores
-void pruebaMotores(const std_msgs::Float32MultiArray::ConstPtr& motorD){
+int pruebaMotores(int contador){
 
-	dirMotor[0] = motorD->data[0]; //Velocidad motor Derecho
-	dirMotor[1] = motorD->data[1]; //Velocidad motor Izquiero
+	std::cout<<"Velocidad actual de los motores: >"<<vel_temp<<std::endl;
 
-	std::cout<<"Datos de los botones recibidos:: VEL_DER:"<<dirMotor[0]<<" VEL_IZQ:"<<dirMotor[0]<<std::endl;
 
-	if (dirMotor[0]>0 && dirMotor[1]>0)
+
+	if (contador>0&&contador<=10){ //[0:10]
 		std::cout<<" MOTORES AVANZANDO"<<std::endl;
+		vel_temp=contador/10;
+		dirMotor[0]=vel_temp;
+		dirMotor[1]=vel_temp;
+	}
 
-	else if (dirMotor[0]<0 && dirMotor[1]<0)
+	else if (contador>10&&contador<=20){ //[11:20]
 		std::cout<<" MOTORES RETROCESO"<<std::endl;
+		vel_temp=(contador/10)-1;
+		dirMotor[0]=(-1*vel_temp);
+		dirMotor[1]=(-1*vel_temp);
+	}
 
-	else if (dirMotor[0]>0 && dirMotor[1]<0)
+	else if (contador>20&&contador<=30){ //[21:30]
 		std::cout<<" MOTORES GIRO IZQUIERDA"<<std::endl;
+		vel_temp=(contador/10)-2;
+		dirMotor[0]=vel_temp;
+		dirMotor[1]=(-1*vel_temp);
+	}
 
-	else if (dirMotor[0]<0 && dirMotor[1]>0)
+	else if (contador>30&&contador<=40){ //[31:40]
 		std::cout<<" MOTORES GIRO DERECHA"<<std::endl;
+		vel_temp=(contador/10)-3;
+		dirMotor[0]=(-1*vel_temp);
+		dirMotor[1]=vel_temp;
+	}
 
-	else if (dirMotor[0]==0 && dirMotor[1]==0)
+	else if (contador==0){
 		std::cout<<" MOTORES ALTO"<<std::endl;
+		dirMotor[0]=0;
+		dirMotor[1]=0;
+	}
 
 	else
 		std::cout<<" MOTORES DESCONOCIDO"<<std::endl;
+
+	contador=contador+1; //Aunmentando el contador
+
+	if (contador>40)
+		contador=0; //Reiniciando el contador
+
+	return contador;
 
 }//Fin de prueba motores
 
@@ -83,14 +97,9 @@ void pruebaMotores(const std_msgs::Float32MultiArray::ConstPtr& motorD){
 //Función principal
 int main(int  argc, char** argv){
 
-	std::cout<<">>>>>ROTOMBOTTO EN MODO DE PRUEBA EN LÍNEA<<<<<<"<<std::endl;
+	std::cout<<">>>>>ROTOMBOTTO EN MODO DE PRUEBA DE MOTORES EN LÍNEA<<<<<<"<<std::endl;
 	ros::init(argc,argv,"ROTOMBOTTO");
 	ros:: NodeHandle n;
-
-    //Obtención de los datos transmitidos por los diferentes nodos 
- 	ros::Subscriber subFoto = n.subscribe("/hardware/sensors/luz",10,valorFoto); //Nodo Sensors/Fotoresistores
- 	ros::Subscriber subTempt = n.subscribe("/hardware/sensors/tempt",10,valorTempt); //Nodo Sensors/Temperatura
- 	ros::Subscriber subJoy = n.subscribe("/hardware/joystick/data",100,dataJoy); //Nodo Hardware/joy
 
  	//Datos a publicar
 	std_msgs::Float32MultiArray  D_Motor; //Dirección del motor
@@ -101,17 +110,19 @@ int main(int  argc, char** argv){
 
 	ros::Rate loop(1);
     ros::Rate r(10);
+
+    cont=0;
 	
 	while(ros::ok()){
 
-	//pruebaMotores(); //Se prueban los motores
+		cont=pruebaMotores(cont); //Se prueban los motores
 
 		//Publicación de tópico de las direcciones
-	  //D_Motor.data[0] = 1; 
-	   //D_Motor.data[1] = 1;
-	    //std::cout<<D_Motor<<std::endl;
+	  	D_Motor.data[0] = dirMotor[0]; 
+	   	D_Motor.data[1] = dirMotor[1];
+	    std::cout<<D_Motor<<std::endl;
 
-		//pubDir.publish(D_Motor);  //Envió de las direcciónes al nodo Motor.py
+		pubDir.publish(D_Motor);  //Envió de las direcciónes al nodo Motor.py
 
 		ros::spinOnce();
 		loop.sleep();

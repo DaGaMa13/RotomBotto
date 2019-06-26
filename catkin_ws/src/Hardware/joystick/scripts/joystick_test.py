@@ -20,8 +20,16 @@ def callbackJoy(msg):
 	print "-----------------------------------------------"
 
 	#Obteniedo los datos del joystuck derecho para cotrol de la base movil
-	StickD_X = msg.axes[3]
-	StickD_Y = msg.axes[4]
+	StickD_X = float( msg.axes[3] ) #Modificacion para evitar problemas de error con los dato leios
+	StickD_Y = float( msg.axes[4] )
+
+	if  (StickD_X < -1.5) or (StickD_X > 1.5) or (StickD_Y < -1.5) or (StickD_Y > 1.5): #Error en la lectura del stick derecho
+
+		print "Valor obtenido fuera de los valores adecuados, deteniendo la base"
+
+		StickD_X = 0.0
+		StickD_Y = 0.0
+
 
 	print "Datos del stick derecho:::  x:_"+str(float(StickD_X))+"  y:_"+str(float(StickD_Y))
 
@@ -47,7 +55,7 @@ def callbackJoy(msg):
 	else:
 		print "Ningun boton presionado"
 
-	#EXTRA
+	#EXTRA Para el control hori
 
 	#if b13 == 1:
 	#	print "Obteniedo velocidades por medio de HORI"
@@ -154,5 +162,5 @@ if __name__ == '__main__':
 *   la plataforma robotica movil. <MODO TEST>
 *       #Agradecimientos a Marco Antonio Negrete Villanueva y a MARCOSOFT
 *       
-*   Ultima version: 8 de Mayo del 2019
+*   Ultima version: 24 de Junio del 2019
 *******************************************************************************'''

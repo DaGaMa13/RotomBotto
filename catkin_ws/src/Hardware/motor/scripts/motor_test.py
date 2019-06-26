@@ -45,6 +45,33 @@ def callbackSpeeds(msg):
 
 #-------------------------------------------------------------------------------------------
 
+#Algortimo para el calculo de la Odometria del robot según los datos obtenidos de los encoders
+
+def calculateOdometry(currentPos, leftEnc, rightEnc): #Los datos de los encoders se asume esten en pulsos
+
+    leftEnc = leftEnc * 0.39/980 #De pulsos a metros
+    rightEnc = rightEnc * 0.39/980
+
+    deltaTheta = (rightEnc - leftEnc)/0.48 #0.48 is the robot diameter
+
+    if math.fabs(deltaTheta) >= 0.0001:
+        rg = (leftEnc + rightEnc)/(2*deltaTheta)
+        deltaX = rg*math.sin(deltaTheta)
+        deltaY = rg*(1-math.cos(deltaTheta))
+
+    else:
+        deltaX = (leftEnc + rightEnc)/2
+        deltaY = 0
+
+    currentPos[0] += deltaX * math.cos(currentPos[2]) - deltaY * math.sin(currentPos[2])
+    currentPos[1] += deltaX * math.sin(currentPos[2]) + deltaY * math.cos(currentPos[2])
+    currentPos[2] += deltaTheta
+    
+    return currentPos
+
+
+#-------------------------------------------------------------------------------------------
+
 # FUNCION PRINCIPAL 
 def main(portName):
     print "Inicializando motores en modo de PRUEBA"
@@ -145,7 +172,7 @@ if __name__ == '__main__':
 *   Garces Marin Daniel         
 *   TESIS <Construccion de una plataforma robotica abierta para pruebas de desempeno de componentes y algoritmos>
 *
-*   <HARDWARE> Nodo motor
+*   <HARDWARE> Nodo MOTOR_TEST motor
 *   El principal objetivo de este nodo es el de manejar el control de los motores por medio de la tarjeta roboclaw  
 *       -Se debe destacar que se utilza una liberia para el uso de la tarjeta alojada en el paquete "hardware_tools"
 *       Agradecimientos a Marco Antonio Negrete Villanueva y a MARCOSOFT

@@ -1,0 +1,8 @@
+prefix=/home/danielg/RotomBotto/catkin_ws/install
+
+Name: motor
+Description: Description of motor
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/danielg/RotomBotto/catkin_ws/install/lib 
+Requires: 

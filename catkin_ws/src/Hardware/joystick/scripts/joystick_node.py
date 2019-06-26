@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 import math
 import rospy
 from sensor_msgs.msg import Joy
@@ -17,36 +16,24 @@ def callbackJoy(msg):
     global bD
     global bI 
 
-    print "Obteniendo los datos del control joystick"
-    #print "-----------------------------------------------"
-
     #Obteniedo los datos del joystuck derecho para cotrol de la base movil
-    StickD_X = msg.axes[3]
-    StickD_Y = msg.axes[4]
+    StickD_X = float( msg.axes[3] ) #Modificacion para evitar problemas de error con los dato leios
+    StickD_Y = float( msg.axes[4] )
 
-    #print "Datos del stick derecho:::  x:_"+str(float(StickD_X))+"  y:_"+str(float(StickD_Y))
+    if  (StickD_X < -1.5) or (StickD_X > 1.5) or (StickD_Y < -1.5) or (StickD_Y > 1.5): #Error en la lectura del stick derecho
+
+        print "Valor obtenido fuera de los valores adecuados, deteniendo la base"
+
+        StickD_X = 0.0
+        StickD_Y = 0.0
 
     boton_b = msg.buttons[1]
     boton_I = msg.buttons[4]
     boton_D = msg.buttons[5]
-    boton_jusan = msg.buttons[13]
 
     b = float(boton_b)
     bD = float(boton_D)
     bI = float(boton_I)
-    b13 = float(boton_jusan)
-
-   ''' if b == 1:
-        print "Boton B presionado"
-
-    elif bD == 1:
-        print "Boton DERECHO presionado"
-
-    elif bI == 1:
-        print "Boton IZQUIERDO presionado"
-
-    else:
-        print "Ningun boton presionado"'''
 
     #Obteniedo velocidades
 
@@ -79,12 +66,6 @@ def callbackJoy(msg):
         vel_D = 0
         vel_I = 0
 
-    #print "Velocidades obtenidas: Vel Der = "+str(vel_D)+"  Vel Izq = "+str(vel_I)
-
-
-    print "****************************************************"
-
-
 #_________________________________________________________________________________________________________________________
 def main():
 
@@ -115,9 +96,11 @@ def main():
 
 
     loop = rospy.Rate(10)
-    while not rospy.is_shutdown():
 
-        #print "Recibiendo datos----"
+    print "Obteniendo los datos del control joystick"
+    print "-----------------------------------------------"
+
+    while not rospy.is_shutdown():
 
         #Asignando datos recolectados
         msgVel.data = [vel_D,vel_I]
@@ -126,8 +109,6 @@ def main():
         #Publicando topicos
         pubVel.publish(msgVel)
         pubJoy.publish(msgJoy)
-
-    #rospy.spin()
 
 #_________________________________________________________________________________________________________________________
 if __name__ == '__main__':
@@ -145,5 +126,5 @@ if __name__ == '__main__':
 *   la plataforma robotica movil. <MODO TEST>
 *       #Agradecimientos a Marco Antonio Negrete Villanueva y a MARCOSOFT
 *       
-*   Ultima version: 10 de Mayo del 2019
+*   Ultima version: 24 d Junio del 2019
 *******************************************************************************'''
