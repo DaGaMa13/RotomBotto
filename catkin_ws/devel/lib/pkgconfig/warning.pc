@@ -1,0 +1,8 @@
+prefix=/home/danielg/RotomBotto/catkin_ws/devel
+
+Name: warning
+Description: Description of warning
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/danielg/RotomBotto/catkin_ws/devel/lib 
+Requires: 

@@ -580,3 +580,31 @@ Linking C executable cmTC_1ccc4
 make[1]: se sale del directorio '/home/danielg/RotomBotto/catkin_ws/build/CMakeFiles/CMakeTmp'
 
 
+Determining if the Q_WS_X11 exist passed with the following output:
+Change Dir: /home/danielg/RotomBotto/catkin_ws/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_55f48/fast"
+/usr/bin/make -f CMakeFiles/cmTC_55f48.dir/build.make CMakeFiles/cmTC_55f48.dir/build
+make[1]: se entra en el directorio '/home/danielg/RotomBotto/catkin_ws/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_55f48.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++    -I/usr/include/qt4   -o CMakeFiles/cmTC_55f48.dir/CheckSymbolExists.cxx.o -c /home/danielg/RotomBotto/catkin_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+Linking CXX executable cmTC_55f48
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_55f48.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_55f48.dir/CheckSymbolExists.cxx.o  -o cmTC_55f48 -rdynamic 
+make[1]: se sale del directorio '/home/danielg/RotomBotto/catkin_ws/build/CMakeFiles/CMakeTmp'
+
+File /home/danielg/RotomBotto/catkin_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_X11
+  return ((int*)(&Q_WS_X11))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+

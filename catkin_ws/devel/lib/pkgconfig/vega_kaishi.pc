@@ -1,0 +1,8 @@
+prefix=/home/danielg/RotomBotto/catkin_ws/devel
+
+Name: vega_kaishi
+Description: Description of vega_kaishi
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/danielg/RotomBotto/catkin_ws/devel/lib 
+Requires: 

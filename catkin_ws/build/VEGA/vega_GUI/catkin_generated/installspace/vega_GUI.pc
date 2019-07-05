@@ -1,0 +1,8 @@
+prefix=/home/danielg/RotomBotto/catkin_ws/install
+
+Name: vega_GUI
+Description: Description of vega_GUI
+Version: 0.1.0
+Cflags: 
+Libs: -L/home/danielg/RotomBotto/catkin_ws/install/lib 
+Requires: 

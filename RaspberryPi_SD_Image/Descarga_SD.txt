@@ -1,0 +1,18 @@
+***********************************************************************************
+*	TESIS Creación de una Plataforma Robótica Móvil para la puebas de componentes
+*	Garcés Marín Daniel
+*	con el apoyo del Laboratorio de Biorobótica
+*
+*	Ultima Versión: 3 de Julio del 2019
+*
+***********************************************************************************
+
+
+Por motivos práticos para el manejo del repositorio y como medida provicional el archivo de la imagen SD para el sistema operativo para la Raspberry Pi 3, se proporciona el siguiente link de descarga para los archivos, respectivamente el archivo original del SO para la Raspberry Pi y el respaldo de la imagen del SO usado durante el deasarrollo de la tesis:
+
+
+ _>> LINK DE DESCARGA GOOGLE DRIVE
+
+ 	https://drive.google.com/drive/folders/1_aPUjkhsUNPBeR6wxXcD0AEhO08CFMSC?usp=sharing
+
+
