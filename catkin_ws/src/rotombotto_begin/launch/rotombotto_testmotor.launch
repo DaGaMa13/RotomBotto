@@ -11,11 +11,13 @@
 
 	<group ns="hardware">
 <!--	 ダ・ガ・マ・jû-san -->
-		<node name="motor_test" pkg="motor" type="motor_test.py" output="screen" />
+       		 <node name="joy_node" pkg="joy" type="joy_node"/>
+		<node name="joystick_test" pkg="joystick" type="joystick_test.py"/>
+		<!--	 <node name="motor_test" pkg="motor" type="motor_test.py" output="screen" />  -->
 	</group>
 
 	<group ns="software">
-		<node name="rotombotto_testmotor" pkg="rotombotto" type="rotombotto_testmotor"  />
-	</group>
+			<node name="rotombotto_testmotor" pkg="rotombotto" type="rotombotto_testmotor"  />
+	</group> 
 
 </launch>

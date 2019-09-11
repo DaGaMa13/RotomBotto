@@ -1,8 +1,0 @@
-prefix=/home/danielg/RotomBotto/catkin_ws/devel
-
-Name: VEGA
-Description: Description of VEGA
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/danielg/RotomBotto/catkin_ws/devel/lib 
-Requires: 

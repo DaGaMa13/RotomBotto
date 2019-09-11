@@ -45,7 +45,7 @@ def callbackSpeeds(msg):
 
 #-------------------------------------------------------------------------------------------
 
-#Algortimo para el calculo de la Odometria del robot según los datos obtenidos de los encoders
+#Algortimo para el calculo de la Odometria del robot segun los datos obtenidos de los encoders
 
 def calculateOdometry(currentPos, leftEnc, rightEnc): #Los datos de los encoders se asume esten en pulsos
 

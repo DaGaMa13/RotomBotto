@@ -1,6 +1,2 @@
 # Hashes of file build rules.
-fe9c831b96697fdec33649d329013d5f CMakeFiles/clean_test_results
-75c989fda3768fc1a540bcba90d296f6 VEGA/vega_GUI/include/vega_GUI/moc_main_window.cxx
-98fa8745c5a4682d7b4463b4775e06fe VEGA/vega_GUI/include/vega_GUI/moc_qnode.cxx
-aae2f491afd133935e51afef4de23f97 VEGA/vega_GUI/qrc_images.cxx
-1cbb29906a3389f46fce6041c501fc91 VEGA/vega_GUI/ui_main_window.h
+a20303d08eebba6208717c28fe7c2ce8 CMakeFiles/clean_test_results
