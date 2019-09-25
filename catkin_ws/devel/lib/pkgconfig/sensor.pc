@@ -1,8 +1,8 @@
-prefix=/home/ubuntu/RotomBotto/catkin_ws/devel
+prefix=/home/danielg/RotomBotto/catkin_ws/devel
 
 Name: sensor
 Description: Description of sensor
 Version: 0.0.0
 Cflags: 
-Libs: -L/home/ubuntu/RotomBotto/catkin_ws/devel/lib 
+Libs: -L/home/danielg/RotomBotto/catkin_ws/devel/lib 
 Requires: 

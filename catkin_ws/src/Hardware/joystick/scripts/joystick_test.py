@@ -23,7 +23,7 @@ def callbackJoy(msg):
 	StickD_X = float( msg.axes[3] ) #Modificacion para evitar problemas de error con los dato leios
 	StickD_Y = float( msg.axes[4] )
 
-	if  (StickD_X < -1.5) or (StickD_X > 1.5) or (StickD_Y < -1.5) or (StickD_Y > 1.5): #Error en la lectura del stick derecho
+	if  (StickD_X < -1.0) or (StickD_X > 1.0) or (StickD_Y < -1.0) or (StickD_Y > 1.0): #Error en la lectura del stick derecho
 
 		print "Valor obtenido fuera de los valores adecuados, deteniendo la base"
 

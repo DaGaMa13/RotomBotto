@@ -1,8 +1,0 @@
-prefix=/home/ubuntu/RotomBotto/catkin_ws/devel
-
-Name: vega_GUI
-Description: Description of vega_GUI
-Version: 0.1.0
-Cflags: 
-Libs: -L/home/ubuntu/RotomBotto/catkin_ws/devel/lib 
-Requires: 

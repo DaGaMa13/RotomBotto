@@ -44,8 +44,6 @@ int pruebaMotores(int contador){
 
 	std::cout<<"Velocidad actual de los motores: >"<<vel_temp<<std::endl;
 
-
-
 	if (contador>0&&contador<=10){ //[0:10]
 		std::cout<<" MOTORES AVANZANDO"<<std::endl;
 		vel_temp=contador/10;

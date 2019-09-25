@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ubuntu/RotomBotto/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/danielg/RotomBotto/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ubuntu/RotomBotto/catkin_ws/build
+CMAKE_BINARY_DIR = /home/danielg/RotomBotto/catkin_ws/build
 
 # Utility rule file for geometry_msgs_generate_messages_eus.
 
@@ -63,10 +63,10 @@ rplidar_ros/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build: geometry_m
 .PHONY : rplidar_ros/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
 
 rplidar_ros/CMakeFiles/geometry_msgs_generate_messages_eus.dir/clean:
-	cd /home/ubuntu/RotomBotto/catkin_ws/build/rplidar_ros && $(CMAKE_COMMAND) -P CMakeFiles/geometry_msgs_generate_messages_eus.dir/cmake_clean.cmake
+	cd /home/danielg/RotomBotto/catkin_ws/build/rplidar_ros && $(CMAKE_COMMAND) -P CMakeFiles/geometry_msgs_generate_messages_eus.dir/cmake_clean.cmake
 .PHONY : rplidar_ros/CMakeFiles/geometry_msgs_generate_messages_eus.dir/clean
 
 rplidar_ros/CMakeFiles/geometry_msgs_generate_messages_eus.dir/depend:
-	cd /home/ubuntu/RotomBotto/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ubuntu/RotomBotto/catkin_ws/src /home/ubuntu/RotomBotto/catkin_ws/src/rplidar_ros /home/ubuntu/RotomBotto/catkin_ws/build /home/ubuntu/RotomBotto/catkin_ws/build/rplidar_ros /home/ubuntu/RotomBotto/catkin_ws/build/rplidar_ros/CMakeFiles/geometry_msgs_generate_messages_eus.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/danielg/RotomBotto/catkin_ws/src /home/danielg/RotomBotto/catkin_ws/src/rplidar_ros /home/danielg/RotomBotto/catkin_ws/build /home/danielg/RotomBotto/catkin_ws/build/rplidar_ros /home/danielg/RotomBotto/catkin_ws/build/rplidar_ros/CMakeFiles/geometry_msgs_generate_messages_eus.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : rplidar_ros/CMakeFiles/geometry_msgs_generate_messages_eus.dir/depend
 
