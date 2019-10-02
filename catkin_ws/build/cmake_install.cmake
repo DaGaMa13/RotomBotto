@@ -131,7 +131,8 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/danielg/RotomBotto/catkin_ws/build/rotombotto/cmake_install.cmake")
   include("/home/danielg/RotomBotto/catkin_ws/build/rotombotto_begin/cmake_install.cmake")
   include("/home/danielg/RotomBotto/catkin_ws/build/Hardware/sensor/cmake_install.cmake")
-  include("/home/danielg/RotomBotto/catkin_ws/build/rplidar_ros/cmake_install.cmake")
+  include("/home/danielg/RotomBotto/catkin_ws/build/Hardware/rplidar_ros/cmake_install.cmake")
+  include("/home/danielg/RotomBotto/catkin_ws/build/Navigation/rotombotto_setup_tf/cmake_install.cmake")
 
 endif()
 
