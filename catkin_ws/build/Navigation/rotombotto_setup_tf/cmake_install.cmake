@@ -1,8 +1,8 @@
-# Install script for directory: /home/danielg/RotomBotto/catkin_ws/src/Navigation/rotombotto_setup_tf
+# Install script for directory: /home/ubuntu/RotomBotto/catkin_ws/src/Navigation/rotombotto_setup_tf
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/danielg/RotomBotto/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/ubuntu/RotomBotto/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,17 +33,17 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/danielg/RotomBotto/catkin_ws/build/Navigation/rotombotto_setup_tf/catkin_generated/installspace/rotombotto_setup_tf.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/ubuntu/RotomBotto/catkin_ws/build/Navigation/rotombotto_setup_tf/catkin_generated/installspace/rotombotto_setup_tf.pc")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rotombotto_setup_tf/cmake" TYPE FILE FILES
-    "/home/danielg/RotomBotto/catkin_ws/build/Navigation/rotombotto_setup_tf/catkin_generated/installspace/rotombotto_setup_tfConfig.cmake"
-    "/home/danielg/RotomBotto/catkin_ws/build/Navigation/rotombotto_setup_tf/catkin_generated/installspace/rotombotto_setup_tfConfig-version.cmake"
+    "/home/ubuntu/RotomBotto/catkin_ws/build/Navigation/rotombotto_setup_tf/catkin_generated/installspace/rotombotto_setup_tfConfig.cmake"
+    "/home/ubuntu/RotomBotto/catkin_ws/build/Navigation/rotombotto_setup_tf/catkin_generated/installspace/rotombotto_setup_tfConfig-version.cmake"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rotombotto_setup_tf" TYPE FILE FILES "/home/danielg/RotomBotto/catkin_ws/src/Navigation/rotombotto_setup_tf/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rotombotto_setup_tf" TYPE FILE FILES "/home/ubuntu/RotomBotto/catkin_ws/src/Navigation/rotombotto_setup_tf/package.xml")
 endif()
 

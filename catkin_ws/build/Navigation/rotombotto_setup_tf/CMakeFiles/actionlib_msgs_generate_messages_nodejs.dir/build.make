@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/danielg/RotomBotto/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/ubuntu/RotomBotto/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/danielg/RotomBotto/catkin_ws/build
+CMAKE_BINARY_DIR = /home/ubuntu/RotomBotto/catkin_ws/build
 
 # Utility rule file for actionlib_msgs_generate_messages_nodejs.
 
@@ -63,10 +63,10 @@ Navigation/rotombotto_setup_tf/CMakeFiles/actionlib_msgs_generate_messages_nodej
 .PHONY : Navigation/rotombotto_setup_tf/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build
 
 Navigation/rotombotto_setup_tf/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/clean:
-	cd /home/danielg/RotomBotto/catkin_ws/build/Navigation/rotombotto_setup_tf && $(CMAKE_COMMAND) -P CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/cmake_clean.cmake
+	cd /home/ubuntu/RotomBotto/catkin_ws/build/Navigation/rotombotto_setup_tf && $(CMAKE_COMMAND) -P CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/cmake_clean.cmake
 .PHONY : Navigation/rotombotto_setup_tf/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/clean
 
 Navigation/rotombotto_setup_tf/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/depend:
-	cd /home/danielg/RotomBotto/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/danielg/RotomBotto/catkin_ws/src /home/danielg/RotomBotto/catkin_ws/src/Navigation/rotombotto_setup_tf /home/danielg/RotomBotto/catkin_ws/build /home/danielg/RotomBotto/catkin_ws/build/Navigation/rotombotto_setup_tf /home/danielg/RotomBotto/catkin_ws/build/Navigation/rotombotto_setup_tf/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ubuntu/RotomBotto/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ubuntu/RotomBotto/catkin_ws/src /home/ubuntu/RotomBotto/catkin_ws/src/Navigation/rotombotto_setup_tf /home/ubuntu/RotomBotto/catkin_ws/build /home/ubuntu/RotomBotto/catkin_ws/build/Navigation/rotombotto_setup_tf /home/ubuntu/RotomBotto/catkin_ws/build/Navigation/rotombotto_setup_tf/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : Navigation/rotombotto_setup_tf/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/depend
 

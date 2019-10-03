@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/home/danielg/RotomBotto/catkin_ws/src/rotombotto/src/rotombotto_light.cpp
+/home/ubuntu/RotomBotto/catkin_ws/src/rotombotto/src/rotombotto_light.cpp
 ros/ros.h
-/home/danielg/RotomBotto/catkin_ws/src/rotombotto/src/ros/ros.h
+/home/ubuntu/RotomBotto/catkin_ws/src/rotombotto/src/ros/ros.h
 std_msgs/Float32MultiArray.h
-/home/danielg/RotomBotto/catkin_ws/src/rotombotto/src/std_msgs/Float32MultiArray.h
+/home/ubuntu/RotomBotto/catkin_ws/src/rotombotto/src/std_msgs/Float32MultiArray.h
 std_msgs/String.h
-/home/danielg/RotomBotto/catkin_ws/src/rotombotto/src/std_msgs/String.h
+/home/ubuntu/RotomBotto/catkin_ws/src/rotombotto/src/std_msgs/String.h
 stdio.h
 -
 stdlib.h

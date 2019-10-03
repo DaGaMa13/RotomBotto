@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/danielg/RotomBotto/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/ubuntu/RotomBotto/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/danielg/RotomBotto/catkin_ws/build
+CMAKE_BINARY_DIR = /home/ubuntu/RotomBotto/catkin_ws/build
 
 # Include any dependencies generated for this target.
 include Hardware/sensor/CMakeFiles/sensor_node.dir/depend.make
@@ -58,17 +58,17 @@ include Hardware/sensor/CMakeFiles/sensor_node.dir/progress.make
 include Hardware/sensor/CMakeFiles/sensor_node.dir/flags.make
 
 Hardware/sensor/CMakeFiles/sensor_node.dir/src/sensor_node.cpp.o: Hardware/sensor/CMakeFiles/sensor_node.dir/flags.make
-Hardware/sensor/CMakeFiles/sensor_node.dir/src/sensor_node.cpp.o: /home/danielg/RotomBotto/catkin_ws/src/Hardware/sensor/src/sensor_node.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danielg/RotomBotto/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object Hardware/sensor/CMakeFiles/sensor_node.dir/src/sensor_node.cpp.o"
-	cd /home/danielg/RotomBotto/catkin_ws/build/Hardware/sensor && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sensor_node.dir/src/sensor_node.cpp.o -c /home/danielg/RotomBotto/catkin_ws/src/Hardware/sensor/src/sensor_node.cpp
+Hardware/sensor/CMakeFiles/sensor_node.dir/src/sensor_node.cpp.o: /home/ubuntu/RotomBotto/catkin_ws/src/Hardware/sensor/src/sensor_node.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ubuntu/RotomBotto/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object Hardware/sensor/CMakeFiles/sensor_node.dir/src/sensor_node.cpp.o"
+	cd /home/ubuntu/RotomBotto/catkin_ws/build/Hardware/sensor && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sensor_node.dir/src/sensor_node.cpp.o -c /home/ubuntu/RotomBotto/catkin_ws/src/Hardware/sensor/src/sensor_node.cpp
 
 Hardware/sensor/CMakeFiles/sensor_node.dir/src/sensor_node.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sensor_node.dir/src/sensor_node.cpp.i"
-	cd /home/danielg/RotomBotto/catkin_ws/build/Hardware/sensor && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danielg/RotomBotto/catkin_ws/src/Hardware/sensor/src/sensor_node.cpp > CMakeFiles/sensor_node.dir/src/sensor_node.cpp.i
+	cd /home/ubuntu/RotomBotto/catkin_ws/build/Hardware/sensor && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ubuntu/RotomBotto/catkin_ws/src/Hardware/sensor/src/sensor_node.cpp > CMakeFiles/sensor_node.dir/src/sensor_node.cpp.i
 
 Hardware/sensor/CMakeFiles/sensor_node.dir/src/sensor_node.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sensor_node.dir/src/sensor_node.cpp.s"
-	cd /home/danielg/RotomBotto/catkin_ws/build/Hardware/sensor && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danielg/RotomBotto/catkin_ws/src/Hardware/sensor/src/sensor_node.cpp -o CMakeFiles/sensor_node.dir/src/sensor_node.cpp.s
+	cd /home/ubuntu/RotomBotto/catkin_ws/build/Hardware/sensor && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ubuntu/RotomBotto/catkin_ws/src/Hardware/sensor/src/sensor_node.cpp -o CMakeFiles/sensor_node.dir/src/sensor_node.cpp.s
 
 Hardware/sensor/CMakeFiles/sensor_node.dir/src/sensor_node.cpp.o.requires:
 
@@ -88,33 +88,33 @@ sensor_node_OBJECTS = \
 # External object files for target sensor_node
 sensor_node_EXTERNAL_OBJECTS =
 
-/home/danielg/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: Hardware/sensor/CMakeFiles/sensor_node.dir/src/sensor_node.cpp.o
-/home/danielg/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: Hardware/sensor/CMakeFiles/sensor_node.dir/build.make
-/home/danielg/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: /opt/ros/kinetic/lib/libroscpp.so
-/home/danielg/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
-/home/danielg/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: /usr/lib/x86_64-linux-gnu/libboost_signals.so
-/home/danielg/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: /opt/ros/kinetic/lib/librosconsole.so
-/home/danielg/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: /opt/ros/kinetic/lib/librosconsole_log4cxx.so
-/home/danielg/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: /opt/ros/kinetic/lib/librosconsole_backend_interface.so
-/home/danielg/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
-/home/danielg/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: /usr/lib/x86_64-linux-gnu/libboost_regex.so
-/home/danielg/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: /opt/ros/kinetic/lib/libxmlrpcpp.so
-/home/danielg/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: /opt/ros/kinetic/lib/libroscpp_serialization.so
-/home/danielg/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: /opt/ros/kinetic/lib/librostime.so
-/home/danielg/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: /opt/ros/kinetic/lib/libcpp_common.so
-/home/danielg/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: /usr/lib/x86_64-linux-gnu/libboost_system.so
-/home/danielg/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: /usr/lib/x86_64-linux-gnu/libboost_thread.so
-/home/danielg/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
-/home/danielg/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
-/home/danielg/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
-/home/danielg/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: /usr/lib/x86_64-linux-gnu/libpthread.so
-/home/danielg/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so
-/home/danielg/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: Hardware/sensor/CMakeFiles/sensor_node.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/danielg/RotomBotto/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable /home/danielg/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node"
-	cd /home/danielg/RotomBotto/catkin_ws/build/Hardware/sensor && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/sensor_node.dir/link.txt --verbose=$(VERBOSE)
+/home/ubuntu/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: Hardware/sensor/CMakeFiles/sensor_node.dir/src/sensor_node.cpp.o
+/home/ubuntu/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: Hardware/sensor/CMakeFiles/sensor_node.dir/build.make
+/home/ubuntu/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: /opt/ros/kinetic/lib/libroscpp.so
+/home/ubuntu/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: /usr/lib/arm-linux-gnueabihf/libboost_filesystem.so
+/home/ubuntu/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: /usr/lib/arm-linux-gnueabihf/libboost_signals.so
+/home/ubuntu/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: /opt/ros/kinetic/lib/librosconsole.so
+/home/ubuntu/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: /opt/ros/kinetic/lib/librosconsole_log4cxx.so
+/home/ubuntu/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: /opt/ros/kinetic/lib/librosconsole_backend_interface.so
+/home/ubuntu/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: /usr/lib/arm-linux-gnueabihf/liblog4cxx.so
+/home/ubuntu/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: /usr/lib/arm-linux-gnueabihf/libboost_regex.so
+/home/ubuntu/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: /opt/ros/kinetic/lib/libxmlrpcpp.so
+/home/ubuntu/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: /opt/ros/kinetic/lib/libroscpp_serialization.so
+/home/ubuntu/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: /opt/ros/kinetic/lib/librostime.so
+/home/ubuntu/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: /opt/ros/kinetic/lib/libcpp_common.so
+/home/ubuntu/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: /usr/lib/arm-linux-gnueabihf/libboost_system.so
+/home/ubuntu/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: /usr/lib/arm-linux-gnueabihf/libboost_thread.so
+/home/ubuntu/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: /usr/lib/arm-linux-gnueabihf/libboost_chrono.so
+/home/ubuntu/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: /usr/lib/arm-linux-gnueabihf/libboost_date_time.so
+/home/ubuntu/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: /usr/lib/arm-linux-gnueabihf/libboost_atomic.so
+/home/ubuntu/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: /usr/lib/arm-linux-gnueabihf/libpthread.so
+/home/ubuntu/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: /usr/lib/arm-linux-gnueabihf/libconsole_bridge.so
+/home/ubuntu/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node: Hardware/sensor/CMakeFiles/sensor_node.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ubuntu/RotomBotto/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable /home/ubuntu/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node"
+	cd /home/ubuntu/RotomBotto/catkin_ws/build/Hardware/sensor && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/sensor_node.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-Hardware/sensor/CMakeFiles/sensor_node.dir/build: /home/danielg/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node
+Hardware/sensor/CMakeFiles/sensor_node.dir/build: /home/ubuntu/RotomBotto/catkin_ws/devel/lib/sensor/sensor_node
 
 .PHONY : Hardware/sensor/CMakeFiles/sensor_node.dir/build
 
@@ -123,10 +123,10 @@ Hardware/sensor/CMakeFiles/sensor_node.dir/requires: Hardware/sensor/CMakeFiles/
 .PHONY : Hardware/sensor/CMakeFiles/sensor_node.dir/requires
 
 Hardware/sensor/CMakeFiles/sensor_node.dir/clean:
-	cd /home/danielg/RotomBotto/catkin_ws/build/Hardware/sensor && $(CMAKE_COMMAND) -P CMakeFiles/sensor_node.dir/cmake_clean.cmake
+	cd /home/ubuntu/RotomBotto/catkin_ws/build/Hardware/sensor && $(CMAKE_COMMAND) -P CMakeFiles/sensor_node.dir/cmake_clean.cmake
 .PHONY : Hardware/sensor/CMakeFiles/sensor_node.dir/clean
 
 Hardware/sensor/CMakeFiles/sensor_node.dir/depend:
-	cd /home/danielg/RotomBotto/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/danielg/RotomBotto/catkin_ws/src /home/danielg/RotomBotto/catkin_ws/src/Hardware/sensor /home/danielg/RotomBotto/catkin_ws/build /home/danielg/RotomBotto/catkin_ws/build/Hardware/sensor /home/danielg/RotomBotto/catkin_ws/build/Hardware/sensor/CMakeFiles/sensor_node.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ubuntu/RotomBotto/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ubuntu/RotomBotto/catkin_ws/src /home/ubuntu/RotomBotto/catkin_ws/src/Hardware/sensor /home/ubuntu/RotomBotto/catkin_ws/build /home/ubuntu/RotomBotto/catkin_ws/build/Hardware/sensor /home/ubuntu/RotomBotto/catkin_ws/build/Hardware/sensor/CMakeFiles/sensor_node.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : Hardware/sensor/CMakeFiles/sensor_node.dir/depend
 
