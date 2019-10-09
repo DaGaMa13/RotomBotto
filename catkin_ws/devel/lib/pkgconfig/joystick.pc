@@ -1,8 +1,0 @@
-prefix=/home/ubuntu/RotomBotto/catkin_ws/devel
-
-Name: joystick
-Description: Description of joystick
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/ubuntu/RotomBotto/catkin_ws/devel/lib 
-Requires: 

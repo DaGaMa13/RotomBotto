@@ -130,13 +130,13 @@ def main(portName):
             if leftSpeed >= 0:
                 RC.ForwardM2(address, leftSpeed)
             else:
-                RC.BackwardsM2(address, -leftSpeed)
+                RC.BackwardM2(address, -leftSpeed)
 
             #Asignando las direcciones del motor derecho
             if rightSpeed >= 0:
                 RC.ForwardM1(address, rightSpeed)
             else:
-                RC.BackwardsM1(address, -rightSpeed)
+                RC.BackwardM1(address, -rightSpeed)
 
         #Obteniendo informacion de los encoders
         encoderLeft = RC.ReadEncM2(address) #Falta multiplicarlo por -1, tal vez no sea necesario
