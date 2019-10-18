@@ -155,6 +155,19 @@
 		+ add_executable(pointClouds_publisher src/pointClouds_publisher.cpp)
 
 		+ target_link_libraries(pointClouds_publisher ${catkin_LIBRARIES})
+	#--------------------------------------------------------------------------------------------
+
+		>$ cd Rotombotto/catkin_make/src/Navigation/
+		>$ catkin_create_pkg Odometry_manager roscpp tf geometry_msgs
+
+	*>Creación de los nodos
+		+odometry_publisher.cpp
+
+	*>Modificación de las líneas regulares 136, 146 y 149 del CMakeList
+
+		+ add_executable(odometry_publisher src/odometry_publisher.cpp)
+
+		+ target_link_libraries(odometry_publisher ${catkin_LIBRARIES})
 
 	#***********************************************************************************************
 
