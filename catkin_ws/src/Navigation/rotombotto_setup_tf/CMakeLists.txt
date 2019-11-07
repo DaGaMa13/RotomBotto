@@ -134,7 +134,7 @@ include_directories(
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/rotombotto_setup_tf_node.cpp)
-add_executable(tf_broadcaster src/tf_broadcaster.cpp)
+add_executable(rotombotto_tf_broadcaster src/rotombotto_tf_broadcaster.cpp)
 add_executable(tf_listener src/tf_listener.cpp)
 
 ## Rename C++ executable without prefix
@@ -145,13 +145,14 @@ add_executable(tf_listener src/tf_listener.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-# add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(rotombotto_tf_broadcaster${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(tf_listener ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
 # target_link_libraries(${PROJECT_NAME}_node
 #   ${catkin_LIBRARIES}
 # )
-target_link_libraries(tf_broadcaster ${catkin_LIBRARIES})
+target_link_libraries(rotombotto_tf_broadcaster ${catkin_LIBRARIES})
 target_link_libraries(tf_listener ${catkin_LIBRARIES})
 
 #############

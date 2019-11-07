@@ -132,16 +132,16 @@
 	*>Creación del Paquete para el manejo de los sensores  >>>> http://wiki.ros.org/navigation/Tutorials/RobotSetup/TF
 
 		>$ cd Rotombotto/catkin_make/src/Navigation/
-		>$ catkin_create_pkg LaserScan_manager roscpp tf geometry_msgs
+		>$ catkin_create_pkg rotombotto_laserScan_manager roscpp tf geometry_msgs
 
 	*>Creación de los nodos
-		+LaserScan_publisher.cpp
+		+rotombotto_laserScan_publisher.cpp
 
 	*>Modificación de las líneas regulares 136, 146 y 149 del CMakeList
 
-		+ add_executable(aserScan_publisher src/LaserScan_publisher.cpp)
+		+ add_executable(rotombotto_laserScan_publisher src/rotombotto_laserScan_publisher.cpp)
 
-		+ target_link_libraries(LaserScan_publisher ${catkin_LIBRARIES})
+		+ target_link_libraries(rotombotto_laserScan_publisher ${catkin_LIBRARIES})
 	#--------------------------------------------------------------------------------------------
 
 		>$ cd Rotombotto/catkin_make/src/Navigation/
@@ -153,6 +153,7 @@
 	*>Modificación de las líneas regulares 136, 146 y 149 del CMakeList
 
 		+ add_executable(pointClouds_publisher src/pointClouds_publisher.cpp)
+ 		+ add_dependencies(rotombotto_laserScan_publisher ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 		+ target_link_libraries(pointClouds_publisher ${catkin_LIBRARIES})
 	#--------------------------------------------------------------------------------------------
@@ -176,7 +177,7 @@
 
 
 
-###############################################################################################
+##################################################################################################################
 
 	++++++++>>> VEGA <<<+++++++++
 
@@ -226,16 +227,18 @@
 
 
 		>$rosrun vega_GUI vega_GUI
-
-
-
-
 	#--------------------------------------------------------------------------------------------
 
 
+##################################################################################################################
+
+>>> PAQUETERIAS ROTOMBOTTO
 
 
+>>> TOPICOS 
 
+
+##################################################################################################################
 ******************************************************************************************************************************
 
 >>NOTAS IMPORTANTES

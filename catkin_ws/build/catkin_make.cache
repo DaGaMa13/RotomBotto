@@ -1,0 +1,2 @@
+Hardware/joystick:Hardware/motor:Hardware/rplidar_ros:Hardware/sensor:Navigation/rotombotto_Odometry_manager:Navigation/rotombotto_laserScan_manager:Navigation/rotombotto_setup_tf:rotombotto:rotombotto_begin
+-DCATKIN_DEVEL_PREFIX=/home/danielg/RotomBotto/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/danielg/RotomBotto/catkin_ws/install -G Unix Makefiles
