@@ -82,8 +82,12 @@ def main(portName):
     #Suscripcion a Topicos
     subSpeeds = rospy.Subscriber("/hardware/motors/speeds", Float32MultiArray, callbackSpeeds)  #Topico para obtener vel y dir de los motores
 
+    #Publicacion de Topicos
+    pubOdometry = rospy.Publisher("mobile_base/odometry", Odometry, queue_size = 1) 
+    #Publica los datos obtenidos de los encoders y analizados para indicar la posición actual del robot
+
     #Estableciendo parametros de ROS
-    br = tf.TransformBroadcaster()
+    br = tf.TransformBroadcaster() #Adecuando los datos obtenidos al sistema de coordenadas del robot
     rate = rospy.Rate(20)
 
     #Comunicacion serial con la tarjeta roboclaw Roboclaw
@@ -104,7 +108,7 @@ def main(portName):
 
     leftSpeed = 0 #[-1:0:1]
     rightSpeed = 0 #[-1:0:1]
-    newSpeedData = False
+    newSpeedData = False #Al inciar no existe nuevos datos de movmiento
     speedCounter = 5
 
     #Variables para la Odometria
@@ -138,13 +142,64 @@ def main(portName):
             else:
                 RC.BackwardM1(address, -rightSpeed)
 
+        else: #NO se obtuvieron nuevos datos del topico, los motores se detienen
+
+            speedCounter -= 1 
+
+            if speedCounter == 0:
+                RC.ForwardM1(address, 0)
+                RC.ForwardM2(address, 0)
+ 
+            if speedCounter < -1:
+                speedCounter = -1
+
         #Obteniendo informacion de los encoders
         encoderLeft = RC.ReadEncM2(address) #Falta multiplicarlo por -1, tal vez no sea necesario
         encoderRight = RC.ReadEncM1(address) #El valor negativo obtenido en este encoder proviene de la posicion de orientacion del motor.
         RC.ResetEncoders(address)
 
         print "[VEGA]:: Lectura de los enconders Encoders: EncIzq" + str(encoderLeft) + "  EncDer" + str(encoderRight)
+
+        #Calculo de la Odometría, usando la función respectiva
+        robotPos = calculateOdometry(robotPos, encoderLeft, encoderRight)        
+
+        #Implementando la Odometría en el arbol de trasnformadas tf en el SisCoord BASE_LINK
+
+        ts = TransformStamped()
+
+        #Definicion de las cabeceras para la publicacion
+        ts.header.stamp = rospy.Time.now()
+        ts.header.frame_id = "odom"
+        ts.child_frame_id = "base_link"
+
+        #Asignando los datos obtenidos al Sistema de coordenadas
+        ts.transform.translation.x = robotPos[0]
+        ts.transform.translation.y = robotPos[1]
+        ts.transform.translation.z = 0
+        ts.transform.rotation = tf.transformations.quaternion_from_euler(0, 0, robotPos[2])
         
+        #Proceso de ajuste
+        br.sendTransform((robotPos[0], robotPos[1], 0), ts.transform.rotation, rospy.Time.now(), ts.child_frame_id, ts.header.frame_id)
+
+        #Generando el mensaje de timo Odom_msgs para la publicacion de la informacion obtenidoa
+        msgOdom = Odometry()
+        msgOdom.header.stamp = rospy.Time.now()
+        msgOdom.pose.pose.position.x = robotPos[0]
+        msgOdom.pose.pose.position.y = robotPos[1]
+        msgOdom.pose.pose.position.z = 0
+        msgOdom.pose.pose.orientation.x = 0
+        msgOdom.pose.pose.orientation.y = 0
+        msgOdom.pose.pose.orientation.z = math.sin(robotPos[2]/2)
+        msgOdom.pose.pose.orientation.w = math.cos(robotPos[2]/2)
+        pubOdometry.publish(msgOdom)
+
+        rate.sleep()
+
+    #Fin del while
+
+    RC.ForwardM1(address, 0)
+    RC.ForwardM2(address, 0)
+    RC.Close()
 
     #FIN DEL WHILE
 
