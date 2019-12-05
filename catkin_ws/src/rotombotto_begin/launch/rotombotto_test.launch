@@ -5,7 +5,7 @@
 *	< VERSION PRUEBA> Launch para la prueba de todos y cada uno de los componentes disponibles
 *
 *
-*   Ultima versión: 27 de Mayo del 2019	-->
+*   Ultima versión: 25 de Noviembre del 2019	-->
 	
 <launch>
 
@@ -29,6 +29,17 @@
 		<node name="joystick_test" pkg="joystick" type="joystick_test.py"/>
 		<node name="sensor_test" pkg="sensor" type="sensor_test" output="screen" />
 		<node name="motor_test" pkg="motor" type="motor_test.py" output="screen" />
+	</group>
+
+	 <group ns="navigation"> 
+
+	 	<!-- Inicializando el nodo para la publicacion del arbol de trasnformadas-->
+		<node name="rotombotto_tf_broadcaster" pkg="rotombotto_setup_tf" type="rotombotto_tf_broadcaster" />
+		<!-- <node name="rotombotto_tf_listener" pkg="rotombotto_setup_tf" type="rotombotto_tf_listener" /> -->
+
+	 	<!-- Inicializando el nodo para la administracion de los datos del laser-->
+		<node name="rotombotto_laserScan_publisher" pkg="rotombotto_laserScan_manager" type="rotombotto_laserScan_publisher" />
+
 	</group>
 
 	<group ns="software">
