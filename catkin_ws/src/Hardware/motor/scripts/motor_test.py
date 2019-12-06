@@ -27,8 +27,8 @@ def callbackSpeeds(msg):
     # (+)>Adelante, (-)>Retroceso
 
     #Obteniedo datos del topico 
-    leftSpeed = float(msg.data[0])
-    rightSpeed = float(msg.data[1])
+    rightSpeed = float(msg.data[0])
+    leftSpeed= float(msg.data[1])
     print "[MOTOR_TEST|>>>Valores de velocidades obtenidos:: VelIzq:_"+str(float(leftSpeed))+" ; velDer:_"+str(float(rightSpeed))
 
 
@@ -49,7 +49,7 @@ def callbackSpeeds(msg):
 
 def calculateOdometry(currentPos, leftEnc, rightEnc): #Los datos de los encoders se asume esten en pulsos
 
-    leftEnc = leftEnc * 0.39/980 #De pulsos a metros
+    leftEnc =leftEnc * 0.39/980 #De pulsos a metros
     rightEnc = rightEnc * 0.39/980
 
     deltaTheta = (rightEnc - leftEnc)/0.48 #0.48 is the robot diameter
@@ -84,11 +84,11 @@ def main(portName):
 
     #Publicacion de Topicos
     pubOdometry = rospy.Publisher("mobile_base/odometry", Odometry, queue_size = 1) 
-    #Publica los datos obtenidos de los encoders y analizados para indicar la posición actual del robot
+    #Publica los datos obtenidos de los encoders y analizados para indicar la posicion actual del robot
 
     #Estableciendo parametros de ROS
     br = tf.TransformBroadcaster() #Adecuando los datos obtenidos al sistema de coordenadas del robot
-    rate = rospy.Rate(20)
+    rate = rospy.Rate(1)
 
     #Comunicacion serial con la tarjeta roboclaw Roboclaw
 
@@ -160,38 +160,38 @@ def main(portName):
 
         print "[VEGA]:: Lectura de los enconders Encoders: EncIzq" + str(encoderLeft) + "  EncDer" + str(encoderRight)
 
-        #Calculo de la Odometría, usando la función respectiva
-        robotPos = calculateOdometry(robotPos, encoderLeft, encoderRight)        
+        #Calculo de la Odometria, usando la funcion respectiva
+      #  robotPos = calculateOdometry(robotPos, encoderLeft, encoderRight)        
 
-        #Implementando la Odometría en el arbol de trasnformadas tf en el SisCoord BASE_LINK
+        #Implementando la Odometria en el arbol de trasnformadas tf en el SisCoord BASE_LINK
 
-        ts = TransformStamped()
+       # ts = TransformStamped()
 
         #Definicion de las cabeceras para la publicacion
-        ts.header.stamp = rospy.Time.now()
-        ts.header.frame_id = "odom"
-        ts.child_frame_id = "base_link"
+       # ts.header.stamp = rospy.Time.now()
+       # ts.header.frame_id = "odom"
+        #ts.child_frame_id = "base_link"
 
         #Asignando los datos obtenidos al Sistema de coordenadas
-        ts.transform.translation.x = robotPos[0]
-        ts.transform.translation.y = robotPos[1]
-        ts.transform.translation.z = 0
-        ts.transform.rotation = tf.transformations.quaternion_from_euler(0, 0, robotPos[2])
+     #   ts.transform.translation.x = robotPos[0]
+       # ts.transform.translation.y = robotPos[1]
+       # ts.transform.translation.z = 0
+       # ts.transform.rotation = tf.transformations.quaternion_from_euler(0, 0, robotPos[2])
         
         #Proceso de ajuste
-        br.sendTransform((robotPos[0], robotPos[1], 0), ts.transform.rotation, rospy.Time.now(), ts.child_frame_id, ts.header.frame_id)
+       # br.sendTransform((robotPos[0], robotPos[1], 0), ts.transform.rotation, rospy.Time.now(), ts.child_frame_id, ts.header.frame_id)
 
         #Generando el mensaje de timo Odom_msgs para la publicacion de la informacion obtenidoa
-        msgOdom = Odometry()
-        msgOdom.header.stamp = rospy.Time.now()
-        msgOdom.pose.pose.position.x = robotPos[0]
-        msgOdom.pose.pose.position.y = robotPos[1]
-        msgOdom.pose.pose.position.z = 0
-        msgOdom.pose.pose.orientation.x = 0
-        msgOdom.pose.pose.orientation.y = 0
-        msgOdom.pose.pose.orientation.z = math.sin(robotPos[2]/2)
-        msgOdom.pose.pose.orientation.w = math.cos(robotPos[2]/2)
-        pubOdometry.publish(msgOdom)
+        #msgOdom = Odometry()
+        #msgOdom.header.stamp = rospy.Time.now()
+       # msgOdom.pose.pose.position.x = robotPos[0]
+       # msgOdom.pose.pose.position.y = robotPos[1]
+       # msgOdom.pose.pose.position.z = 0
+       # msgOdom.pose.pose.orientation.x = 0
+        #msgOdom.pose.pose.orientation.y = 0
+       # msgOdom.pose.pose.orientation.z = math.sin(robotPos[2]/2)
+      #  msgOdom.pose.pose.orientation.w = math.cos(robotPos[2]/2)
+     #   pubOdometry.publish(msgOdom)
 
         rate.sleep()
 

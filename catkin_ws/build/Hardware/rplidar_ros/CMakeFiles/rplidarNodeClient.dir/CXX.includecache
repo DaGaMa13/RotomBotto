@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/danielg/RotomBotto/catkin_ws/src/Hardware/rplidar_ros/src/client.cpp
+/home/ubuntu/RotomBotto/catkin_ws/src/Hardware/rplidar_ros/src/client.cpp
 ros/ros.h
-/home/danielg/RotomBotto/catkin_ws/src/Hardware/rplidar_ros/src/ros/ros.h
+/home/ubuntu/RotomBotto/catkin_ws/src/Hardware/rplidar_ros/src/ros/ros.h
 sensor_msgs/LaserScan.h
-/home/danielg/RotomBotto/catkin_ws/src/Hardware/rplidar_ros/src/sensor_msgs/LaserScan.h
+/home/ubuntu/RotomBotto/catkin_ws/src/Hardware/rplidar_ros/src/sensor_msgs/LaserScan.h
 
 /opt/ros/kinetic/include/ros/advertise_options.h
 ros/forwards.h

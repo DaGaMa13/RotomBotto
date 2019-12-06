@@ -1,8 +1,8 @@
-# Install script for directory: /home/danielg/RotomBotto/catkin_ws/src/Hardware/joystick
+# Install script for directory: /home/ubuntu/RotomBotto/catkin_ws/src/Hardware/joystick
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/danielg/RotomBotto/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/ubuntu/RotomBotto/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,17 +33,17 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/danielg/RotomBotto/catkin_ws/build/Hardware/joystick/catkin_generated/installspace/joystick.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/ubuntu/RotomBotto/catkin_ws/build/Hardware/joystick/catkin_generated/installspace/joystick.pc")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/joystick/cmake" TYPE FILE FILES
-    "/home/danielg/RotomBotto/catkin_ws/build/Hardware/joystick/catkin_generated/installspace/joystickConfig.cmake"
-    "/home/danielg/RotomBotto/catkin_ws/build/Hardware/joystick/catkin_generated/installspace/joystickConfig-version.cmake"
+    "/home/ubuntu/RotomBotto/catkin_ws/build/Hardware/joystick/catkin_generated/installspace/joystickConfig.cmake"
+    "/home/ubuntu/RotomBotto/catkin_ws/build/Hardware/joystick/catkin_generated/installspace/joystickConfig-version.cmake"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/joystick" TYPE FILE FILES "/home/danielg/RotomBotto/catkin_ws/src/Hardware/joystick/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/joystick" TYPE FILE FILES "/home/ubuntu/RotomBotto/catkin_ws/src/Hardware/joystick/package.xml")
 endif()
 

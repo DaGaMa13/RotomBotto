@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/danielg/RotomBotto/catkin_ws/src/Hardware/sensor/src/sensor_node.cpp
+/home/ubuntu/RotomBotto/catkin_ws/src/Hardware/sensor/src/sensor_node.cpp
 ros/ros.h
-/home/danielg/RotomBotto/catkin_ws/src/Hardware/sensor/src/ros/ros.h
+/home/ubuntu/RotomBotto/catkin_ws/src/Hardware/sensor/src/ros/ros.h
 std_msgs/Float32MultiArray.h
-/home/danielg/RotomBotto/catkin_ws/src/Hardware/sensor/src/std_msgs/Float32MultiArray.h
+/home/ubuntu/RotomBotto/catkin_ws/src/Hardware/sensor/src/std_msgs/Float32MultiArray.h
 stdio.h
 -
 stdlib.h

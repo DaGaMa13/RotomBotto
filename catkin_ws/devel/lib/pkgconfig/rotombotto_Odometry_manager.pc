@@ -1,8 +1,0 @@
-prefix=/home/danielg/RotomBotto/catkin_ws/devel
-
-Name: rotombotto_Odometry_manager
-Description: Description of rotombotto_Odometry_manager
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/danielg/RotomBotto/catkin_ws/devel/lib 
-Requires: 
