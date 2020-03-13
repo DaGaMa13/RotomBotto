@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ubuntu/RotomBotto/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/danielg/RotomBotto/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ubuntu/RotomBotto/catkin_ws/build
+CMAKE_BINARY_DIR = /home/danielg/RotomBotto/catkin_ws/build
 
 # Utility rule file for sensor_msgs_generate_messages_lisp.
 
@@ -63,10 +63,10 @@ Hardware/rplidar_ros/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build: se
 .PHONY : Hardware/rplidar_ros/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
 
 Hardware/rplidar_ros/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean:
-	cd /home/ubuntu/RotomBotto/catkin_ws/build/Hardware/rplidar_ros && $(CMAKE_COMMAND) -P CMakeFiles/sensor_msgs_generate_messages_lisp.dir/cmake_clean.cmake
+	cd /home/danielg/RotomBotto/catkin_ws/build/Hardware/rplidar_ros && $(CMAKE_COMMAND) -P CMakeFiles/sensor_msgs_generate_messages_lisp.dir/cmake_clean.cmake
 .PHONY : Hardware/rplidar_ros/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean
 
 Hardware/rplidar_ros/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/depend:
-	cd /home/ubuntu/RotomBotto/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ubuntu/RotomBotto/catkin_ws/src /home/ubuntu/RotomBotto/catkin_ws/src/Hardware/rplidar_ros /home/ubuntu/RotomBotto/catkin_ws/build /home/ubuntu/RotomBotto/catkin_ws/build/Hardware/rplidar_ros /home/ubuntu/RotomBotto/catkin_ws/build/Hardware/rplidar_ros/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/danielg/RotomBotto/catkin_ws/src /home/danielg/RotomBotto/catkin_ws/src/Hardware/rplidar_ros /home/danielg/RotomBotto/catkin_ws/build /home/danielg/RotomBotto/catkin_ws/build/Hardware/rplidar_ros /home/danielg/RotomBotto/catkin_ws/build/Hardware/rplidar_ros/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : Hardware/rplidar_ros/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/depend
 

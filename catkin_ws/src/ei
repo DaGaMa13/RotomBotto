@@ -1,0 +1,31 @@
+>>>>>>>>> LISTADO DESCRIPTIVO <<<<<<<<<<<<<<<<<<
+
+
+  <<< NODOS >>>
+
+
+______________________________________________________________
+
+  <<< TÓPICOS >>>
+
+ _>PREDETERMINADOS ROS<_
+
+ + /hardware/joy Ó sensor_msgs/Joy :: 
+
+ + /std_msgs/Laser_scan
+
+
+ _> PROGRAMADOS <_
+
+ + /hardware/arduino/data :: Float32Multiarray [5] :: [S_Frente , S_Derecha , S_atras, S_Izquierda , TEMPERATURA]
+
+ 	
+ + /hardware/joystick/data :: Float32Multiarray [3] :: [BOTON B, BOTON bD, BOTON bI]
+
+ + /hardware/motor/speeds :: Float32Multiarray [2] :: [VEL_DER , VEL_IZQ]
+
+______________________________________________________________
+
+  <<< SERVICIOS >>>
+
+

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ubuntu/RotomBotto/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/danielg/RotomBotto/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ubuntu/RotomBotto/catkin_ws/build
+CMAKE_BINARY_DIR = /home/danielg/RotomBotto/catkin_ws/build
 
 # Utility rule file for actionlib_msgs_generate_messages_lisp.
 
@@ -63,10 +63,10 @@ Navigation/rotombotto_laserScan_manager/CMakeFiles/actionlib_msgs_generate_messa
 .PHONY : Navigation/rotombotto_laserScan_manager/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build
 
 Navigation/rotombotto_laserScan_manager/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/clean:
-	cd /home/ubuntu/RotomBotto/catkin_ws/build/Navigation/rotombotto_laserScan_manager && $(CMAKE_COMMAND) -P CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/cmake_clean.cmake
+	cd /home/danielg/RotomBotto/catkin_ws/build/Navigation/rotombotto_laserScan_manager && $(CMAKE_COMMAND) -P CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/cmake_clean.cmake
 .PHONY : Navigation/rotombotto_laserScan_manager/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/clean
 
 Navigation/rotombotto_laserScan_manager/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/depend:
-	cd /home/ubuntu/RotomBotto/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ubuntu/RotomBotto/catkin_ws/src /home/ubuntu/RotomBotto/catkin_ws/src/Navigation/rotombotto_laserScan_manager /home/ubuntu/RotomBotto/catkin_ws/build /home/ubuntu/RotomBotto/catkin_ws/build/Navigation/rotombotto_laserScan_manager /home/ubuntu/RotomBotto/catkin_ws/build/Navigation/rotombotto_laserScan_manager/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/danielg/RotomBotto/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/danielg/RotomBotto/catkin_ws/src /home/danielg/RotomBotto/catkin_ws/src/Navigation/rotombotto_laserScan_manager /home/danielg/RotomBotto/catkin_ws/build /home/danielg/RotomBotto/catkin_ws/build/Navigation/rotombotto_laserScan_manager /home/danielg/RotomBotto/catkin_ws/build/Navigation/rotombotto_laserScan_manager/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : Navigation/rotombotto_laserScan_manager/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/depend
 

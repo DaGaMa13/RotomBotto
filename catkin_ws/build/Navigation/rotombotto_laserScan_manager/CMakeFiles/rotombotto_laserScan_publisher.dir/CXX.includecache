@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/ubuntu/RotomBotto/catkin_ws/src/Navigation/rotombotto_laserScan_manager/src/rotombotto_laserScan_publisher.cpp
+/home/danielg/RotomBotto/catkin_ws/src/Navigation/rotombotto_laserScan_manager/src/rotombotto_laserScan_publisher.cpp
 ros/ros.h
 -
 sensor_msgs/LaserScan.h
