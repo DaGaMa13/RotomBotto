@@ -17,20 +17,22 @@ def printHelp():
     print ">> /hardware/motors/speeds\t Los valores usados en el topico deben encontrarse en el rango [-1, 1], 1 max velocidad del motor"
     print "<!> En caso de que se haya quemado la tarjeta roboclaw: Sabes lo que cuesta ese equipo hijo?<!>"
 
-#Obtencion de las velociaddes por medio del topico /hardware/motors/speeds
+#Obtencion de las velociaddes por medio del topico /hardware/motors/speeds :: [Vel_Der , Vel Izq] >>> [M1, M2]
 def callbackSpeeds(msg):
-    global leftSpeed
-    global rightSpeed
-    global newSpeedData
+    
     #Las velocidades recibidas deben ser float en el rango [-1,1], respectivamente los valores de [0:127] traducidos a [0:1]
     #Siendo el valor 1 la maxima potencia del motor en la direccion indicada por medio de los signos
     # (+)>Adelante, (-)>Retroceso
 
+    global leftSpeed
+    global rightSpeed
+    global newSpeedData
+
     #Obteniedo datos del topico 
     rightSpeed = float(msg.data[0])
     leftSpeed= float(msg.data[1])
-    print "[MOTOR_TEST|>>>Valores de velocidades obtenidos:: VelIzq:_"+str(float(leftSpeed))+" ; velDer:_"+str(float(rightSpeed))
-
+    
+    print "[MOTOR_TEST|>>>Velocidades::  velDer:_"+str(float(rightSpeed))" ; VelIzq:_"+str(float(leftSpeed))+
 
     #Revision de los limites de veocidad obtenidas
     if leftSpeed > 1:
@@ -41,7 +43,8 @@ def callbackSpeeds(msg):
         rightSpeed = 1
     elif rightSpeed < -1:
         rightSpeed = -1
-    newSpeedData = True
+
+    newSpeedData = True #Se activa bandera de que nuevos datos fueron obtenidos
 
 #-------------------------------------------------------------------------------------------
 
@@ -49,10 +52,10 @@ def callbackSpeeds(msg):
 
 def calculateOdometry(currentPos, leftEnc, rightEnc): #Los datos de los encoders se asume esten en pulsos
 
-    leftEnc =leftEnc * 0.39/980 #De pulsos a metros
+    leftEnc =leftEnc * 0.39/980 #De pulsos a metros  [!!!!!!!!!!]
     rightEnc = rightEnc * 0.39/980
 
-    deltaTheta = (rightEnc - leftEnc)/0.48 #0.48 is the robot diameter
+    deltaTheta = (rightEnc - leftEnc)/0.48 #0.48m es el diametro del robot [!!!!!!!!!!!!]
 
     if math.fabs(deltaTheta) >= 0.0001:
         rg = (leftEnc + rightEnc)/(2*deltaTheta)
@@ -74,7 +77,7 @@ def calculateOdometry(currentPos, leftEnc, rightEnc): #Los datos de los encoders
 
 # FUNCION PRINCIPAL 
 def main(portName):
-    print "Inicializando motores en modo de PRUEBA"
+    print "[MOTOR_TEST]:: Inicializando motores en modo de PRUEBA"
 
     ###Connection with ROS
     rospy.init_node("motor_test")
@@ -83,6 +86,10 @@ def main(portName):
     subSpeeds = rospy.Subscriber("/hardware/motors/speeds", Float32MultiArray, callbackSpeeds)  #Topico para obtener vel y dir de los motores
 
     #Publicacion de Topicos
+
+    pubRobPos = rospy.Publisher("mobile_base/position", Float32MultiArray,queue_size = 1)
+    #Publica los datos de la posición actual del robot
+
     pubOdometry = rospy.Publisher("mobile_base/odometry", Odometry, queue_size = 1) 
     #Publica los datos obtenidos de los encoders y analizados para indicar la posicion actual del robot
 
@@ -92,13 +99,13 @@ def main(portName):
 
     #Comunicacion serial con la tarjeta roboclaw Roboclaw
 
-    print "Roboclaw.-> Abriendo conexion al puerto serial designacion: \"" + str(portName) + "\""
+    print "[MOTOR_TEST]:: Roboclaw.-> Abriendo conexion al puerto serial designacion: \"" + str(portName) + "\""
     RC= Roboclaw(portName, 38400)
     #Roboclaw.Open(portName, 38400)
     RC.Open()
     address = 0x80
-    print "Roboclaw.-> Conexion establecida en el puerto serila designacion \"" + portName + "\" a 38400 bps (Y)"
-    print "Roboclaw.-> Limpiando lecturas de enconders previas"
+    print "[MOTOR_TEST]:: Roboclaw.-> Conexion establecida en el puerto serila designacion \"" + portName + "\" a 38400 bps (Y)"
+    print "[MOTOR_TEST]:: Roboclaw.-> Limpiando lecturas de enconders previas"
     RC.ResetEncoders(address)
 
     #Varibles de control de la velocidad
@@ -112,6 +119,7 @@ def main(portName):
     speedCounter = 5
 
     #Variables para la Odometria
+    robotPos = Float32MultiArray()
     robotPos = [0, 0, 0] # [X,Y,TETHA]
 
 
@@ -130,17 +138,17 @@ def main(portName):
             leftSpeed = int(leftSpeed*127)
             rightSpeed = int(rightSpeed*127)
 
-            #Asignando las direcciones del motor izquierdo
-            if leftSpeed >= 0:
-                RC.ForwardM2(address, leftSpeed)
-            else:
-                RC.BackwardM2(address, -leftSpeed)
-
             #Asignando las direcciones del motor derecho
             if rightSpeed >= 0:
                 RC.ForwardM1(address, rightSpeed)
             else:
                 RC.BackwardM1(address, -rightSpeed)
+
+            #Asignando las direcciones del motor izquierdo
+            if leftSpeed >= 0:
+                RC.ForwardM2(address, leftSpeed)
+            else:
+                RC.BackwardM2(address, -leftSpeed)
 
         else: #NO se obtuvieron nuevos datos del topico, los motores se detienen
 
@@ -153,55 +161,53 @@ def main(portName):
             if speedCounter < -1:
                 speedCounter = -1
 
+        #-------------------------------------------------------------------------------------------------------
+
         #Obteniendo informacion de los encoders
         encoderLeft = RC.ReadEncM2(address) #Falta multiplicarlo por -1, tal vez no sea necesario
         encoderRight = RC.ReadEncM1(address) #El valor negativo obtenido en este encoder proviene de la posicion de orientacion del motor.
         RC.ResetEncoders(address)
 
-        print "[VEGA]:: Lectura de los enconders Encoders: EncIzq" + str(encoderLeft) + "  EncDer" + str(encoderRight)
+        print "[MOTOR_TEST]:: Lectura Encoders: EncIzq" + str(encoderLeft) + "  EncDer" + str(encoderRight)
 
-        #Calculo de la Odometria, usando la funcion respectiva
-      #  robotPos = calculateOdometry(robotPos, encoderLeft, encoderRight)        
+        ###Calculo de la Odometria
+        robotPos = calculateOdometry(robotPos, encoderLeft, encoderRight)
 
-        #Implementando la Odometria en el arbol de trasnformadas tf en el SisCoord BASE_LINK
+        pubRobPos=.publish(robotPos) ##Publicando los datos de la pocición obtenida
 
-       # ts = TransformStamped()
+        ts = TransformStamped()
+        ts.header.stamp = rospy.Time.now()
+        ts.header.frame_id = "odom"
+        ts.child_frame_id = "base_link"
 
-        #Definicion de las cabeceras para la publicacion
-       # ts.header.stamp = rospy.Time.now()
-       # ts.header.frame_id = "odom"
-        #ts.child_frame_id = "base_link"
+        ts.transform.translation.x = robotPos[0]
+        ts.transform.translation.y = robotPos[1]
+        ts.transform.translation.z = 0
+        ts.transform.rotation = tf.transformations.quaternion_from_euler(0, 0, robotPos[2])
 
-        #Asignando los datos obtenidos al Sistema de coordenadas
-     #   ts.transform.translation.x = robotPos[0]
-       # ts.transform.translation.y = robotPos[1]
-       # ts.transform.translation.z = 0
-       # ts.transform.rotation = tf.transformations.quaternion_from_euler(0, 0, robotPos[2])
-        
-        #Proceso de ajuste
-       # br.sendTransform((robotPos[0], robotPos[1], 0), ts.transform.rotation, rospy.Time.now(), ts.child_frame_id, ts.header.frame_id)
+        br.sendTransform((robotPos[0], robotPos[1], 0), ts.transform.rotation, rospy.Time.now(), ts.child_frame_id, ts.header.frame_id)
 
-        #Generando el mensaje de timo Odom_msgs para la publicacion de la informacion obtenidoa
-        #msgOdom = Odometry()
-        #msgOdom.header.stamp = rospy.Time.now()
-       # msgOdom.pose.pose.position.x = robotPos[0]
-       # msgOdom.pose.pose.position.y = robotPos[1]
-       # msgOdom.pose.pose.position.z = 0
-       # msgOdom.pose.pose.orientation.x = 0
-        #msgOdom.pose.pose.orientation.y = 0
-       # msgOdom.pose.pose.orientation.z = math.sin(robotPos[2]/2)
-      #  msgOdom.pose.pose.orientation.w = math.cos(robotPos[2]/2)
-     #   pubOdometry.publish(msgOdom)
+        msgOdom = Odometry()
+
+        msgOdom.header.stamp = rospy.Time.now()
+        msgOdom.pose.pose.position.x = robotPos[0]
+        msgOdom.pose.pose.position.y = robotPos[1]
+        msgOdom.pose.pose.position.z = 0
+        msgOdom.pose.pose.orientation.x = 0
+        msgOdom.pose.pose.orientation.y = 0
+        msgOdom.pose.pose.orientation.z = math.sin(robotPos[2]/2)
+        msgOdom.pose.pose.orientation.w = math.cos(robotPos[2]/2)
+
+        pubOdometry.publish(msgOdom) #Publicando los datos de odometría
 
         rate.sleep()
 
-    #Fin del while
+    #Fin del WHILE ROS
+    #------------------------------------------------------------------------------------------------------
 
     RC.ForwardM1(address, 0)
     RC.ForwardM2(address, 0)
     RC.Close()
-
-    #FIN DEL WHILE
 
 #FIN DEL MAIN()
 
@@ -229,10 +235,10 @@ if __name__ == '__main__':
 *
 *   <HARDWARE> Nodo MOTOR_TEST motor
 *   El principal objetivo de este nodo es el de manejar el control de los motores por medio de la tarjeta roboclaw  
-*       -Se debe destacar que se utilza una liberia para el uso de la tarjeta alojada en el paquete "hardware_tools"
+*       -Se debe destacar que se utilza una liberia para el uso de la tarjeta alojada en el paquete "driver_roboclaw"
 *       Agradecimientos a Marco Antonio Negrete Villanueva y a MARCOSOFT
 *       --  NODO ESPECFICAMENTE PARA PRUEBAS DE HARDWARE 
 *       
-*   Ultima version: 18 de Junio del 2019
+*   Ultima version: 23 de Marzo del 2020
 *
 ********************************************************************************'''

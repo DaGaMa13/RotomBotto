@@ -25,13 +25,25 @@ Diseño e implementación de una plataforma robótica abierta para uso docente y
 
 A continuación se describirán brevemente la organización y el contenido del repositorio.
 
-- [Arduino_files]: En esta carpeta se encuentra los archivos que se utilizarán para la programación del Arduino Mega utilizado en el robot, además de un diagrama de conexiones con los sensores.
-
 - [catkin_ws]: Carpeta que contiene el workspace de ROS del sistema de la plataforma robótica móvil y donde se encuentra la mayor parte de la arquitectura del robot.
 
-- [Manufactura]: Carpeta que contendrá los archivos de las caracasa protectoresy los diagramas con los que se diseño el chasis de la plataforma robótica móvil para que el usuario sea capaz de disponer de sus propios elementos cuando se requiera. 
 
-- [Media_RotomBotto]: En esta carpeta se guardará evidencia fotográfica y videográfica de la paltaforma robotica móvil.
+- [Rotombotto_Documentación]: Carpeta que contendrá los archivos donde se registró el desarrollo total del proyecto, el contenido de esta carpeta se divide en:
 
-- [RaspberryPi_SD_Image]: En esta carpeta se guardará una copia del SO utilizado para la implementación del software de la plataforma robótica móvil en la tarjeta Raspberry Pi 3 para una instalación más directa del proyecto desarrollado.
+	*<Rotombotto_Diagramas&Esquematicos>: En esta carpeta se almacenan los diagramas y esquemáticos que se desarrollaron para documentan la contrucción adecuada de la plataforma robótica móvil.
+	*<Rotombotto_Media&Evidencias>: En esta carpeta se almacenan los archivos fotográficos y videográficos que servirán como evidencia del proyecto de la plataforma robótica.
+	*Tesis_Plataforma_Robótica_DGM: El documento de tesis que se presentó durante el desarrollo de la plataforma robótica por parte del creador del presente proyecto y su servidor. 
+
+
+- [RotombottoManufactura&desarrollo]: Carpeta que contendrá los archivos para la reproducción de algunos de los componentes de la plataforma robótica de diseño o modificación propia y los cuales pueden ser modificados por el usuario en función de sus necesidades; el contenido de esta carpeta se divide en:
+
+	*<Rotombotto_DiseñoChasis>: En esta carpeta se almacenan los archivos del diseño del chasis báse utilizado para la plataforma rovótica móvil.
+	*<Rotombotto_Impresión_3D>: En esta carpeta se almacenan los archivos del diseño de las caracasaa protectoras y otros componentes cuyos modelos fueron diseñados para ser manufacturados por medio de impresión 3D.
+	*<Rotombotto_PCB>: En esta carpeta se almacenan los archivos del diseño para placas PCB para la conexion con los componentes electrónicos involucrados con el dispositivo Arduino MEGA.
+
+
+- [RotomBotto_Programación_componentes]:  Carpeta que contendrá los archivos para la programación de las unidades de procesamiento que componen la plataforma robótica móvil, el contenido de esta carpeta se divide en:
+
+	*<Arduino_files>: En esta carpeta se almacena el archivo de extensión ".ino" para la programación del Arduino MEGA.
+	*<RaspberryPi_SD_Image>: En esta carpeta se almacena una copia del SO utilizado para la implementación del software de la plataforma robótica móvil en la tarjeta Raspberry Pi 3 para una instalación más directa del proyecto desarrollado.
 

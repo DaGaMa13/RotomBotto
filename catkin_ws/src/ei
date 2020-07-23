@@ -10,7 +10,7 @@ ______________________________________________________________
 
  _>PREDETERMINADOS ROS<_
 
- + /hardware/joy Ó sensor_msgs/Joy :: 
+ + /hardware/joy Ó sensor_msgs/Joy :: depende del mapeo del control utilizado, revisar fichero txt correspondiente
 
  + /std_msgs/Laser_scan
 
@@ -19,10 +19,19 @@ ______________________________________________________________
 
  + /hardware/arduino/data :: Float32Multiarray [5] :: [S_Frente , S_Derecha , S_atras, S_Izquierda , TEMPERATURA]
 
+ + /hardware/sensors/luz :: 
+
  	
  + /hardware/joystick/data :: Float32Multiarray [3] :: [BOTON B, BOTON bD, BOTON bI]
 
  + /hardware/motor/speeds :: Float32Multiarray [2] :: [VEL_DER , VEL_IZQ]
+ *> configuración de los motores:: Vel_Der1>>M1 Vel_Izq>>M2
+
+ + mobile_base/position ;; Float32Multiarray [3] :: [CurrentPosX, CurretPosY, CurrentPosTHETA]
+
+ +mobile_base/odometry :: MSGS ODOMETRY
+
+
 
 ______________________________________________________________
 

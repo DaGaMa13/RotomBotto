@@ -6,7 +6,7 @@
 *		El principal objetivo de este nodo es el dar una revisión de los motores, por medio de enviar direcciones automaticamente
 *		incrementales y decrementales por medio de este nodo, con el fin de probar la interacciín motores-roboclaw-nodos del sistema.
 *
-*   Ultima versión: 10 de Junio del 2019
+*   Ultima versión: 20 de Marzo del 2020
 **********************************************************************/
 
 //>>>>>>>> LIBRERÍAS <<<<<<<<<<<<<
@@ -42,44 +42,44 @@ float dirMotor[2]={0,0}; //Variable para indicar los valores de dirección y vel
 	//Función para la pruba de los motores
 int pruebaMotores(int contador){
 
-	std::cout<<"Velocidad actual de los motores: >"<<vel_temp<<std::endl;
+	std::cout<<"[ROTOMB_TEST]:: Velocidad actual de los motores: >"<<vel_temp<<std::endl;
 
 	if (contador>0&&contador<=10){ //[0:10]
-		std::cout<<" MOTORES AVANZANDO"<<std::endl;
+		std::cout<<"[ROTOMB_TEST]:: MOTORES AVANZANDO"<<std::endl;
 		vel_temp=contador/10;
 		dirMotor[0]=vel_temp;
 		dirMotor[1]=vel_temp;
 	}
 
 	else if (contador>10&&contador<=20){ //[11:20]
-		std::cout<<" MOTORES RETROCESO"<<std::endl;
+		std::cout<<"[ROTOMB_TEST]:: MOTORES RETROCESO"<<std::endl;
 		vel_temp=(contador/10)-1;
 		dirMotor[0]=(-1*vel_temp);
 		dirMotor[1]=(-1*vel_temp);
 	}
 
 	else if (contador>20&&contador<=30){ //[21:30]
-		std::cout<<" MOTORES GIRO IZQUIERDA"<<std::endl;
+		std::cout<<"[ROTOMB_TEST]:: MOTORES GIRO IZQUIERDA"<<std::endl;
 		vel_temp=(contador/10)-2;
 		dirMotor[0]=vel_temp;
 		dirMotor[1]=(-1*vel_temp);
 	}
 
 	else if (contador>30&&contador<=40){ //[31:40]
-		std::cout<<" MOTORES GIRO DERECHA"<<std::endl;
+		std::cout<<"[ROTOMB_TEST]:: MOTORES GIRO DERECHA"<<std::endl;
 		vel_temp=(contador/10)-3;
 		dirMotor[0]=(-1*vel_temp);
 		dirMotor[1]=vel_temp;
 	}
 
 	else if (contador==0){
-		std::cout<<" MOTORES ALTO"<<std::endl;
+		std::cout<<"[ROTOMB_TEST]:: MOTORES ALTO"<<std::endl;
 		dirMotor[0]=0;
 		dirMotor[1]=0;
 	}
 
 	else
-		std::cout<<" MOTORES DESCONOCIDO"<<std::endl;
+		std::cout<<"[ROTOMB_TEST]:: MOTORES DESCONOCIDO"<<std::endl;
 
 	contador=contador+1; //Aunmentando el contador
 

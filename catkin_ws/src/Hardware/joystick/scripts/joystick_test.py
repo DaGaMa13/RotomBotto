@@ -25,14 +25,14 @@ def callbackJoy(msg):
 	pubVel=rospy.Publisher("/hardware/motors/speeds", Float32MultiArray, queue_size=1)
 	pubJoy=rospy.Publisher("/hardware/joystick/data", Float32MultiArray, queue_size=1)
 
-	print "Obteniendo los datos del control joystick"
+	print "_>[JOYSTICK_TEST]:: Obteniendo los datos del control joystick"
 	print "-----------------------------------------------"
 
 		#Obteniedo los datos del joystuck derecho para cotrol de la base movil
 	StickD_X = float( msg.axes[3] ) #Modificacion para evitar problemas de error con los dato leios
 	StickD_Y = float( msg.axes[4] )
 
-	print "_>Datos stick derecho:::  x:_"+str(float(StickD_X))+"  y:_"+str(float(StickD_Y))
+	print "[JOYSTICK_TEST]:: Datos stick derecho:::  x:_"+str(float(StickD_X))+"  y:_"+str(float(StickD_Y))
 
 	#EXTRA Para el control hori
 
@@ -44,11 +44,11 @@ def callbackJoy(msg):
 	G13 = msg.buttons[13]
 
 	if G13 == 1:
-		print "<<Obteniedo velocidades por medio de HORI>>"
+		print "<<[JOYSTICK_TEST]:: Obteniedo velocidades por medio de HORI>>"
 		StickD_X = msg.axes[2]
 		StickD_Y = msg.axes[3]
 
-		print "__>Datos HORI del stick derecho:::  x:_"+str(float(StickD_X))+"  y:_"+str(float(StickD_Y))
+		print "__>[JOYSTICK_TEST]:: Datos HORI del stick derecho:::  x:_"+str(float(StickD_X))+"  y:_"+str(float(StickD_Y))
 		print "-------------------------------------------------------------"
 
 	'''if  StickD_X < -1.0) or (StickD_X > 1.0) or (StickD_Y < -1.0) or (StickD_Y > 1.0 : #Error en la lectura del stick derecho
@@ -75,10 +75,10 @@ def callbackJoy(msg):
 		StickD_Y = 1.0
 
 	if exc == 1:
-		print "DATA excede los valores adecuados, REMAPEANDO DATA"
+		print "[JOYSTICK_TEST]:: DATA excede los valores adecuados, REMAPEANDO DATA"
 
 
-	print "Datos del stick derecho:::  x:_"+str(float(StickD_X))+"  y:_"+str(float(StickD_Y))
+	print "[JOYSTICK_TEST]:: Datos del stick derecho:::  x:_"+str(float(StickD_X))+"  y:_"+str(float(StickD_Y))
 
 	boton_b = msg.buttons[1]
 	boton_I = msg.buttons[4]
@@ -91,16 +91,16 @@ def callbackJoy(msg):
 	#b13 = float(boton_jusan)
 
 	if b == 1:
-		print "Boton B presionado"
+		print "[JOYSTICK_TEST]:: Boton B presionado"
 
 	elif bD == 1:
-		print "Boton DERECHO presionado"
+		print "[JOYSTICK_TEST]:: Boton DERECHO presionado"
 
 	elif bI == 1:
-		print "Boton IZQUIERDO presionado"
+		print "[JOYSTICK_TEST]:: Boton IZQUIERDO presionado"
 
 	else:
-		print "Ningun boton presionado"
+		print "[JOYSTICK_TEST]:: Ningun boton presionado"
 
 	#Obteniedo velocidades
 
@@ -135,11 +135,11 @@ def callbackJoy(msg):
 
 	if b == 1: 
 
-		print "<!!> BOTON DE PARO DE EMGERCIA PRESIONADO<!!>"
+		print "[JOYSTICK_TEST]::  <!!> BOTON DE PARO DE EMGERCIA PRESIONADO<!!>"
 		vel_D = 0
 		vel_I = 0
 
-	print "Velocidades obtenidas: Vel Der = "+str(vel_D)+"  Vel Izq = "+str(vel_I)
+	print "[JOYSTICK_TEST]:: Velocidades obtenidas: Vel Der = "+str(vel_D)+"  Vel Izq = "+str(vel_I)
 
 
 	print "****************************************************"
@@ -177,14 +177,14 @@ def main():
 	rospy.init_node("joystick")
 
 	#TOPICOS a subscribirse
-	#rospy.Subscriber("/hardware/joy", Joy, callbackJoy) #Suscrpcion al nodo predeterminado JOY, grupo Hardware (launch)
-	rospy.Subscriber("/joy", Joy, callbackJoy) #Suscrpcion al nodo predeterminado JOY
+	rospy.Subscriber("/hardware/joy", Joy, callbackJoy) #Suscrpcion al nodo predeterminado JOY, grupo Hardware (launch)
+	#rospy.Subscriber("/joy", Joy, callbackJoy) #Suscrpcion al nodo predeterminado JOY
 
 	#Topicos a publicar
 	#pubVel=rospy.Publisher("/hardware/motors/speeds", Float32MultiArray, queue_size=1)
 	#pubJoy=rospy.Publisher("/hardware/joystick/data", Float32MultiArray, queue_size=1)
 
-	print "Recibiendo datos----"
+	print "[JOYSTICK_TEST]:: Recibiendo datos----"
 
 	loop = rospy.Rate(10)
 

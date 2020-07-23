@@ -5,19 +5,15 @@
 *	< VERSION PRUEBA> Launch para la prueba del movimiento de la plataforma robotica por medio de un joystick
 *
 *
-*   Ultima versión: 17 de Septiembre del 2019	-->
+*   Ultima versión: 23 de Marzo del 2020	-->
 	
-<launch>
+<launch><
 
 	<group ns="hardware">
 <!--	 ダ・ガ・マ・jû-san -->
        		 <node name="joy_node" pkg="joy" type="joy_node"/>
-		<node name="joystick_test" pkg="joystick" type="joystick_test.py"/>
+		<node name="joystick_test" pkg="joystick" type="joystick_test.py" output="screen"/>
 		<node name="motor_test" pkg="motor" type="motor_test.py" output="screen" />
-	</group>
-
-	<!-- <group ns="software">
-			<node name="rotombotto_testmotor" pkg="rotombotto" type="rotombotto_testmotor"  />
-	</group> -->
+	</group>   
 
 </launch>
