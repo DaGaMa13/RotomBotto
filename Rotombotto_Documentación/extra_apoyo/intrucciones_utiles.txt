@@ -1,0 +1,66 @@
+********************************************************
+*	DANIEL GARCES MARÍN
+*	Plataforma Robótica ROTOMBOTTO V1.0
+*	Versión: 29 de Abril del 2019
+******************************************************
+
+>>> MODIFICACIÓN DE LA TERMINAL
+
+comando terminal :: sudo nano .bashrc
+
+	#                                                                                                                                  
+	#Options for a nice prompt when using git                                                                                          
+	#                                                                                                                                  
+	source ~/git-completion.bash
+	# colors!                                                                                                                          
+	green="\[\033[01;32m\]"
+	blue="\[\033[01;34m\]"
+	purple="\[\033[01;35m\]"
+	red="\[\033[01;31m\]"
+	yellow="\[\033[01;33m\]"
+	reset="\[\033[0m\]"
+
+	# Change command prompt                                                                                                            
+	source ~/git-prompt.sh
+	export GIT_PS1_SHOWDIRTYSTATE=1
+	# '\u' adds the name of the current user to the prompt                                                                             
+	# '\$(__git_ps1)' adds git-related stuff                                                                                           
+	# '\W' adds the name of the current directory                                                                                      
+	export PS1="$red\u$yellow@$purple\h$yellow:$green\$(__git_ps1)$blue\W$green .->$reset"
+
+
+
+	####### COMANDOS ##########
+
+	alias em="emacs -nw"
+	alias ..="cd .."
+	alias ...="cd ../.."
+	alias update="sudo apt-get update"
+	alias term_m="sudo nano .bashrc"
+
+
+	##Rotombot
+	alias rotombot="ssh pi@192.168.1.204"
+	##pwd:: pumas
+	alias rotom_pull="scp -r pi@192.168.1.204:~/RotomBot Descargas/RotomBot"
+	alias rotom_push="scp -r Descargas/RotomBot/ pi@192.168.1.204:~/RotomBot"
+
+
+>>> USO DE GITHUB
+
+	> \$ git clone https://github.com/G013/RotomBotto.git
+
+	> \$ git add <filename>
+   	> \$ git add .
+   	> \$ git commit -m "Commit message"
+   	> \$ git push origin master  // git push origin develop
+
+
+>>>Compilación del WS
+
+	-[#] En caso de ser instalado en un nuevo equipo se recomienda borrar la carpeta respectica a build para evitar conflictos con la bitacora de proyecto
+
+	> \$ -cd ~\RotomBotto\catkin_ws
+	> \$ catkin_make
+
+	> \$ chmod +x { }.py  //Hacer el archivo ejecutable igual agregar: #!/usr/bin/env python  en la parte superior de los archivos

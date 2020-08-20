@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 	
+*	Garcés Marín Daniel 		
+*	TESIS <Construcción de una plataforma robótica abierta para pruebas de desempeño de componentes y algoritmos>
+*	< VERSION PRUEBA> Launch para la prueba de los motores con movimientos predeterminados por el pkg rotombotto
+*
+*
+*   Ultima versión: 17 de Septiembre del 2019	-->
+	
+<launch>
+
+	<group ns="hardware">
+<!--	 ダ・ガ・マ・jû-san -->
+		<node name="motor_test" pkg="motor" type="motor_test.py" output="screen" />
+	</group>
+
+	<group ns="software">
+			<node name="rotombotto_testmotor" pkg="rotombotto" type="rotombotto_testmotor"  output="screen" />
+	</group> 
+
+</launch>
